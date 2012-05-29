@@ -9,58 +9,12 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
 */
 
-@import "bootstrap/variables";
-// Modify this for custom colors, font-sizes, etc
-@import "bootstrap/mixins";
-// CSS Reset
-@import "bootstrap/reset";
-// Grid system and page structure
-@import "bootstrap/scaffolding";
-@import "bootstrap/grid";
-@import "bootstrap/layouts";
-// Base CSS
-@import "bootstrap/type";
-@import "bootstrap/code";
-@import "bootstrap/forms";
-@import "bootstrap/tables";
-// Components: common
-@import "bootstrap/sprites";
-@import "bootstrap/dropdowns";
-@import "bootstrap/wells";
-@import "bootstrap/component-animations";
-@import "bootstrap/close";
-// Components: Buttons & Alerts
-@import "bootstrap/buttons";
-@import "bootstrap/button-groups";
-@import "bootstrap/alerts";
-// Note: alerts share common CSS with buttons and thus have styles in buttons.less
-// Components: Nav
-@import "bootstrap/navs";
-@import "bootstrap/navbar";
-@import "bootstrap/breadcrumbs";
-@import "bootstrap/pagination";
-@import "bootstrap/pager";
-// Components: Popovers
-@import "bootstrap/modals";
-@import "bootstrap/tooltip";
-@import "bootstrap/popovers";
-// Components: Misc
-@import "bootstrap/thumbnails";
-@import "bootstrap/labels-badges";
-/* @import "bootstrap/badges" */
-@import "bootstrap/progress-bars";
-@import "bootstrap/accordion";
-@import "bootstrap/carousel";
-@import "bootstrap/hero-unit";
-// Utility classes
-@import "bootstrap/utilities";
-// Has to be last to override when necessary
-// OVERRIDES HERE
-/*@import "bootstrap-responsive";*/
-
+@import "bootstrap.scss";
+@import "welcome.css.scss";
+@import "cars.css.scss";
+@import "ads.css.scss";
 
 $special: #09F;
 
@@ -113,10 +67,11 @@ div.subnav {
     /*@include gradient-vertical($navbarBackgroundHighlight, $navbarBackground);*/
     @include border-radius(0 0 5px 5px);
     background-color: $navbarBackground;
-    margin-top: -19px;
+    margin: -19px 0 10px 0;
 
     ul.nav {
         padding: 2px 5px;
+        margin: 0 150px;
     }
 }
 

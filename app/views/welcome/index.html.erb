@@ -1,14 +1,20 @@
 
-<div class='row'>
-  <div class='alert alert-info span3'>
+<div class='row well'>
+  <div class='alert alert-info span4'>
   </div>
 
-  <div class='span11'>
+  <div id='ads'>
     <div id='special-offers' class='carousel slide'>
       <div class='carousel-inner'>
-        <div class='active item' id='item-1'> <%= image_tag '/images/1.jpg' %> </div>
-        <div class='item' id='item-2'> <%= image_tag '/images/2.jpg' %> </div>
-        <div class='item' id='item-3'> <%= image_tag '/images/3.jpg' %> </div>
+        <% @ads.each_with_index do |ad, index| %>
+          <div class='ad <%= index.zero?? "active item" : "item" %>'>
+            <%= image_tag ad.photo.url(:wide) %>
+
+            <div class='carousel-caption'>
+              <%= ad.body.html_safe %>
+            </div>
+          </div>
+        <% end %>
       </div>
 
       <a class="carousel-control left" href="#special-offers" data-slide="prev">&lsaquo;</a>

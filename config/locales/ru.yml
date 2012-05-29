@@ -48,10 +48,16 @@ ru:
     edit:
       header: 'Редактировать условия аренды для %{car}'
 
+  ads:
+    new:
+      header: 'Новая акция'
+
 
   activerecord:
     models:
       car: Машина
+      rent: Прайс
+      ad: Реклама
     attributes:
       car:
         name: Модель
@@ -72,3 +78,6 @@ ru:
         month: месяц
         bail: залог
         day: день
+      ad:
+        photo: Фото
+        body: Текст

@@ -6,6 +6,20 @@
 div#welcome-content {
 }
 
+div#ads {
+    width: 650px;
+    height: 320px;
+    float: left;
+    margin: 0 0 0 50px;
+
+    div.carousel-caption {
+        h1, h2, h3, h4, h5, h6 { color: #08C; }
+        p {
+            font-size: 16px;
+        }
+    }
+}
+
 div.car-rental-preview {
     text-align: center;
     margin-bottom: 5px;

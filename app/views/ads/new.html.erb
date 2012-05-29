@@ -1,0 +1,8 @@
+<%= page_header t('.header') %>
+
+<%= simple_form_for @ad, html: { multipart: true, class: 'form form-horizontal' } do |form| %>
+  <%= form.input :photo, :as => :file %>
+  <%= form.input :body %>
+
+  <%= form.submit t('common.submit'), disable_with: t('common.please_wait') %>
+<% end %>

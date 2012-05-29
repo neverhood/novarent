@@ -4,6 +4,7 @@ Cars::Application.routes.draw do
 
   get 'about_us' => 'welcome#about_us', as: 'about_us'
 
+  resources :ads, :except => :index
   resources :cars do
     resource :rent, except: [ :index, :show ]
   end
