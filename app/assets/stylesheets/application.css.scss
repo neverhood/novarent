@@ -1,0 +1,139 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+*/
+
+@import "bootstrap/variables";
+// Modify this for custom colors, font-sizes, etc
+@import "bootstrap/mixins";
+// CSS Reset
+@import "bootstrap/reset";
+// Grid system and page structure
+@import "bootstrap/scaffolding";
+@import "bootstrap/grid";
+@import "bootstrap/layouts";
+// Base CSS
+@import "bootstrap/type";
+@import "bootstrap/code";
+@import "bootstrap/forms";
+@import "bootstrap/tables";
+// Components: common
+@import "bootstrap/sprites";
+@import "bootstrap/dropdowns";
+@import "bootstrap/wells";
+@import "bootstrap/component-animations";
+@import "bootstrap/close";
+// Components: Buttons & Alerts
+@import "bootstrap/buttons";
+@import "bootstrap/button-groups";
+@import "bootstrap/alerts";
+// Note: alerts share common CSS with buttons and thus have styles in buttons.less
+// Components: Nav
+@import "bootstrap/navs";
+@import "bootstrap/navbar";
+@import "bootstrap/breadcrumbs";
+@import "bootstrap/pagination";
+@import "bootstrap/pager";
+// Components: Popovers
+@import "bootstrap/modals";
+@import "bootstrap/tooltip";
+@import "bootstrap/popovers";
+// Components: Misc
+@import "bootstrap/thumbnails";
+@import "bootstrap/labels-badges";
+/* @import "bootstrap/badges" */
+@import "bootstrap/progress-bars";
+@import "bootstrap/accordion";
+@import "bootstrap/carousel";
+@import "bootstrap/hero-unit";
+// Utility classes
+@import "bootstrap/utilities";
+// Has to be last to override when necessary
+// OVERRIDES HERE
+/*@import "bootstrap-responsive";*/
+
+
+$special: #09F;
+
+html, body {
+    height: 100%;
+}
+
+div.container {
+    width: 1170px;
+    min-height: 100%;
+}
+
+div#header {
+    height: 70px;
+
+    h1, h2, h3, h4 {
+        line-height: 15px;
+    }
+
+    a.brand {
+        margin-left: 15px;
+        color: #D9EDF7;
+
+        h1.brand-part {
+            margin: 8px 0;
+        }
+    }
+
+    a#back-to-main {
+        color: white;
+    }
+
+    ul.contacts-nav {
+        margin: 3px 25px 0 0;
+        padding: 8px 15px;
+
+        h3#phone {
+            margin-bottom: 15px;
+        }
+    }
+
+    div.navbar-inner {
+        height: 70px;
+        @include border-radius(0);
+    }
+
+}
+
+div.subnav {
+    /*@include gradient-vertical($navbarBackgroundHighlight, $navbarBackground);*/
+    @include border-radius(0 0 5px 5px);
+    background-color: $navbarBackground;
+    margin-top: -19px;
+
+    ul.nav {
+        padding: 2px 5px;
+    }
+}
+
+div#header ul.main-nav {
+    margin: 15px 0 0 20px;
+}
+
+div#push {
+}
+
+div#footer {
+    height: 60px;
+    margin-top: -60px;
+    color: black;
+
+    p {
+        padding: 15px;
+    }
+    @include gradient-vertical($navbarBackgroundHighlight, $navbarBackground);
+}

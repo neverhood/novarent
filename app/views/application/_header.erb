@@ -1,0 +1,39 @@
+<!-- header -->
+
+<div class="navbar" id='header'>
+
+  <div class="navbar-inner" id='header-inner'>
+    <div class="container">
+
+      <div id='header-links'>
+        <%= link_to root_path, class: 'brand' do %>
+          <div>
+            <h1 class='brand-part'> Nova </h1>
+            <h2 class='brand-part'> Rent </h2>
+          </div>
+        <% end %>
+
+        <div class="nav-collapse">
+          <ul class="nav main-nav">
+            <li> <%= link_to root_path, id: 'back-to-main' do %> <h2> Вернуться к бронированию </h2> <% end %> </li>
+          </ul>
+
+          <ul class='pull-right nav'>
+            <li> <%= link_to t('locales.russian') %> </li>
+            <li> <%= link_to t('locales.english') %> </li>
+          </ul>
+
+          <ul class="nav contacts-nav well pull-right">
+            <h3 id='phone'> <i class='icon-user'></i> <%= t('common.phone') %>: +58 41437462867 </h3>
+            <h3 id='email'> <i class='icon-globe'></i> <strong><%= t('common.email') %></strong>: info@novarent.com.ua </h3>
+          </ul>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+

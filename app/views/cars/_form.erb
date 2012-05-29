@@ -1,0 +1,16 @@
+
+<%= simple_form_for @car, html: { class: 'form form-horizontal' } do |form| %>
+  <%= form.input :manufacturer %>
+  <%= form.input :name %>
+  <%= form.input :engine %>
+  <%= form.input :conditioner %>
+  <%= form.input :leather %>
+  <%= form.input :number_of_passengers %>
+  <%= form.input :number_of_doors %>
+  <%= form.input :transmission, :as => :select, :collection => @car.transmission_selection_options, :prompt => t('common.please_select') %>
+  <%= form.input :minimum_reserve %>
+  <%= form.input :photo, :as => :file %>
+
+  <%= form.submit t('common.submit'), disable_with: t('common.please_wait') %>
+
+<% end %>

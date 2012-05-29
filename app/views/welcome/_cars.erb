@@ -1,0 +1,12 @@
+<div id='rental-previews'>
+  <% @cars.each do |car| %>
+    <div class='pull-left rent-preview'>
+      <%= image_tag car.photo.url(:medium) %>
+
+      <div class='rental-preview-details'>
+        <strong> <%= car.full_name %> </strong>
+        <span class='badge badge-info'> <%= car.rent.day %> $ </span>
+      </div>
+    </div>
+  <% end %>
+</div>

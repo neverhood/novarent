@@ -1,0 +1,11 @@
+<h4> <%= car.full_name %> </h4>
+<div> <%= t('activerecord.attributes.car.engine') %> : <%= car.engine %> </div>
+<div> <%= t('activerecord.attributes.car.conditioner') %> : <%= car.conditioner?? '+' : '-' %> </div>
+<div> <%= t('activerecord.attributes.car.number_of_passengers') %> : <%= car.number_of_passengers %> </div>
+<div> <%= t('activerecord.attributes.car.number_of_doors') %> : <%= car.number_of_doors %> </div>
+<div> <%= t('activerecord.attributes.car.transmission') %> : <%= t('cars.transmissions.' + car.transmission) %> </div>
+<div> <%= t('activerecord.attributes.car.minimum_reserve') %> : <%= car.minimum_reserve %> </div>
+
+<%- if car.photo? %>
+  <div><%= image_tag car.photo.url(:medium) %></div>
+<%- end %>

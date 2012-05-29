@@ -1,0 +1,74 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+ru:
+  simple_form:
+    labels:
+      car:
+        minimum_reserve: Минимальный резерв (дней)
+      rent:
+        one_to_two: 1-2 дня
+        three_to_five: 3-5 дней
+        six_to_twelve: 6-12 дней
+        thirteen_to_twenty_four: 13-24 дня
+        month: месяц
+        bail: залог
+        day: день
+
+  common:
+    submit: Сохранить
+    brand: Nova Rent
+    phone: Телефон
+    email: E-mail
+    please_wait: Пожалуйста, подождите...
+    please_select: -- Не выбрано --
+  locales:
+    russian: Русский
+    english: English
+  welcome:
+    partners: Партнеры
+    contacts: Контакты
+    index: Главная
+    about_us: О Компании
+    catalog: Каталог машин
+
+
+  cars:
+    transmissions:
+      manual: Механика
+      auto: Автомат
+      short:
+        manual: М/Т
+        auto: А/Т
+  rents:
+    edit_rent: Редактировать условия аренды
+    create_rent: Добивить условия аренды
+    new:
+      header: 'Добавить условия аренды для %{car}'
+    edit:
+      header: 'Редактировать условия аренды для %{car}'
+
+
+  activerecord:
+    models:
+      car: Машина
+    attributes:
+      car:
+        name: Модель
+        manufacturer: Марка
+        engine: Двигатель
+        number_of_doors: Дверей
+        number_of_passengers: Пассажиров
+        conditioner: Кондиционер
+        leather: Кожанный салон
+        transmission: Коробка передач
+        minimum_reserve: Минимальный резерв
+        photo: Фото
+      rent:
+        one_to_two: 1-2 дня
+        three_to_five: 3-5 дней
+        six_to_twelve: 6-12 дней
+        thirteen_to_twenty_four: 13-24 дня
+        month: месяц
+        bail: залог
+        day: день

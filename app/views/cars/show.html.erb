@@ -1,0 +1,9 @@
+<%= page_header @car.full_name %>
+
+<%= render 'car', car: @car %>
+
+<%- if @car.rent %>
+  <%= link_to t('rents.edit_rent'), edit_car_rent_path(@car) %>
+<%- else %>
+  <%= link_to t('rents.create_rent'), new_car_rent_path(@car) %>
+<%- end %>
