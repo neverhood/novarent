@@ -5,8 +5,7 @@
 
 body#welcome {
 
-    div#ads {
-        width: 650px;
+    div#ads { width: 650px;
         height: 320px;
         float: left;
         margin: 0 0 0 50px;
@@ -38,6 +37,10 @@ body#welcome {
                 text-align: center;
             }
         }
+    }
+
+    div.control-group {
+        margin-bottom: 0;
     }
 
 

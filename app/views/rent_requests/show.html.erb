@@ -1,0 +1,31 @@
+<%= page_header t('.header') + ' - ' + @rent_request.car.full_name %>
+
+
+<div id='shout-out' class='alert alert-info'>
+  <%= t('.shout_out') %>
+</div>
+
+<div class='well' id='rent-request'>
+  <div class='rent-request-row'>
+    <strong> <%= t('activerecord.attributes.rent_request.receipt_location') %>: </strong> <%= @rent_request.receipt_location %>
+  </div>
+  <div class='rent-request-row'>
+    <strong> <%= t('activerecord.attributes.rent_request.drop_off_location') %>: </strong> <%= @rent_request.drop_off_location %>
+  </div>
+  <div class='rent-request-row'>
+    <strong> <%= t('activerecord.attributes.rent_request.receipt_at') %>: </strong> <%= l @rent_request.receipt_at, format: :long %>
+  </div>
+  <div class='rent-request-row'>
+    <strong> <%= t('activerecord.attributes.rent_request.drop_off_at') %>: </strong> <%= l @rent_request.receipt_at, format: :long %>
+  </div>
+  <div class='rent-request-row'>
+    <strong> <%= t('activerecord.attributes.rent_request.name') %>: </strong> <%= @rent_request.name %>
+  </div>
+  <div class='rent-request-row'>
+    <strong> <%= t('activerecord.attributes.rent_request.email') %>: </strong> <%= @rent_request.email %>
+  </div>
+  <div class='rent-request-row'>
+    <strong> <%= t('activerecord.attributes.rent_request.phone') %>: </strong> <%= @rent_request.phone %>
+  </div>
+</div>
+

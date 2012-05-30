@@ -1,3 +1,27 @@
 // Place all the styles related to the rent_requests controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body#rent-requests {
+    div#shout-out {
+        margin: 15px 0;
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    div#rent-request {
+        font-size: 16px;
+
+        div.rent-request-row {
+            margin: 10px 0;
+
+            strong {
+                display: inline-block;
+                float: left;
+                width: 200px;
+                margin-right: 50px;
+                clear: both;
+                text-align: right;
+            }
+        }
+    }
+}

@@ -1,18 +1,27 @@
 class RentRequestsController < ApplicationController
   http_basic_authenticate_with :name => ENV['DEN_LOGIN'], :password => ENV['DEN_PASSWORD'], :only => [ :destroy, :index ]
 
-  before_filter :find_car!
-  before_filter :find_rent_request!, only: [ :destroy, :edit, :show, :update ]
+  before_filter :find_car!, except: [ :show, :confirm ]
+  before_filter :find_rent_request!, only: [ :destroy, :update ]
 
   respond_to :html
 
   def create
     @rent_request = @car.rent_requests.create(params[:rent_request])
 
-    respond_with @rent_request
+    if @rent_request.valid?
+      session[:request_id] = @rent_request.id
+      redirect_to confirm_rent_request_path(@rent_request)
+    else
+      redirect_to root_path
+    end
   end
 
-  def edit
+  def confirm
+    @rent_request = RentRequest.where(id: session[:request_id], confirmed: false).first
+    @cars = Car.joins(:rent).includes(:rent)
+
+    redirect_to root_path if @rent_request.nil?
   end
 
   def update
@@ -24,6 +33,9 @@ class RentRequestsController < ApplicationController
   end
 
   def show
+    @rent_request = RentRequest.where(id: session[:request_id], confirmed: true).first
+
+    redirect_to root_path if @rent_request.nil?
   end
 
   def destroy

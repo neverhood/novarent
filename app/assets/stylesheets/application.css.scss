@@ -17,6 +17,7 @@
 @import "welcome.css.scss";
 @import "cars.css.scss";
 @import "ads.css.scss";
+@import "rent_requests";
 
 $special: #09F;
 
@@ -93,4 +94,9 @@ div#footer {
     }
 
     @include gradient-vertical($navbarBackgroundHighlight, $navbarBackground);
+}
+
+div#ui-datepicker-div {
+    padding: 10px;
+    font-size: 13px;
 }

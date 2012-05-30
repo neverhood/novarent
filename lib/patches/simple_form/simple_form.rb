@@ -11,7 +11,7 @@ module SimpleForm
       end
 
       def datepicker_options(value = nil)
-        datepicker_options = {:value => value.nil?? nil : I18n.localize(value)}
+        datepicker_options = {:value => value.nil?? nil : I18n.localize(value, format: :long)}
       end
 
     end

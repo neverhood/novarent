@@ -1,0 +1,17 @@
+<%= simple_form_for @rent_request, html: { method: 'put', class: 'form form-horizontal' } do |form| %>
+  <%= form.input :receipt_location %>
+  <%= form.input :drop_off_location %>
+  <%= form.input :drop_off_at_receipt, label: false, inline_label: true %>
+  <%= form.input :confirm_drop_off_location, label: false, inline_label: true %>
+  <%= form.input :receipt_at, :as => :date_picker %>
+  <%= form.input :drop_off_at, :as => :date_picker %>
+  <%= form.input :car_id, as: :select, collection: @cars, label_method: :full_name, selected: @rent_request.car_id %>
+  <%= form.input :name %>
+  <%= form.input :email %>
+  <%= form.input :phone %>
+
+  <%= form.hidden_field :confirmed, value: true %>
+
+  <%= form.submit t('common.confirm'), class: 'btn btn-success' %>
+<% end %>
+

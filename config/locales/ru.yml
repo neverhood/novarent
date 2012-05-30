@@ -19,6 +19,7 @@ ru:
 
   common:
     submit: Сохранить
+    confirm: Подтвердить
     brand: Nova Rent
     phone: Телефон
     email: E-mail
@@ -38,6 +39,7 @@ ru:
 
   cars:
     edit_car: Редактировать спецификацию машины
+    book: Бронирование
     transmissions:
       manual: Механика
       auto: Автомат
@@ -73,6 +75,12 @@ ru:
     index:
       header: 'Акции'
 
+  rent_requests:
+    confirm:
+      header: 'Пожалуйста, подтвердите введенные данные'
+    show:
+      header: 'Детали Вашей заявки'
+      shout_out: 'Наш менеджер свяжется с Вами в ближайшее время, спасибо за Ваше обращение!'
 
   activerecord:
     models:

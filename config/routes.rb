@@ -11,7 +11,9 @@ Cars::Application.routes.draw do
 
   resources :ads
 
-  resources :rent_requests
+  resources :rent_requests, except: [ :edit ] do
+    get 'confirm', on: :member
+  end
 
   get 'rents' => 'rents#index', as: 'rents'
   get 'driving_services' => 'driving_services#index', as: 'driving_services'
