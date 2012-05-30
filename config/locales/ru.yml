@@ -14,6 +14,8 @@ ru:
         month: месяц
         bail: залог
         day: день
+      rent_request:
+        car_id: Машина
 
   common:
     submit: Сохранить
@@ -105,3 +107,14 @@ ru:
         one_hour: Стоимость часа работы в городе
         transfer: Трансфер
         mileage: Стоимость пробега по Украине за 1 км.
+      rent_request:
+        receipt_location: Место выдачи
+        drop_off_location: Место возврата
+        drop_off_at_receipt: Место возврата совпадает с место получения
+        confirm_drop_off_location: Согласовать место возврата с менеджером
+        receipt_at: Дата и время выдачи
+        drop_off_at: Дата и время возврата
+        car_id: -- Машина --
+        name: Ф.И.О
+        email: E-mail
+        phone: Телефон

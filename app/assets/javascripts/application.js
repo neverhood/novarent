@@ -15,7 +15,10 @@
 //= require bootstrap-transition
 //= require bootstrap-carousel
 //= require jquery.ui.datepicker
+//= require jquery.ui.slider
+//= require timepicker
 //= require jquery.ui.datepicker-ru
+//= require jquery.ui.timepicker-ru
 //= require_tree .
 //
 

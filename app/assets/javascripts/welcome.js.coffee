@@ -5,5 +5,6 @@
 jQuery ->
     $('div#special-offers').carousel(interval: 5000)
 
-    $.datepicker.setDefaults( $.datepicker.regional[ "" ] )
-    $('input#rent_request_drop_off_at, input#rent_request_receipt_at').datepicker( $.datepicker.regional[ "ru" ] )
+    $.datepicker.setDefaults( $.datepicker.regional[ "ru" ] )
+    $.timepicker.setDefaults( $.datepicker.regional[ "ru" ] )
+    $('input#rent_request_drop_off_at, input#rent_request_receipt_at').datetimepicker(stepMinute: 10)
