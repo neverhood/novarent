@@ -1,12 +1,25 @@
-<div id='rental-previews'>
-  <% @cars.each do |car| %>
-    <div class='pull-left rent-preview'>
-      <%= image_tag car.photo.url(:medium) %>
+<div id='rental-previews' class='carousel slide'>
+  <div class='carousel-inner'>
+    <% @cars.in_groups_of(5, false).each_with_index do |group, index| %>
 
-      <div class='rental-preview-details'>
-        <strong> <%= car.full_name %> </strong>
-        <span class='badge badge-info'> <%= car.rent.day %> $ </span>
+      <div class='<%= index == 0 ? "active item" : "item" %>'>
+
+        <% group.each do |car| %>
+          <div class='pull-left rental-preview'>
+            <%= image_tag car.photo.url(:thumb) %>
+
+            <div class='rental-preview-details'>
+              <div class='car-name'><strong> <%= car.full_name %> </strong></div>
+              <span class='badge badge-info'> <%= car.rent.day %> $ <%= t('common.per_day') %> </span>
+            </div>
+          </div>
+        <% end %>
+
       </div>
-    </div>
-  <% end %>
+
+    <% end %>
 </div>
+  <a class="carousel-control left" href="#rental-previews" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#rental-previews" data-slide="next">&rsaquo;</a>
+</div>
+

@@ -1,5 +1,5 @@
 
-<%= simple_form_for @car, html: { class: 'form form-horizontal' } do |form| %>
+<%= simple_form_for @car, html: { multipart: true, class: 'form form-horizontal' } do |form| %>
   <%= form.input :manufacturer %>
   <%= form.input :name %>
   <%= form.input :engine %>

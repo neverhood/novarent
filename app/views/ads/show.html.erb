@@ -9,3 +9,6 @@
     <%= @ad.body.html_safe %>
   </div>
 </div>
+
+<%= link_to t('.edit'), edit_ad_path(@ad) %>
+<%= link_to t('.destroy'), ad_path(@ad), method: 'delete' %>

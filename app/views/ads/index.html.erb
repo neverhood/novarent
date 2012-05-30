@@ -1,0 +1,18 @@
+<%= page_header t('.header') %>
+
+<div id='ads-index'>
+
+  <% @ads.each do |ad| %>
+    <%= link_to ad_path(ad) do %>
+      <div class='ad'>
+        <%= image_tag ad.photo.url(:wide) %>
+
+        <div class='ad-text'>
+          <%= ad.body.html_safe %>
+        </div>
+      </div>
+      <hr />
+    <% end %>
+  <% end %>
+
+</div>

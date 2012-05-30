@@ -5,6 +5,10 @@ class AdsController < ApplicationController
 
   before_filter :find_ad!, only: [ :show, :edit, :update, :destroy ]
 
+  def index
+    @ads = Ad.all
+  end
+
   def new
     @ad = Ad.new
   end

@@ -20,6 +20,7 @@ ru:
     brand: Nova Rent
     phone: Телефон
     email: E-mail
+    per_day: в сутки
     please_wait: Пожалуйста, подождите...
     please_select: -- Не выбрано --
   locales:
@@ -51,6 +52,13 @@ ru:
   ads:
     new:
       header: 'Новая акция'
+    show:
+      edit: 'Редактировать'
+      destroy: 'Удалить'
+    edit:
+      header: 'Редактировать акцию'
+    index:
+      header: 'Акции'
 
 
   activerecord:

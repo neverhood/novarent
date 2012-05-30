@@ -84,11 +84,11 @@ div#push {
 
 div#footer {
     height: 60px;
-    margin-top: -60px;
     color: black;
 
     p {
         padding: 15px;
     }
+
     @include gradient-vertical($navbarBackgroundHighlight, $navbarBackground);
 }
