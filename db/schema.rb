@@ -41,9 +41,9 @@ ActiveRecord::Schema.define(:version => 20120530093659) do
 
   create_table "rent_requests", :force => true do |t|
     t.string   "receipt_location",          :default => "",    :null => false
-    t.string   "drop_off_location",         :default => "",    :null => false
+    t.string   "drop_off_location"
     t.datetime "receipt_at"
-    t.datetime "drop_off_at"
+    t.datetime "drop_off_at",                                  :null => false
     t.string   "name",                      :default => "",    :null => false
     t.string   "email",                     :default => "",    :null => false
     t.string   "phone"

@@ -118,7 +118,7 @@ ru:
       rent_request:
         receipt_location: Место выдачи
         drop_off_location: Место возврата
-        drop_off_at_receipt: Место возврата совпадает с место получения
+        drop_off_at_receipt: Совпадает с местом получения
         confirm_drop_off_location: Согласовать место возврата с менеджером
         receipt_at: Дата и время выдачи
         drop_off_at: Дата и время возврата
@@ -126,3 +126,4 @@ ru:
         name: Ф.И.О
         email: E-mail
         phone: Телефон
+        message: Комментарий

@@ -1,8 +1,14 @@
-<%= simple_form_for @rent_request, url: rent_requests_path, html: { class: 'form span4' } do |form| %>
-  <%= form.input :receipt_location, label: false, placeholder: t('activerecord.attributes.rent_request.receipt_location') %>
-  <%= form.input :drop_off_location, label: false, placeholder: t('activerecord.attributes.rent_request.drop_off_location') %>
+<%= simple_form_for @rent_request, url: rent_requests_path, html: { id: 'new-rent-request', class: 'form span4' } do |form| %>
+  <%= form.input :receipt_location, label: false, wrapper: :append do %>
+    <%= form.input_field :receipt_location, placeholder: t('activerecord.attributes.rent_request.receipt_location') %><span class="add-on"><i class="icon-circle-arrow-down"></i></span>
+  <% end %>
+  <hr />
+  <%= form.input :drop_off_location, label: false, wrapper: :append do %>
+    <%= form.input_field :drop_off_location, placeholder: t('activerecord.attributes.rent_request.drop_off_location') %><span class="add-on"><i class="icon-circle-arrow-down"></i></span>
+  <% end %>
   <%= form.input :drop_off_at_receipt, inline_label: true, label: false %>
   <%= form.input :confirm_drop_off_location, inline_label: true, label: false %>
+  <hr />
   <%= form.input :receipt_at, :as => :date_picker, label: false, placeholder: t('activerecord.attributes.rent_request.receipt_at') %>
   <%= form.input :drop_off_at, :as => :date_picker, label: false, placeholder: t('activerecord.attributes.rent_request.drop_off_at') %>
   <%= form.input :car_id, as: :select, collection: @cars, label_method: :full_name, label: false, prompt: t('activerecord.attributes.rent_request.car_id') %>

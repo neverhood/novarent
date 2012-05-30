@@ -10,7 +10,7 @@
     <strong> <%= t('activerecord.attributes.rent_request.receipt_location') %>: </strong> <%= @rent_request.receipt_location %>
   </div>
   <div class='rent-request-row'>
-    <strong> <%= t('activerecord.attributes.rent_request.drop_off_location') %>: </strong> <%= @rent_request.drop_off_location %>
+    <strong> <%= t('activerecord.attributes.rent_request.drop_off_location') %>: </strong> <%= @rent_request.stringified_drop_off_location %>
   </div>
   <div class='rent-request-row'>
     <strong> <%= t('activerecord.attributes.rent_request.receipt_at') %>: </strong> <%= l @rent_request.receipt_at, format: :long %>
@@ -26,6 +26,9 @@
   </div>
   <div class='rent-request-row'>
     <strong> <%= t('activerecord.attributes.rent_request.phone') %>: </strong> <%= @rent_request.phone %>
+  </div>
+  <div class='rent-request-row'>
+    <strong> <%= t('activerecord.attributes.rent_request.message') %>: </strong> <%= @rent_request.message %>
   </div>
 </div>
 

@@ -2,9 +2,9 @@ class CreateRentRequests < ActiveRecord::Migration
   def change
     create_table :rent_requests do |t|
       t.string :receipt_location, null: false, default: ''
-      t.string :drop_off_location, null: false, default: ''
+      t.string :drop_off_location
       t.datetime :receipt_at
-      t.datetime :drop_off_at
+      t.datetime :drop_off_at, null: false
       t.string :name, null: false, default: ''
       t.string :email, null: false, default: ''
       t.string :phone

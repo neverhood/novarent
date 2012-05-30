@@ -29,7 +29,15 @@ class RentRequestsController < ApplicationController
     @rent_request.car_id = @car.id
     @rent_request.save
 
-    respond_with @rent_request
+    if @rent_request.update_attributes params[:rent_request]
+      @rent_request.car_id = @car.id
+      @rent_request.save
+
+      respond_with @rent_request
+    else
+      @cars = Car.joins(:rent).includes(:rent)
+      render 'confirm'
+    end
   end
 
   def show
