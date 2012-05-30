@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120529194003) do
+ActiveRecord::Schema.define(:version => 20120530093659) do
 
   create_table "ads", :force => true do |t|
     t.string "photo"
@@ -29,6 +29,29 @@ ActiveRecord::Schema.define(:version => 20120529194003) do
     t.boolean "leather",              :default => false
     t.integer "minimum_reserve",      :default => 1
     t.string  "photo"
+  end
+
+  create_table "driving_services", :force => true do |t|
+    t.integer "cost"
+    t.integer "one_hour"
+    t.integer "transfer"
+    t.integer "mileage"
+    t.integer "car_id"
+  end
+
+  create_table "rent_requests", :force => true do |t|
+    t.string   "receipt_location",          :default => "",    :null => false
+    t.string   "drop_off_location",         :default => "",    :null => false
+    t.datetime "receipt_at"
+    t.datetime "drop_off_at"
+    t.string   "name",                      :default => "",    :null => false
+    t.string   "email",                     :default => "",    :null => false
+    t.string   "phone"
+    t.boolean  "confirm_drop_off_location", :default => false
+    t.boolean  "drop_off_at_receipt",       :default => false
+    t.integer  "car_id"
+    t.text     "message"
+    t.boolean  "confirmed",                 :default => false
   end
 
   create_table "rents", :force => true do |t|

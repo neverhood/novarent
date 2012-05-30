@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require bootstrap-transition
 //= require bootstrap-carousel
+//= require jquery.ui.datepicker
+//= require jquery.ui.datepicker-ru
 //= require_tree .
 //
 

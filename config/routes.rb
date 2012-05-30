@@ -4,10 +4,18 @@ Cars::Application.routes.draw do
 
   get 'about_us' => 'welcome#about_us', as: 'about_us'
 
-  resources :ads
-  resources :cars do
-    resource :rent, except: [ :index, :show ]
+  resources :cars, :except => [ :index ] do
+    resource :rent, except: [ :show, :index ]
+    resource :driving_service, except: [ :show, :index ]
   end
+
+  resources :ads
+
+  resources :rent_requests
+
+  get 'rents' => 'rents#index', as: 'rents'
+  get 'driving_services' => 'driving_services#index', as: 'driving_services'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

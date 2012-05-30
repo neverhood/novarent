@@ -8,6 +8,8 @@ class Car < ActiveRecord::Base
   validates :manufacturer, presence: true
 
   has_one :rent
+  has_one :driving_service
+  has_many :rent_requests
 
   def full_name
     [ manufacturer, name, I18n.t('cars.transmissions.short.' + transmission) ].join(' ')

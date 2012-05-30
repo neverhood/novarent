@@ -5,10 +5,6 @@ class CarsController < ApplicationController
 
   respond_to :html
 
-  def index
-    @cars = Car.all
-  end
-
   def new
     @car = Car.new
   end

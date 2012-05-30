@@ -2,6 +2,16 @@
 <div class='well'>
   <div class='row'>
     <div class='alert alert-info span4'>
+      <%= simple_form_for RentRequest.new, html: { class: 'form span4' } do |form| %>
+        <%= form.input :receipt_location %>
+        <%= form.input :drop_off_location %>
+        <%= form.input :receipt_at, :as => :date_picker %>
+        <%= form.input :drop_off_at, :as => :date_picker %>
+        <%= form.input :car_id, :as => :select, :collection => @cars, :value_method => :full_name, :prompt => t('common.please_select') %>
+        <%= form.input :name %>
+        <%= form.input :email %>
+        <%= form.input :phone %>
+      <% end %>
     </div>
 
     <div id='ads'>

@@ -5,6 +5,10 @@ class RentsController < ApplicationController
 
   respond_to :html
 
+  def index
+    @cars = Car.joins(:rent).includes(:rent)
+  end
+
   def new
     @rent = @car.build_rent
   end

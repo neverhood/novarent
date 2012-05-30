@@ -35,6 +35,7 @@ ru:
 
 
   cars:
+    edit_car: Редактировать спецификацию машины
     transmissions:
       manual: Механика
       auto: Автомат
@@ -48,6 +49,16 @@ ru:
       header: 'Добавить условия аренды для %{car}'
     edit:
       header: 'Редактировать условия аренды для %{car}'
+
+  driving_services:
+    edit_service: Редактировать условия услуг водителя
+    create_service: Добивить условия услуг водителя
+    index:
+      header: 'Услуги водителя'
+    new:
+      header: 'Добавить условия услуг водителя'
+    edit:
+      header: 'Редактировать условия услуг водителя'
 
   ads:
     new:
@@ -89,3 +100,8 @@ ru:
       ad:
         photo: Фото
         body: Текст
+      driving_service:
+        cost: Стоимость подачи
+        one_hour: Стоимость часа работы в городе
+        transfer: Трансфер
+        mileage: Стоимость пробега по Украине за 1 км.

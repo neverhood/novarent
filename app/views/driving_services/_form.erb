@@ -1,0 +1,8 @@
+<%= simple_form_for @driving_service, url: car_driving_service_path(@car), html: { class: 'form form-horizontal' } do |form| %>
+  <%= form.input :cost %>
+  <%= form.input :one_hour %>
+  <%= form.input :transfer %>
+  <%= form.input :mileage %>
+
+  <%= form.submit t('common.submit'), disable_with: t('common.please_wait') %>
+<% end %>
