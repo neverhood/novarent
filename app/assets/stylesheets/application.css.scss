@@ -86,6 +86,7 @@ div.subnav {
     }
 
     ul.nav-pills {
+        width: 580px;
         background-color: white;
         @include border-radius(5px 5px 0 0);
     }

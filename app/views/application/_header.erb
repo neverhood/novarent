@@ -15,7 +15,11 @@
 
         <div class="nav-collapse">
           <ul class="nav main-nav">
-            <li> <%= link_to root_path, class: 'btn btn-warning', id: 'back-to-main' do %> <h2> Вернуться к бронированию </h2> <% end %> </li>
+            <%- if session[:request_id] %>
+              <li> <%= link_to confirm_rent_request_path(session[:request_id]), class: 'btn btn-warning', id: 'back-to-main' do %> <h2> Вернуться к бронированию </h2> <% end %> </li>
+            <%- else %>
+              <li> <%= link_to root_path, class: 'btn btn-warning', id: 'back-to-main' do %> <h2> Вернуться к бронированию </h2> <% end %> </li>
+            <% end %>
           </ul>
 
           <ul class='pull-right nav'>
