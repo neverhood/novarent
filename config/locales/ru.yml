@@ -2,6 +2,10 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 ru:
+  time:
+    formats:
+      short_number: "%d.%m.%Y %H:%M"
+
   simple_form:
     labels:
       car:

@@ -1,15 +1,14 @@
-<%= simple_form_for @rent_request, html: { method: 'put', class: 'form form-horizontal' } do |form| %>
+<%= simple_form_for @rent_request, html: { id: 'new-rent-request', method: 'put', class: 'form form-horizontal' } do |form| %>
   <%= form.input :receipt_location, wrapper: :append do %>
-    <%= form.input_field :receipt_location %><span class="add-on"><i class="icon-circle-arrow-down"></i></span>
+    <%= form.input_field :receipt_location %><span id='receipt-suggestion' class="add-on"><i class="icon-circle-arrow-down"></i></span>
   <% end %>
   <%= form.input :drop_off_location, wrapper: :append do %>
-    <%= form.input_field :drop_off_location %><span class="add-on"><i class="icon-circle-arrow-down"></i></span>
+    <%= form.input_field :drop_off_location %><span id='drop-off-suggestion' class="add-on"><i class="icon-circle-arrow-down"></i></span>
   <% end %>
   <%= form.input :drop_off_at_receipt, label: false, inline_label: true %>
   <%= form.input :confirm_drop_off_location, label: false, inline_label: true %>
   <%= form.input :receipt_at, :as => :date_picker %>
   <%= form.input :drop_off_at, :as => :date_picker %>
-  <%= form.input :car_id, as: :select, collection: @cars, label_method: :full_name, selected: @rent_request.car_id %>
   <%= form.input :name %>
   <%= form.input :email %>
   <%= form.input :phone %>

@@ -13,10 +13,10 @@
     <strong> <%= t('activerecord.attributes.rent_request.drop_off_location') %>: </strong> <%= @rent_request.stringified_drop_off_location %>
   </div>
   <div class='rent-request-row'>
-    <strong> <%= t('activerecord.attributes.rent_request.receipt_at') %>: </strong> <%= l @rent_request.receipt_at, format: :long %>
+    <strong> <%= t('activerecord.attributes.rent_request.receipt_at') %>: </strong> <%= l @rent_request.receipt_at, format: :short_number %>
   </div>
   <div class='rent-request-row'>
-    <strong> <%= t('activerecord.attributes.rent_request.drop_off_at') %>: </strong> <%= l @rent_request.receipt_at, format: :long %>
+    <strong> <%= t('activerecord.attributes.rent_request.drop_off_at') %>: </strong> <%= l @rent_request.drop_off_at, format: :short_number %>
   </div>
   <div class='rent-request-row'>
     <strong> <%= t('activerecord.attributes.rent_request.name') %>: </strong> <%= @rent_request.name %>

@@ -1,3 +1,3 @@
-<%= page_header t('.header') %>
+<%= page_header t('.header') + ' - ' + "<span class='alert alert-info'>#{@rent_request.car.full_name}</span>" %>
 
 <%= render 'form' %>

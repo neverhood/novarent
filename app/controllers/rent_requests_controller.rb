@@ -1,7 +1,7 @@
 class RentRequestsController < ApplicationController
   http_basic_authenticate_with :name => ENV['DEN_LOGIN'], :password => ENV['DEN_PASSWORD'], :only => [ :destroy, :index ]
 
-  before_filter :find_car!, except: [ :show, :confirm ]
+  before_filter :find_car!, except: [ :show, :update, :confirm ]
   before_filter :find_rent_request!, only: [ :destroy, :update ]
 
   respond_to :html
@@ -25,14 +25,7 @@ class RentRequestsController < ApplicationController
   end
 
   def update
-    @rent_request.update_attributes params[:rent_request]
-    @rent_request.car_id = @car.id
-    @rent_request.save
-
     if @rent_request.update_attributes params[:rent_request]
-      @rent_request.car_id = @car.id
-      @rent_request.save
-
       respond_with @rent_request
     else
       @cars = Car.joins(:rent).includes(:rent)
