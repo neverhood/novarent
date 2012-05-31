@@ -12,7 +12,9 @@
 */
 
 @import "bootstrap.scss";
-@import "cupertino";
+@import "jquery.ui.autocomplete";
+@import "jquery.ui.datepicker";
+@import "jquery.ui.slider";
 @import "timepicker";
 @import "welcome.css.scss";
 @import "cars.css.scss";
@@ -99,4 +101,17 @@ div#footer {
 div#ui-datepicker-div {
     padding: 10px;
     font-size: 13px;
+}
+
+ul.ui-autocomplete {
+    @include border-radius(0);
+
+    a {
+        @include border-radius(0);
+        &:hover {
+            @include border-radius(0);
+            color: white;
+            background: #08C;
+        }
+    }
 }

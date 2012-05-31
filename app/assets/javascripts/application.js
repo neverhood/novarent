@@ -15,14 +15,19 @@
 //= require bootstrap-transition
 //= require bootstrap-carousel
 //= require jquery.ui.datepicker
+//= require jquery.ui.autocomplete
 //= require jquery.ui.slider
 //= require timepicker
 //= require jquery.ui.datepicker-ru
 //= require jquery.ui.timepicker-ru
-//= require_tree .
+//= require api
+//= require ads
+//= require welcome
+//= require cars
+//= require driving_services
+//= require rent_requests
+//= require rents
 //
 
 
-$(document).ready(function() {
 
-});
