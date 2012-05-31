@@ -24,4 +24,39 @@ body#rent-requests {
             }
         }
     }
+
+    span#receipt-suggestion, span#drop-off-suggestion {
+        cursor: pointer;
+    }
+
+    div#car-details {
+        margin-top: 40px;
+    }
+
+    div#car-photo {
+        margin-top: 25px;
+        width: 330px;
+    }
+    div#car-specs, div#car-prices {
+        margin-top: 25px;
+        font-size: 16px;
+
+
+        hr {
+            margin: 0;
+        }
+
+        strong {
+            display: inline-block;
+            float: left;
+            width: 150px;
+            margin-right: 45px;
+            clear: both;
+            text-align: right;
+        }
+
+        span.badge {
+            padding: 1px 8px;
+        }
+    }
 }

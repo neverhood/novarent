@@ -1,4 +1,6 @@
-<%= simple_form_for @rent_request, html: { id: 'new-rent-request', method: 'put', class: 'form form-horizontal' } do |form| %>
+<%= simple_form_for @rent_request, html: { id: 'new-rent-request', method: 'put', class: 'form form-horizontal span6' } do |form| %>
+<%= page_header t('rent_requests.confirm.header') %>
+
   <%= form.input :receipt_location, wrapper: :append do %>
     <%= form.input_field :receipt_location %><span id='receipt-suggestion' class="add-on"><i class="icon-circle-arrow-down"></i></span>
   <% end %>
@@ -13,7 +15,7 @@
   <%= form.input :email %>
   <%= form.input :phone %>
 
-  <%= form.input :message, :as => :text, input_html: { class: 'span6', rows: 6 } %>
+  <%= form.input :message, :as => :text, input_html: { class: 'span4', rows: 6 } %>
 
   <%= form.hidden_field :confirmed, value: true %>
 

@@ -20,6 +20,8 @@ class RentRequestsController < ApplicationController
   def confirm
     @rent_request = RentRequest.where(id: session[:request_id], confirmed: false).first
     @cars = Car.joins(:rent).includes(:rent)
+    @car = @rent_request.car
+    @rent = @car.rent
 
     redirect_to root_path if @rent_request.nil?
   end
