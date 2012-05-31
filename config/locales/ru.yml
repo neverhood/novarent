@@ -40,7 +40,6 @@ ru:
     about_us: О Компании
     catalog: Каталог машин
 
-
   cars:
     edit_car: Редактировать спецификацию машины
     book: Бронирование
@@ -80,6 +79,8 @@ ru:
       header: 'Акции'
 
   rent_requests:
+    receipt_location_placeholder: Введите место выдачи
+    drop_off_location_placeholder: Введите место возврата
     confirm:
       header: 'Пожалуйста, подтвердите введенные данные'
     show:

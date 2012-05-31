@@ -21,6 +21,7 @@
 @import "ads.css.scss";
 @import "rent_requests";
 @import "rents";
+@import "driving_services";
 
 $special: #09F;
 
@@ -49,13 +50,17 @@ div#header {
         }
     }
 
+
     a#back-to-main {
         color: white;
+        &:hover {
+            @include gradient-vertical(#FBB450, #F89406);
+        }
     }
 
     ul.contacts-nav {
         margin: 3px 25px 0 0;
-        padding: 8px 15px;
+        padding: 5px 15px;
 
         h3#phone {
             margin-bottom: 15px;
@@ -78,6 +83,11 @@ div.subnav {
     ul.nav {
         padding: 2px 5px;
         margin: 0 150px;
+    }
+
+    ul.nav-pills {
+        background-color: white;
+        @include border-radius(5px 5px 0 0);
     }
 }
 

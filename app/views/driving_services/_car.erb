@@ -1,12 +1,34 @@
-<h4> <%= car.full_name %> </h4>
-<div> <%= t('activerecord.attributes.car.engine') %> : <%= car.engine %> </div>
-<div> <%= t('activerecord.attributes.car.conditioner') %> : <%= car.conditioner?? '+' : '-' %> </div>
-<div> <%= t('activerecord.attributes.car.leather') %> : <%= car.leather?? '+' : '-' %> </div>
-<div> <%= t('activerecord.attributes.car.number_of_passengers') %> : <%= car.number_of_passengers %> </div>
-<div> <%= t('activerecord.attributes.car.number_of_doors') %> : <%= car.number_of_doors %> </div>
-<div> <%= t('activerecord.attributes.car.transmission') %> : <%= t('cars.transmissions.' + car.transmission) %> </div>
-<div> <%= t('activerecord.attributes.car.minimum_reserve') %> : <%= car.minimum_reserve %> </div>
+<div class='driving-service pull-left'>
+  <div class='car-name alert alert-info'> <%= car.full_name %> </div>
 
-<%- if car.photo? %>
-  <div><%= image_tag car.photo.url(:medium) %></div>
-<%- end %>
+  <%- if car.photo? %>
+    <div class='car-photo'><%= image_tag car.photo.url(:medium) %></div>
+  <%- end %>
+
+  <div class='driving-service-row'>
+    <strong> <%= t('activerecord.attributes.car.engine') %>: </strong> <span class='badge badge-info'><%= car.engine %></span>
+  </div>
+  <hr />
+  <div class='driving-service-row'>
+    <strong> <%= t('activerecord.attributes.car.conditioner') %>: </strong> <span class='badge badge-info'> <%= car.conditioner?? '+' : '-' %> </span>
+  </div>
+  <hr />
+  <div class='driving-service-row'>
+    <strong> <%= t('activerecord.attributes.car.leather') %>: </strong> <span class='badge badge-info'><%= car.leather?? '+' : '-' %></span>
+  </div>
+  <hr />
+  <div class='driving-service-row'>
+    <strong> <%= t('activerecord.attributes.car.number_of_passengers') %>: </strong> <span class='badge badge-info'><%= car.number_of_passengers %></span>
+  </div>
+  <hr />
+  <div class='driving-service-row'>
+    <strong> <%= t('activerecord.attributes.car.number_of_doors') %>: </strong> <span class='badge badge-info'><%= car.number_of_doors %></span>
+  </div>
+  <hr />
+  <div class='driving-service-row'>
+    <strong> <%= t('activerecord.attributes.car.transmission') %>: </strong> <span class='badge badge-info'><%= t 'cars.transmissions.' + car.transmission %></span>
+  </div>
+  <div class='driving-service-row'>
+    <strong> <%= t('activerecord.attributes.rent.cost') %>: </strong> <span class='badge badge-important'><%= car.driving_service.cost %>$</span>
+  </div>
+</div>

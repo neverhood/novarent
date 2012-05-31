@@ -17,21 +17,37 @@ jQuery ->
             email: $('input#rent_request_email').keyup -> $(this).parents('div.control-group').removeClass('error') if this.value.length
             phone: $('input#rent_request_phone')
 
-            ruErrors:
-                receiptLocation: 'Место выдачи не указано'
-                dropOffLocation: 'Место возврата не указано'
-                receiptAt: 'Дата выдачи не указана'
-                dropOffAt: 'Дата возврата не указана'
-                car: 'Машина не выбрана'
-                name: 'Имя не введено'
-                email: 'E-mail не указан'
+        if $.api.action == 'index'
+            if $.cookie('params')
+                params = $.cookie('params').split(',')
+                api = $.api.welcome
 
-            errors: ->
-                if $.api.locale == 'ru'
-                    $.api.welcome.ruErrors
-                else
-                    $.api.welcome.enErrors
+                api.receiptLocation.val params[0]
+                api.dropOffLocation.val params[1]
+                api.dropOffAtReceipt.prop('checked', params[2] == 'true')
+                api.confirmDropOffLocation.prop('checked', params[3] == 'true')
+                api.receiptAt.val params[4]
+                api.dropOffAt.val params[5]
+                api.car.val params[6]
+                api.name.val params[7]
+                api.email.val params[8]
+                api.phone.val params[9]
 
+                if params[2] == 'true'
+                    api.confirmDropOffLocation.prop('checked', false).parents('div.control-group').hide()
+                    api.dropOffLocation.parents('div.control-group').hide()
+                if params[3] == 'true'
+                    api.dropOffAtReceipt.prop('checked', false).parents('div.control-group').hide()
+                    api.dropOffLocation.parents('div.control-group').hide()
+
+
+            $(window).unload ->
+                api = $.api.welcome
+
+                values = [ api.receiptLocation.val(), api.dropOffLocation.val(), api.dropOffAtReceipt.is(':checked'), api.confirmDropOffLocation.is(':checked'),
+                    api.receiptAt.val(), api.dropOffAt.val(), api.car.val(), api.name.val(), api.email.val(), api.phone.val() ]
+
+                $.cookie('params', values.join(','))
 
         $('div#special-offers').carousel(interval: 5000)
 

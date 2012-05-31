@@ -18,6 +18,7 @@
 //= require jquery.ui.autocomplete
 //= require jquery.ui.slider
 //= require timepicker
+//= require cookie
 //= require jquery.ui.datepicker-ru
 //= require jquery.ui.timepicker-ru
 //= require api
@@ -28,6 +29,5 @@
 //= require rent_requests
 //= require rents
 //
-
 
 

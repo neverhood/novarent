@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
   <meta name="robots" content="noindex">
 </head>
-<body id='<%= controller_name.gsub('_', '-') %>' data-locale='<%= I18n.locale %>'>
+<body id='<%= controller_name.gsub('_', '-') %>' data-locale='<%= I18n.locale %>' data-action='<%= action_name.gsub('_', '-') %>'>
 
   <%= render 'header' %>
 
