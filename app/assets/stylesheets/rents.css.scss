@@ -1,3 +1,43 @@
 // Place all the styles related to the rents controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body#rents {
+
+    div#car-rents {
+        width: 1100px;
+        margin: 0px auto;
+    }
+
+    div.car-specs {
+        font-size: 16px;
+        margin: 25px 35px 30px 0;
+
+        div.car-name {
+            text-align: center;
+        }
+
+        div.car-specs-row {
+            margin-top: 5px;
+        }
+
+
+        hr {
+            margin: 0;
+        }
+
+        strong {
+            display: inline-block;
+            float: left;
+            width: 150px;
+            margin-right: 45px;
+            clear: both;
+            text-align: right;
+        }
+
+        span.badge {
+            padding: 1px 8px;
+        }
+    }
+
+}

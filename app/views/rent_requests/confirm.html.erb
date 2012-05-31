@@ -2,7 +2,7 @@
   <%= render 'form' %>
 
   <div class='span4 offset2' id='car-details'>
-    <h1> <span class='alert alert-info'> <%= @rent_request.car.full_name %> </span> </h1>
+    <div id='car-name' class='alert alert-info'> <%= @rent_request.car.full_name %> </div>
 
     <div id='car-photo'>
       <%= image_tag @car.photo.url(:medium) %>

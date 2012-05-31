@@ -111,6 +111,7 @@ ru:
         month: месяц
         bail: залог
         day: день
+        cost: Стоимость *
       ad:
         photo: Фото
         body: Текст
