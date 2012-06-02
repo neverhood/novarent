@@ -10,8 +10,12 @@ class CreateRentRequests < ActiveRecord::Migration
       t.string :phone
       t.boolean :confirm_drop_off_location, default: false
       t.boolean :drop_off_at_receipt, default: false
+      t.boolean :has_child_seat
+      t.boolean :has_gps
+      t.boolean :has_additional_driver
       t.integer :car_id
       t.text :message
+      t.integer :total
       t.boolean :confirmed, default: false
     end
   end

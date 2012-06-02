@@ -81,8 +81,17 @@ ru:
   rent_requests:
     receipt_location_placeholder: Введите место выдачи
     drop_off_location_placeholder: Введите место возврата
+    form:
+      additional_services: Дополнительные услуги
+      additional_services_remark: не более 50 $ за весь период аренды
     confirm:
+      additional_services: "Дополнительные услуги:"
+      total: Итого
+      gps_cost: GPS
+      child_seat_cost: Детское сидение
+      additional_driver_cost: Дополнительный водитель
       header: 'Пожалуйста, подтвердите введенные данные'
+      rent_cost: Стоимость аренды автомобиля
     show:
       header: 'Детали Вашей заявки'
       shout_out: 'Наш менеджер свяжется с Вами в ближайшее время, спасибо за Ваше обращение!'
@@ -133,3 +142,7 @@ ru:
         email: E-mail
         phone: Телефон
         message: Комментарий
+        total: Сумма
+        has_gps: 'GPS навигатор - <span class="badge badge-important">5$/сутки</span>'
+        has_child_seat: 'Детское сидение - <span class="badge badge-important">5$/сутки</span>'
+        has_additional_driver: 'Дополнительный водитель - <span class="badge badge-important">5$/сутки</span>'

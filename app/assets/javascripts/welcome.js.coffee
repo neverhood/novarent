@@ -106,8 +106,12 @@ jQuery ->
             if $.api.welcome.name.val().length == 0
                 fieldsWithErrors.push $.api.welcome.name.parents('div.control-group')
 
-            if $.api.welcome.email.val().length == 0
+            if $.api.welcome.email.val().length == 0 || ! validEmail( $.api.welcome.email.val() )
                 fieldsWithErrors.push $.api.welcome.email.parents('div.control-group')
+
+            if $.api.welcome.dropOffAt.datepicker('getDate') <= $.api.welcome.receiptAt.datepicker('getDate')
+                fieldsWithErrors.push $.api.welcome.dropOffAt.parents('div.control-group')
+                fieldsWithErrors.push $.api.welcome.receiptAt.parents('div.control-group')
 
             if fieldsWithErrors.length > 0
                 $.each fieldsWithErrors, ->

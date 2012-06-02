@@ -10,6 +10,7 @@ class RentRequestsController < ApplicationController
     @rent_request = @car.rent_requests.create(params[:rent_request])
 
     if @rent_request.valid?
+      RentRequest.where(id: session[:request_id], confirmed: false).destroy_all if session[:request_id]
       session[:request_id] = @rent_request.id
       redirect_to confirm_rent_request_path(@rent_request)
     else
@@ -19,6 +20,11 @@ class RentRequestsController < ApplicationController
 
   def confirm
     @rent_request = RentRequest.where(id: session[:request_id], confirmed: false).first
+
+    if @rent_request.nil?
+      redirect_to root_path and return
+    end
+
     @cars = Car.joins(:rent).includes(:rent)
     @car = @rent_request.car
     @rent = @car.rent
@@ -28,6 +34,9 @@ class RentRequestsController < ApplicationController
 
   def update
     if @rent_request.update_attributes params[:rent_request]
+      @rent_request.total = @rent_request.total_cost
+      @rent_request.save
+
       respond_with @rent_request
     else
       @cars = Car.joins(:rent).includes(:rent)

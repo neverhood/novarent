@@ -1,34 +1,32 @@
 <div class='row'>
   <%= render 'form' %>
 
-  <div class='span4 offset2' id='car-details'>
+  <div class='span4' id='car-header'>
     <div id='car-name' class='alert alert-info'> <%= @rent_request.car.full_name %> </div>
 
     <div id='car-photo'>
       <%= image_tag @car.photo.url(:medium) %>
     </div>
 
+  </div>
+
+  <div id='car-details' class='span4 well'>
     <div id='car-specs'>
       <div class='car-specs-row'>
         <strong> <%= t('activerecord.attributes.car.engine') %>: </strong> <span class='badge badge-info'><%= @car.engine %></span>
       </div>
-      <hr />
       <div class='car-specs-row'>
         <strong> <%= t('activerecord.attributes.car.conditioner') %>: </strong> <span class='badge badge-info'> <%= @car.conditioner?? '+' : '-' %> </span>
       </div>
-      <hr />
       <div class='car-specs-row'>
         <strong> <%= t('activerecord.attributes.car.leather') %>: </strong> <span class='badge badge-info'><%= @car.leather?? '+' : '-' %></span>
       </div>
-      <hr />
       <div class='car-specs-row'>
         <strong> <%= t('activerecord.attributes.car.number_of_passengers') %>: </strong> <span class='badge badge-info'><%= @car.number_of_passengers %></span>
       </div>
-      <hr />
       <div class='car-specs-row'>
         <strong> <%= t('activerecord.attributes.car.number_of_doors') %>: </strong> <span class='badge badge-info'><%= @car.number_of_doors %></span>
       </div>
-      <hr />
       <div class='car-specs-row'>
         <strong> <%= t('activerecord.attributes.car.transmission') %>: </strong> <span class='badge badge-info'><%= t 'cars.transmissions.' + @car.transmission %></span>
       </div>
@@ -38,26 +36,60 @@
       <div class='car-specs-row'>
         <strong> <%= t('activerecord.attributes.rent.one_to_two') %>: </strong> <span class='badge badge-info'><%= @rent.one_to_two %>$</span>
       </div>
-      <hr />
       <div class='car-specs-row'>
         <strong> <%= t('activerecord.attributes.rent.three_to_five') %>: </strong> <span class='badge badge-info'> <%= @rent.three_to_five %>$</span>
       </div>
-      <hr />
       <div class='car-specs-row'>
         <strong> <%= t('activerecord.attributes.rent.six_to_twelve') %>: </strong> <span class='badge badge-info'> <%= @rent.six_to_twelve %>$</span>
       </div>
-      <hr />
       <div class='car-specs-row'>
         <strong> <%= t('activerecord.attributes.rent.thirteen_to_twenty_four') %>: </strong> <span class='badge badge-info'><%= @rent.thirteen_to_twenty_four %>$</span>
       </div>
-      <hr />
       <div class='car-specs-row'>
         <strong> <%= t('activerecord.attributes.rent.month') %>: </strong> <span class='badge badge-info'><%= @rent.month %>$</span>
       </div>
-      <hr />
       <div class='car-specs-row'>
         <strong> <%= t('activerecord.attributes.rent.bail') %>: </strong> <span class='badge badge-important'><%= @rent.bail %>$</span>
       </div>
     </div>
+
   </div>
+
+  <div class='span6 alert alert-info' id='rent-specification'>
+    <div id='cost-specs'>
+      <div id='rent-cost'>
+        <strong id='rent-cost-description'> <%= t('.rent_cost') %>: </strong>
+        <span id='rent-cost-value'> <%= @rent_request.total_cost %>$  </span>
+        (<span id='rent-cost-time-period'> <%= t('activerecord.attributes.rent.' + @rent_request.stringified_period) %> </span>)
+      </div>
+      <hr />
+
+      <h4> <%= t('.additional_services') %> </h4>
+      <hr />
+      <div id='gps-cost' class='hidden'>
+        <strong id='gps-cost-description'> <%= t('.gps_cost') %>: </strong>
+        <span id='gps-cost-value'> </span>
+      </div>
+
+      <div id='child-seat-cost' class='hidden'>
+        <strong id='child-seat-cost-description'> <%= t('.child_seat_cost') %>: </strong>
+        <span id='child-seat-cost-value'> </span>
+      </div>
+
+      <div id='additional-driver-cost' class='hidden'>
+        <strong id='additional-driver-cost-description'> <%= t('.additional_driver_cost') %>: </strong>
+        <span id='additional-driver-cost-value'> </span>
+      </div>
+    </div>
+
+    <div class='page-header'>
+      <h3> <%= t('.total') %> </h3>
+      <span id='rent-request-cost-total' class='badge badge-success'> <%= @rent_request.total_cost %> $  </span>
+    </div>
+  </div>
+
+</div>
+
+<div id='rent-json-attributes' class='hidden'>
+  <%= [ @rent.one_to_two, @rent.three_to_five, @rent.six_to_twelve, @rent.thirteen_to_twenty_four, @rent.month, RentRequest::PRICES ].to_json.html_safe %>
 </div>

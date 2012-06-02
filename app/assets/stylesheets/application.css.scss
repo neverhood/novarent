@@ -29,6 +29,10 @@ html, body {
     height: 100%;
 }
 
+.hidden {
+    display: none;
+}
+
 div.container {
     width: 1170px;
     min-height: 100%;
@@ -87,7 +91,9 @@ div.subnav {
 
     ul.nav-pills {
         width: 580px;
-        background-color: white;
+        border-bottom: 1px solid #ccc;
+        @include gradient-vertical(white, #ccc);
+        /*background-color: white;*/
         @include border-radius(5px 5px 0 0);
     }
 }

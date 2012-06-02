@@ -7,6 +7,9 @@
 
 <div class='well' id='rent-request'>
   <div class='rent-request-row'>
+    <strong> <%= t('activerecord.attributes.rent_request.total') %>: </strong> <%= @rent_request.total %> $
+  </div>
+  <div class='rent-request-row'>
     <strong> <%= t('activerecord.attributes.rent_request.receipt_location') %>: </strong> <%= @rent_request.receipt_location %>
   </div>
   <div class='rent-request-row'>
