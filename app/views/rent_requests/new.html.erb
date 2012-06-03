@@ -2,7 +2,7 @@
   <%= render 'form' %>
 
   <div class='span4' id='car-header'>
-    <div id='car-name' class='alert alert-info'> <%= @rent_request.car.full_name %> </div>
+    <div id='car-name' class='alert alert-info'> <%= @car.full_name %> </div>
 
     <div id='car-photo'>
       <%= image_tag @car.photo.url(:medium) %>
@@ -60,7 +60,11 @@
       <div id='rent-cost'>
         <strong id='rent-cost-description'> <%= t('.rent_cost') %>: </strong>
         <span id='rent-cost-value'> <%= @rent_request.total_cost %>$  </span>
-        (<span id='rent-cost-time-period'> <%= t('activerecord.attributes.rent.' + @rent_request.stringified_period) %> </span>)
+        <%- if session[:rent_request_params] %>
+          (<span id='rent-cost-time-period'> <%= t('activerecord.attributes.rent.' + @rent_request.stringified_period) %> </span>)
+        <%- else %>
+          (<span id='rent-cost-time-period'> <%= t('common.unknown') %> </span>)
+        <%- end %>
       </div>
       <hr />
 

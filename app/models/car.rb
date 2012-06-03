@@ -11,6 +11,7 @@ class Car < ActiveRecord::Base
   has_one :driving_service
   has_many :rent_requests
 
+
   def full_name
     [ manufacturer, name, I18n.t('cars.transmissions.short.' + transmission) ].join(' ')
   end

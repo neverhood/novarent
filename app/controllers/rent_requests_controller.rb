@@ -1,51 +1,48 @@
 class RentRequestsController < ApplicationController
   http_basic_authenticate_with :name => ENV['DEN_LOGIN'], :password => ENV['DEN_PASSWORD'], :only => [ :destroy, :index ]
 
-  before_filter :find_car!, except: [ :show, :update, :confirm ]
+  before_filter :find_car!, except: [ :show, :update, :confirm, :new ]
   before_filter :find_rent_request!, only: [ :destroy, :update ]
 
   respond_to :html
+
+  def new
+    session.delete(:rent_request_params) if params[:car_id]
+
+    if session[:rent_request_params] or params[:rent_request]
+      session[:rent_request_params] = params[:rent_request] if params[:rent_request]
+
+      @car = Car.where(id: session[:rent_request_params][:car_id]).first
+      @rent_request = @car.rent_requests.new(session[:rent_request_params])
+    else
+      @car = Car.where(id: params[:car_id] || session[:car_id]).first
+      @rent_request = @car.rent_requests.new unless @car.nil?
+      session[:car_id] = @car.id unless @car.nil?
+    end
+
+    redirect_to root_path if @car.nil? or @rent_request.nil?
+
+    @cars = Car.joins(:rent).includes(:rent)
+    @rent = @car.rent
+  end
 
   def create
     @rent_request = @car.rent_requests.create(params[:rent_request])
 
     if @rent_request.valid?
-      RentRequest.where(id: session[:request_id], confirmed: false).destroy_all if session[:request_id]
-      session[:request_id] = @rent_request.id
-      redirect_to confirm_rent_request_path(@rent_request)
-    else
-      redirect_to root_path
-    end
-  end
-
-  def confirm
-    @rent_request = RentRequest.where(id: session[:request_id], confirmed: false).first
-
-    if @rent_request.nil?
-      redirect_to root_path and return
-    end
-
-    @cars = Car.joins(:rent).includes(:rent)
-    @car = @rent_request.car
-    @rent = @car.rent
-
-    redirect_to root_path if @rent_request.nil?
-  end
-
-  def update
-    if @rent_request.update_attributes params[:rent_request]
       @rent_request.total = @rent_request.total_cost
       @rent_request.save
+      session.delete(:rent_request_params)
+      session[:request_id] = @rent_request.id
 
       respond_with @rent_request
     else
-      @cars = Car.joins(:rent).includes(:rent)
-      render 'confirm'
+      render 'new'
     end
   end
 
   def show
-    @rent_request = RentRequest.where(id: session[:request_id], confirmed: true).first
+    @rent_request = RentRequest.where(id: session[:request_id]).first
 
     redirect_to root_path if @rent_request.nil?
   end

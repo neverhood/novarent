@@ -1,4 +1,4 @@
-<%= simple_form_for @rent_request, url: rent_requests_path, html: { id: 'new-rent-request', class: 'form span4' } do |form| %>
+<%= simple_form_for @rent_request, url: new_rent_request_path, html: { method: 'get', id: 'new-rent-request', class: 'form span4' } do |form| %>
   <%= form.input :receipt_location, label: false, wrapper: :append do %>
     <%= form.input_field :receipt_location, placeholder: t('rent_requests.receipt_location_placeholder') %><span id='receipt-suggestion' class="add-on"><i class="icon-circle-arrow-down"></i></span>
   <% end %>

@@ -2,6 +2,8 @@ class RentRequest < ActiveRecord::Base
   attr_accessible :car_id, :confirm_drop_off_location, :drop_off_at, :drop_off_at_receipt, :drop_off_location,
     :email, :message, :name, :phone, :receipt_at, :receipt_location, :confirmed, :has_gps, :has_child_seat, :has_additional_driver
 
+  attr_accessor :skip_confirmation
+
   PRICES = { gps: 5, child_seat: 5, additional_driver: 5 }
 
   belongs_to :car
@@ -20,6 +22,8 @@ class RentRequest < ActiveRecord::Base
   validate :dates_range
 
   def total_cost
+    return 0 if drop_off_at.nil? or receipt_at.nil?
+
     rent_cost + cost_of(:gps) + cost_of(:child_seat) + cost_of(:additional_driver)
   end
 
@@ -70,7 +74,7 @@ class RentRequest < ActiveRecord::Base
   private
 
   def dates_range
-    self.errors[:drop_off_at] = "invalid" if drop_off_at <= receipt_at
+    self.errors[:drop_off_at] = "invalid" if drop_off_at.nil? or receipt_at.nil? or drop_off_at <= receipt_at
   end
 
 end

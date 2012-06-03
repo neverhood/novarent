@@ -22,6 +22,7 @@ ru:
         car_id: Машина
 
   common:
+    unknown: Неизвестно
     submit: Сохранить
     confirm: Подтвердить
     brand: Nova Rent
@@ -84,7 +85,8 @@ ru:
     form:
       additional_services: Дополнительные услуги
       additional_services_remark: не более 50 $ за весь период аренды
-    confirm:
+      header: 'Пожалуйста, подтвердите введенные данные'
+    new:
       additional_services: "Дополнительные услуги:"
       total: Итого
       gps_cost: GPS

@@ -1,5 +1,6 @@
-<%= simple_form_for @rent_request, html: { id: 'new-rent-request', method: 'put', class: 'form form-horizontal span6' } do |form| %>
-<%= page_header t('rent_requests.confirm.header') %>
+<%= simple_form_for @rent_request, html: { id: 'new-rent-request', method: 'put', class: 'form form-horizontal span6',
+                                           data: { populated: !!session[:rent_request_params] } } do |form| %>
+<%= page_header t('.header') %>
 
   <%= form.input :receipt_location, wrapper: :append do %>
     <%= form.input_field :receipt_location %><span id='receipt-suggestion' class="add-on"><i class="icon-circle-arrow-down"></i></span>

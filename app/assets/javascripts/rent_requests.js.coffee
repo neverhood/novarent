@@ -22,12 +22,14 @@ jQuery ->
                 additionalDriver: $('#additional-driver-cost-value')
             rentPeriods:
                 ru:
+                    'unknown': 'Неизвестно'
                     'oneToTwo': '1-2 дня'
                     'threeToFive': '3-5 дней'
                     'sixToTwelve': '6-12 дней'
                     'thirteenToTwentyFour': '13-24 дня'
                     'month': 'месяц'
                 en:
+                    'unknown': 'Unknown'
                     'oneToTwo': '1-2 days'
                     'threeToFive': '3-5 days'
                     'sixToTwelve': '6-12 days'
@@ -46,7 +48,7 @@ jQuery ->
                 days = $.api.rentRequests.rentDays()
 
                 if days <= 0
-                    'invalid'
+                    'unknown'
                 else if days < 3
                     'oneToTwo'
                 else if days < 6
@@ -96,7 +98,7 @@ jQuery ->
                     0
 
 
-        if $.api.action == 'confirm' || $.api.action == 'new'
+        if $.api.action == 'new'
             data = $.parseJSON( $('div#rent-json-attributes').text() )
 
             api.prices =
@@ -123,6 +125,36 @@ jQuery ->
 
             $('input#rent_request_drop_off_at, input#rent_request_receipt_at').change ->
                 api.recalculate()
+
+            if ! $('form#new-rent-request').data('populated')
+                if $.cookie('params')
+                    params = $.cookie('params').split(',')
+
+                    api.receiptLocation.val params[0]
+                    api.dropOffLocation.val params[1]
+                    api.dropOffAtReceipt.prop('checked', params[2] == 'true')
+                    api.confirmDropOffLocation.prop('checked', params[3] == 'true')
+                    api.receiptAt.val params[4]
+                    api.dropOffAt.val params[5]
+                    api.car.val params[6] if api.car
+                    api.name.val params[7]
+                    api.email.val params[8]
+                    api.phone.val params[9]
+
+                    if params[2] == 'true'
+                        api.confirmDropOffLocation.prop('checked', false).parents('div.control-group').hide()
+                        api.dropOffLocation.parents('div.control-group').hide()
+                    if params[3] == 'true'
+                        api.dropOffAtReceipt.prop('checked', false).parents('div.control-group').hide()
+                        api.dropOffLocation.parents('div.control-group').hide()
+
+                    api.recalculate()
+
+                $(window).unload ->
+                    values = [ api.receiptLocation.val(), api.dropOffLocation.val(), api.dropOffAtReceipt.is(':checked'), api.confirmDropOffLocation.is(':checked'),
+                        api.receiptAt.val(), api.dropOffAt.val(), null, api.name.val(), api.email.val(), api.phone.val() ]
+
+                    $.cookie('params', values.join(','))
 
 
         if $('input#rent_request_confirm_drop_off_location').is ':checked'

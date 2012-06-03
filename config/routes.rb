@@ -8,10 +8,11 @@ Cars::Application.routes.draw do
     resource :rent, except: [ :show, :index ]
     resource :driving_service, except: [ :show, :index ]
   end
+  get 'rent_requests/new' => 'rent_requests#new', as: 'new_rent_request'
 
   resources :ads
 
-  resources :rent_requests, except: [ :edit ] do
+  resources :rent_requests, except: [ :edit, :new ] do
     get 'confirm', on: :member
   end
 
