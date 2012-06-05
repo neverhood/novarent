@@ -8,6 +8,11 @@ class RentRequestsController < ApplicationController
 
   def new
     session.delete(:rent_request_params) if params[:car_id]
+    session[:request_type] = 'rent' if params[:rent_request]
+
+    if params[:type] and session[:request_type] != params[:type]
+      session[:request_type] = ['driving_service', 'rent'].include?(params[:type]) ? params[:type] : 'rent'
+    end
 
     if session[:rent_request_params] or params[:rent_request]
       session[:rent_request_params] = params[:rent_request] if params[:rent_request]
@@ -17,16 +22,19 @@ class RentRequestsController < ApplicationController
     else
       @car = Car.where(id: params[:car_id] || session[:car_id]).first
       @rent_request = @car.rent_requests.new unless @car.nil?
+
       session[:car_id] = @car.id unless @car.nil?
     end
 
     redirect_to root_path if @car.nil? or @rent_request.nil?
 
+    @request_type = session[:request_type]
     @cars = Car.joins(:rent).includes(:rent)
     @rent = @car.rent
   end
 
   def create
+    @request_type = session[:request_type] || 'rent'
     @rent_request = @car.rent_requests.create(params[:rent_request])
 
     if @rent_request.valid?

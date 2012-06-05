@@ -47,7 +47,7 @@ jQuery ->
                 values = [ api.receiptLocation.val(), api.dropOffLocation.val(), api.dropOffAtReceipt.is(':checked'), api.confirmDropOffLocation.is(':checked'),
                     api.receiptAt.val(), api.dropOffAt.val(), api.car.val(), api.name.val(), api.email.val(), api.phone.val() ]
 
-                $.cookie('params', values.join(','))
+                $.cookie('params', values.join(','), { path: '/' })
 
         $('div#special-offers').carousel(interval: 5000)
 

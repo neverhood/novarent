@@ -68,22 +68,24 @@
       </div>
       <hr />
 
-      <h4> <%= t('.additional_services') %> </h4>
-      <hr />
-      <div id='gps-cost' class='hidden'>
-        <strong id='gps-cost-description'> <%= t('.gps_cost') %>: </strong>
-        <span id='gps-cost-value'> </span>
-      </div>
+      <%- if @request_type == 'rent' %>
+        <h4> <%= t('.additional_services') %> </h4>
+        <hr />
+        <div id='gps-cost' class='hidden'>
+          <strong id='gps-cost-description'> <%= t('.gps_cost') %>: </strong>
+          <span id='gps-cost-value'> </span>
+        </div>
 
-      <div id='child-seat-cost' class='hidden'>
-        <strong id='child-seat-cost-description'> <%= t('.child_seat_cost') %>: </strong>
-        <span id='child-seat-cost-value'> </span>
-      </div>
+        <div id='child-seat-cost' class='hidden'>
+          <strong id='child-seat-cost-description'> <%= t('.child_seat_cost') %>: </strong>
+          <span id='child-seat-cost-value'> </span>
+        </div>
 
-      <div id='additional-driver-cost' class='hidden'>
-        <strong id='additional-driver-cost-description'> <%= t('.additional_driver_cost') %>: </strong>
-        <span id='additional-driver-cost-value'> </span>
-      </div>
+        <div id='additional-driver-cost' class='hidden'>
+          <strong id='additional-driver-cost-description'> <%= t('.additional_driver_cost') %>: </strong>
+          <span id='additional-driver-cost-value'> </span>
+        </div>
+      <%- end %>
     </div>
 
     <div class='page-header'>

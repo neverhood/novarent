@@ -13,12 +13,14 @@
   <%= form.input :receipt_at, :as => :date_picker %>
   <%= form.input :drop_off_at, :as => :date_picker %>
 
-  <div class='alert alert-info' id='additional-services'>
-    <div class='page-header'> <h4> <%= t('.additional_services') %> </h4> <strong> <%= t('.additional_services_remark') %> </strong> </div>
-    <%= form.input :has_gps, label: false, inline_label: true %>
-    <%= form.input :has_child_seat, label: false, inline_label: true %>
-    <%= form.input :has_additional_driver, label: false, inline_label: true %>
-  </div>
+  <%- if @request_type == 'rent' %>
+    <div class='alert alert-info' id='additional-services'>
+      <div class='page-header'> <h4> <%= t('.additional_services') %> </h4> <strong> <%= t('.additional_services_remark') %> </strong> </div>
+      <%= form.input :has_gps, label: false, inline_label: true %>
+      <%= form.input :has_child_seat, label: false, inline_label: true %>
+      <%= form.input :has_additional_driver, label: false, inline_label: true %>
+    </div>
+  <%- end %>
 
   <%= form.input :name %>
   <%= form.input :email %>

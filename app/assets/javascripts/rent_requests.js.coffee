@@ -154,7 +154,7 @@ jQuery ->
                     values = [ api.receiptLocation.val(), api.dropOffLocation.val(), api.dropOffAtReceipt.is(':checked'), api.confirmDropOffLocation.is(':checked'),
                         api.receiptAt.val(), api.dropOffAt.val(), null, api.name.val(), api.email.val(), api.phone.val() ]
 
-                    $.cookie('params', values.join(','))
+                    $.cookie('params', values.join(','), { path: '/' })
 
 
         if $('input#rent_request_confirm_drop_off_location').is ':checked'

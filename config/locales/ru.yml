@@ -22,6 +22,7 @@ ru:
         car_id: Машина
 
   common:
+    info: Информация
     unknown: Неизвестно
     submit: Сохранить
     confirm: Подтвердить
@@ -51,6 +52,7 @@ ru:
         manual: М/Т
         auto: А/Т
   rents:
+    new_request: Заказать
     edit_rent: Редактировать условия аренды
     create_rent: Добивить условия аренды
     new:
