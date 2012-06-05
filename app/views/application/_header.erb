@@ -47,7 +47,7 @@
     <li class='<%= action_name == "about_us" ? "active" : "" %>'> <%= link_to t('welcome.about_us'), about_us_path %> </li>
     <li class='<%= action_name == "index" and controller_name == "rents" ? "active" : "" %>'> <%= link_to t('welcome.catalog'), rents_path %> </li>
     <li class='<%= action_name == "index" and controller_name == "driving_services" ? "active" : "" %>'> <%= link_to t('driving_services.index.header'), driving_services_path %> </li>
-    <li> <%= link_to 'asjf89asf', '#' %> </li>
+    <li class='<%= action_name == 'contacts' ? 'active' : '' %>'> <%= link_to t('welcome.contacts'), contacts_path %> </li>
     <li> <%= link_to 'asjf89asf', '#' %> </li>
   </ul>
 </div>

@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20120530093659) do
     t.text     "message"
     t.integer  "total"
     t.boolean  "confirmed",                 :default => false
+    t.integer  "request_type",                                 :null => false
   end
 
   create_table "rents", :force => true do |t|

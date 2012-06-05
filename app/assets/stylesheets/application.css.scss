@@ -90,7 +90,7 @@ div.subnav {
     }
 
     ul.nav-pills {
-        width: 580px;
+        width: 585px;
         border-bottom: 1px solid #ccc;
         @include gradient-vertical(white, #ccc);
         /*background-color: white;*/
@@ -106,6 +106,7 @@ div#push {
 }
 
 div#footer {
+    margin-top: 10px;
     height: 60px;
     color: black;
 
@@ -113,7 +114,12 @@ div#footer {
         padding: 15px;
     }
 
-    @include gradient-vertical($navbarBackgroundHighlight, $navbarBackground);
+    div.subnav-footer {
+        width: 700px;
+        margin: 0 auto;
+    }
+
+    @include gradient-vertical($navbarBackground, $navbarBackgroundHighlight);
 }
 
 div#ui-datepicker-div {

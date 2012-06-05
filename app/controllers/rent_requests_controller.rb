@@ -1,7 +1,7 @@
 class RentRequestsController < ApplicationController
   http_basic_authenticate_with :name => ENV['DEN_LOGIN'], :password => ENV['DEN_PASSWORD'], :only => [ :destroy, :index ]
 
-  before_filter :find_car!, except: [ :show, :update, :confirm, :new ]
+  before_filter :find_car!, except: [ :show, :update, :create, :new ]
   before_filter :find_rent_request!, only: [ :destroy, :update ]
 
   respond_to :html
@@ -19,6 +19,8 @@ class RentRequestsController < ApplicationController
 
       @car = Car.where(id: session[:rent_request_params][:car_id]).first
       @rent_request = @car.rent_requests.new(session[:rent_request_params])
+
+      session[:car_id] = @car.id unless @car.nil?
     else
       @car = Car.where(id: params[:car_id] || session[:car_id]).first
       @rent_request = @car.rent_requests.new unless @car.nil?
@@ -34,16 +36,25 @@ class RentRequestsController < ApplicationController
   end
 
   def create
-    @request_type = session[:request_type] || 'rent'
-    @rent_request = @car.rent_requests.create(params[:rent_request])
+    @car = Car.where(id: session[:car_id]).first
+
+    if @car.nil?
+      redirect_to root_path and return
+    end
+
+    @request_type = session[:request_type] == 'driving_service' ? 0 : 1
+    @rent_request = @car.rent_requests.build(params[:rent_request])
 
     if @rent_request.valid?
       @rent_request.total = @rent_request.total_cost
+      @rent_request.request_type = @request_type
       @rent_request.save
-      session.delete(:rent_request_params)
-      session[:request_id] = @rent_request.id
 
-      respond_with @rent_request
+      session.delete(:rent_request_params)
+      session.delete(:request_type)
+      session.delete(:car_id)
+
+      render 'show'
     else
       render 'new'
     end

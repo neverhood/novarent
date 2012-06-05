@@ -1,4 +1,4 @@
-<%= simple_form_for @rent_request, html: { id: 'new-rent-request', method: 'put', class: 'form form-horizontal span6',
+<%= simple_form_for @rent_request, html: { id: 'new-rent-request', class: 'form form-horizontal span6',
                                            data: { populated: !!session[:rent_request_params] } } do |form| %>
 <%= page_header t('.header') %>
 
@@ -29,6 +29,7 @@
   <%= form.input :message, :as => :text, input_html: { class: 'span4', rows: 6 } %>
 
   <%= form.hidden_field :confirmed, value: true %>
+  <%= form.hidden_field :car_id %>
 
   <%= form.submit t('common.confirm'), class: 'btn btn-success' %>
 <% end %>

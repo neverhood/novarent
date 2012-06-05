@@ -49,6 +49,25 @@ body#welcome {
         margin: 5px 0;
     }
 
+    div#contacts {
+        width: 700px;
+        margin: 0 auto;
 
+        div.contacts-entry {
+            width: 350px;
+            text-align: center;
+
+            div.image {
+                margin: 0 0 10px 130px;
+                width: 100px;
+                height: 100px;
+            }
+
+            div.value {
+                font-weight: bold;
+                font-size: 16px;
+            }
+        }
+    }
 
 }

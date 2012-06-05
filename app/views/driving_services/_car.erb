@@ -1,9 +1,9 @@
 <div class='driving-service pull-left'>
-  <div class='car-name alert alert-info'> <%= car.full_name %> </div>
+  <div class='car-name alert alert-info'> <%= car.full_name %> <span class='car-toggle-info'> <%= t('common.info') %>* </span> </div>
 
   <%- if car.photo? %>
     <div class="photo-and-specs">
-      <div class='car-short-specs'>
+      <div class='car-short-specs hidden'>
         <div class='driving-service-row'>
           <strong> <%= t('activerecord.attributes.car.engine') %>: </strong> <span class='badge badge-info'><%= car.engine %></span>
         </div>

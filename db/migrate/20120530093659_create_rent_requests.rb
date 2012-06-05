@@ -17,6 +17,7 @@ class CreateRentRequests < ActiveRecord::Migration
       t.text :message
       t.integer :total
       t.boolean :confirmed, default: false
+      t.integer :request_type, :null => false
     end
   end
 end

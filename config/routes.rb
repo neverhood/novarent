@@ -3,6 +3,7 @@ Cars::Application.routes.draw do
   root to: 'welcome#index'
 
   get 'about_us' => 'welcome#about_us', as: 'about_us'
+  get 'contacts' => 'welcome#contacts', as: 'contacts'
 
   resources :cars, :except => [ :index ] do
     resource :rent, except: [ :show, :index ]

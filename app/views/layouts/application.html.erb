@@ -16,7 +16,15 @@
   </div>
 
   <div id='footer'>
-    <p>Den Cars</p>
+    <div class='subnav-footer'>
+      <ul class='nav nav-pills'>
+        <li class='<%= action_name == "index" and controller_name == "welcome" ? "active" : "" %>'> <%= link_to t('welcome.index'), root_path %> </li>
+        <li class='<%= action_name == "about_us" ? "active" : "" %>'> <%= link_to t('welcome.about_us'), about_us_path %> </li>
+        <li class='<%= action_name == "index" and controller_name == "rents" ? "active" : "" %>'> <%= link_to t('welcome.catalog'), rents_path %> </li>
+        <li class='<%= action_name == "index" and controller_name == "driving_services" ? "active" : "" %>'> <%= link_to t('driving_services.index.header'), driving_services_path %> </li>
+        <li class='<%= action_name == 'contacts' ? 'active' : '' %>'> <%= link_to t('welcome.contacts'), contacts_path %> </li>
+      </ul>
+    </div>
   </div>
 
 </body>

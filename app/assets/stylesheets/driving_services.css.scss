@@ -36,6 +36,15 @@ body#driving-services {
 
         div.car-name {
             text-align: center;
+
+            span.car-toggle-info {
+                font-size:11px;
+                border-bottom: 1px dashed #ccc;
+                cursor: pointer;
+                display: inline-block;
+                float: right;
+            }
+
         }
 
         div.driving-services-row {
