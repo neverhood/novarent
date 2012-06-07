@@ -7,6 +7,7 @@ Cars::Application.routes.draw do
 
   resources :cars, :except => [ :index ] do
     resource :rent, except: [ :show, :index ]
+    resource :special_rent, except: [ :show, :index ]
     resource :driving_service, except: [ :show, :index ]
   end
   get 'rent_requests/new' => 'rent_requests#new', as: 'new_rent_request'
@@ -18,6 +19,7 @@ Cars::Application.routes.draw do
   end
 
   get 'rents' => 'rents#index', as: 'rents'
+  get 'special_rents' => 'special_rents#index', as: 'special_rents'
   get 'driving_services' => 'driving_services#index', as: 'driving_services'
 
 

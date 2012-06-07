@@ -18,6 +18,7 @@ class CreateRentRequests < ActiveRecord::Migration
       t.integer :total
       t.boolean :confirmed, default: false
       t.integer :request_type, :null => false
+      t.string :special_time_period
     end
   end
 end

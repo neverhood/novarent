@@ -10,6 +10,12 @@
   <%= link_to t('rents.create_rent'), new_car_rent_path(@car) %>
 <%- end %>
 <br />
+<%- if @car.special_rent %>
+  <%= link_to t('special_rents.edit_rent'), edit_car_special_rent_path(@car) %>
+<%- else %>
+  <%= link_to t('special_rents.create_rent'), new_car_special_rent_path(@car) %>
+<%- end %>
+<br />
 <%- if @car.driving_service %>
   <%= link_to t('driving_services.edit_service'), edit_car_driving_service_path(@car) %>
 <%- else %>

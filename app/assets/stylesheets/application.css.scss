@@ -22,6 +22,7 @@
 @import "rent_requests";
 @import "rents";
 @import "driving_services";
+@import "special_rents";
 
 $special: #09F;
 
@@ -90,7 +91,7 @@ div.subnav {
     }
 
     ul.nav-pills {
-        width: 585px;
+        width: 700px;
         border-bottom: 1px solid #ccc;
         @include gradient-vertical(white, #ccc);
         /*background-color: white;*/

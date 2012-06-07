@@ -71,10 +71,21 @@ class RentRequest < ActiveRecord::Base
     end
   end
 
+  def special_time_period(given_value = nil)
+    case given_value || read_attribute(:special_time_period)
+    when 0 then 'friday_to_monday'
+    when 1 then 'thursday_to_monday'
+    when 2 then 'friday_to_tuesday'
+    end
+  end
+
+  def special_rents_selection_options
+    [0, 1, 2].map { |value| [ I18n.t('rent_requests.special_time_periods.' + special_time_period(value)), value ] }
+  end
+
   private
 
   def dates_range
     self.errors[:drop_off_at] = "invalid" if drop_off_at.nil? or receipt_at.nil? or drop_off_at <= receipt_at
   end
-
 end

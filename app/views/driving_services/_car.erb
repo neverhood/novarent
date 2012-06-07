@@ -27,10 +27,6 @@
         <div class='driving-service-row'>
           <strong> <%= t('activerecord.attributes.car.transmission') %>: </strong> <span class='badge badge-info'><%= t 'cars.transmissions.' + car.transmission %></span>
         </div>
-        <hr />
-        <div class='driving-service-row'>
-          <strong> <%= t('activerecord.attributes.rent.cost') %>: </strong> <span class='badge badge-important'><%= car.driving_service.cost %>$</span>
-        </div>
       </div>
     </div>
 
@@ -40,5 +36,24 @@
 
   <div class='book-car'><%= link_to t('rents.new_request'), new_rent_request_path(car_id: car.id, type: 'driving_service'), class: 'btn btn-success' %></div>
   <hr />
+
+  <div class='car-prices'>
+      <div class='car-prices-row'>
+        <strong> <%= t('activerecord.attributes.driving_service.cost') %>: </strong> <span class='badge badge-info'><%= car.driving_service.cost %>$</span>
+      </div>
+      <div class='car-prices-row'>
+        <strong> <%= t('activerecord.attributes.driving_service.one_hour') %>: </strong> <span class='badge badge-info'> <%= car.driving_service.one_hour %>$</span>
+      </div>
+      <div class='car-prices-row'>
+        <strong> <%= t('activerecord.attributes.driving_service.transfer') %>: </strong> <span class='badge badge-info'> <%= car.driving_service.transfer %>$</span>
+      </div>
+      <div class='car-prices-row'>
+        <strong> <%= t('activerecord.attributes.driving_service.mileage') %>: </strong> <span class='badge badge-info'> <%= car.driving_service.mileage %>$</span>
+      </div>
+      <div class='car-prices-row'>
+        <strong> <%= t('activerecord.attributes.rent.bail') %>: </strong> <span class='badge badge-important'><%= car.rent.bail %>$</span>
+      </div>
+  </div>
+
 
 </div>

@@ -1,0 +1,8 @@
+<%= simple_form_for [@car, @special_rent], url: car_special_rent_path, html: { class: 'form form-horizontal' } do |form| %>
+
+  <%= form.input :friday_to_monday %>
+  <%= form.input :thursday_to_monday %>
+  <%= form.input :friday_to_tuesday %>
+
+  <%= form.submit t('common.submit'), disable_with: t('common.please_wait') %>
+<% end %>

@@ -9,6 +9,7 @@ class Car < ActiveRecord::Base
 
   has_one :rent
   has_one :driving_service
+  has_one :special_rent
   has_many :rent_requests
 
 

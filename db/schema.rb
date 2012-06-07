@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120530093659) do
+ActiveRecord::Schema.define(:version => 20120606120957) do
 
   create_table "ads", :force => true do |t|
     t.string "photo"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20120530093659) do
     t.integer  "total"
     t.boolean  "confirmed",                 :default => false
     t.integer  "request_type",                                 :null => false
+    t.string   "special_time_period"
   end
 
   create_table "rents", :force => true do |t|
@@ -68,6 +69,15 @@ ActiveRecord::Schema.define(:version => 20120530093659) do
     t.integer "thirteen_to_twenty_four"
     t.integer "month"
     t.integer "bail"
+  end
+
+  create_table "special_rents", :force => true do |t|
+    t.integer  "car_id"
+    t.integer  "friday_to_monday"
+    t.integer  "thursday_to_monday"
+    t.integer  "friday_to_tuesday"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
 end

@@ -16,49 +16,87 @@ jQuery ->
             name: $('input#rent_request_name').keyup -> $(this).parents('div.control-group').removeClass('error') if this.value.length
             email: $('input#rent_request_email').keyup -> $(this).parents('div.control-group').removeClass('error') if this.value.length
             phone: $('input#rent_request_phone')
+            type: $('div#new-rent-request-container').data('request-type')
             additionalServices:
                 gps: $('#gps-cost-value')
                 childSeat: $('#child-seat-cost-value')
                 additionalDriver: $('#additional-driver-cost-value')
             rentPeriods:
-                ru:
-                    'unknown': 'Неизвестно'
-                    'oneToTwo': '1-2 дня'
-                    'threeToFive': '3-5 дней'
-                    'sixToTwelve': '6-12 дней'
-                    'thirteenToTwentyFour': '13-24 дня'
-                    'month': 'месяц'
-                en:
-                    'unknown': 'Unknown'
-                    'oneToTwo': '1-2 days'
-                    'threeToFive': '3-5 days'
-                    'sixToTwelve': '6-12 days'
-                    'thirteenToTwentyFour': '13-24 days'
-                    'month': 'month'
+                rent:
+                    ru:
+                        'unknown': 'Неизвестно'
+                        'oneToTwo': '1-2 дня'
+                        'threeToFive': '3-5 дней'
+                        'sixToTwelve': '6-12 дней'
+                        'thirteenToTwentyFour': '13-24 дня'
+                        'month': 'месяц'
+                    en:
+                        'unknown': 'Unknown'
+                        'oneToTwo': '1-2 days'
+                        'threeToFive': '3-5 days'
+                        'sixToTwelve': '6-12 days'
+                        'thirteenToTwentyFour': '13-24 days'
+                        'month': 'month'
+                driving_service:
+                    ru:
+                        '': ''
+                    en:
+                        '': ''
+
+                special_rent:
+                    ru:
+                        'fridayToMonday': 'Пятница - Понедельник'
+                        'thursdayToMonday': 'Четверг - Понедельник'
+                        'fridayToTuesday': 'Пятница - Вторник'
+                    en:
+                        'fridayToMonday': 'Friday - Monday'
+                        'thursdayToMonday': 'Thursday - Monday'
+                        'fridayToTuesday': 'Friday - Tuesday'
 
             rentDays: ->
-                endRaw = $('#rent_request_drop_off_at').val().split(/\.| |:/)
-                startRaw = $('#rent_request_receipt_at').val().split(/\.| |:/)
-                start = new Date(startRaw[2], startRaw[1], startRaw[0], startRaw[3], startRaw[4])
-                end = new Date(endRaw[2], endRaw[1], endRaw[0], endRaw[3], endRaw[4])
+                if api.type == 'rent' or api.type == 'driving_service'
+                    endRaw = $('#rent_request_drop_off_at').val().split(/\.| |:/)
+                    startRaw = $('#rent_request_receipt_at').val().split(/\.| |:/)
+                    start = new Date(startRaw[2], startRaw[1], startRaw[0], startRaw[3], startRaw[4])
+                    end = new Date(endRaw[2], endRaw[1], endRaw[0], endRaw[3], endRaw[4])
 
-                Math.ceil( ( end - start ) / ( 1000*60*60*24 ) )
+                    Math.ceil( ( end - start ) / ( 1000*60*60*24 ) )
+                else
+                    if $('input#rent_request_special_time_period_0').is(':checked')
+                        3
+                    else if $('input#rent_request_special_time_period_1').is(':checked')
+                        4
+                    else if $('input#rent_request_special_time_period_2').is(':checked')
+                        4
+                    else
+                        0
 
             rentPeriod: ->
-                days = $.api.rentRequests.rentDays()
+                if api.type == 'rent'
+                    days = $.api.rentRequests.rentDays()
 
-                if days <= 0
-                    'unknown'
-                else if days < 3
-                    'oneToTwo'
-                else if days < 6
-                    'threeToFive'
-                else if days < 13
-                    'sixToTwelve'
-                else if days < 25
-                    'thirteenToTwentyFour'
+                    if days <= 0
+                        'unknown'
+                    else if days < 3
+                        'oneToTwo'
+                    else if days < 6
+                        'threeToFive'
+                    else if days < 13
+                        'sixToTwelve'
+                    else if days < 25
+                        'thirteenToTwentyFour'
+                    else
+                        'month'
+                else if api.type == 'special_rent'
+                    if $('input#rent_request_special_time_period_0').is(':checked')
+                        'fridayToMonday'
+                    else if $('input#rent_request_special_time_period_1').is(':checked')
+                        'thursdayToMonday'
+                    else if $('input#rent_request_special_time_period_2').is(':checked')
+                        'fridayToTuesday'
                 else
-                    'month'
+                    'bitch'
+
 
             displayTotal: ->
                 $('#rent-request-cost-total').text( api.total() + '$' )
@@ -68,7 +106,7 @@ jQuery ->
                 api.additionalServices.childSeat.text( api.childSeatCost()  + '$' )
                 api.additionalServices.additionalDriver.text( api.additionalDriverCost() + '$' )
                 $('#rent-cost-value').text( api.rentTotal() + '$' )
-                $('#rent-cost-time-period').text( api.rentPeriods[ $.api.locale ][ api.rentPeriod() ] )
+                $('#rent-cost-time-period').text( api.rentPeriods[ api.type ][ $.api.locale ][ api.rentPeriod() ] )
 
             total: ->
                 if ( api.rentTotal() + api.gpsCost() + api.childSeatCost() + api.additionalDriverCost() )
@@ -77,23 +115,31 @@ jQuery ->
                     0
 
             rentTotal: ->
-                if ( api.rentDays() * api.prices[ api.rentPeriod() ] )
-                    return ( api.rentDays() * api.prices[ api.rentPeriod() ] )
+                if api.type == 'rent'
+                    ( api.rentDays() * api.prices[ api.rentPeriod() ] ) || 0
+                else if api.type == 'special_rent'
+                    api.prices[ api.rentPeriod() ] || 0
                 else
-                    0
+                    0 # TODO: implement it!!
             gpsCost: ->
                 if $('input#rent_request_has_gps').is ':checked'
-                    if api.rentDays() > 10 then api.prices.additionalServices.gps * 10 else api.prices.additionalServices.gps * api.rentDays()
+                    cost = if api.rentDays() > 10 then api.prices.additionalServices.gps * 10 else api.prices.additionalServices.gps * api.rentDays()
+                    cost = 0 unless cost
+                    cost
                 else
                     0
             childSeatCost: ->
                 if $('input#rent_request_has_child_seat').is ':checked'
-                    if api.rentDays() > 10 then api.prices.additionalServices.childSeat * 10 else api.prices.additionalServices.childSeat * api.rentDays()
+                    cost = if api.rentDays() > 10 then api.prices.additionalServices.childSeat * 10 else api.prices.additionalServices.childSeat * api.rentDays()
+                    cost = 0 unless cost
+                    cost
                 else
                     0
             additionalDriverCost: ->
                 if $('input#rent_request_has_additional_driver').is ':checked'
-                    if api.rentDays() > 10 then api.prices.additionalServices.additionalDriver * 10 else api.prices.additionalServices.additionalDriver * api.rentDays()
+                    cost = if api.rentDays() > 10 then api.prices.additionalServices.additionalDriver * 10 else api.prices.additionalServices.additionalDriver * api.rentDays()
+                    cost = 0 unless cost
+                    cost
                 else
                     0
 
@@ -101,17 +147,34 @@ jQuery ->
         if $.api.action == 'new'
             data = $.parseJSON( $('div#rent-json-attributes').text() )
 
-            api.prices =
-                oneToTwo: data[0]
-                threeToFive: data[1]
-                sixToTwelve: data[2]
-                thirteenToTwentyFour: data[3]
-                month: data[4]
-                additionalServices: {
-                    gps: data[5].gps,
-                    childSeat: data[5].child_seat,
-                    additionalDriver: data[5].additional_driver
-                }
+            # Prices
+            if api.type == 'rent'
+                api.prices =
+                    oneToTwo: data[0]
+                    threeToFive: data[1]
+                    sixToTwelve: data[2]
+                    thirteenToTwentyFour: data[3]
+                    month: data[4]
+                    additionalServices: {
+                        gps: data[5].gps,
+                        childSeat: data[5].child_seat,
+                        additionalDriver: data[5].additional_driver
+                    }
+            else if api.type == 'driving_service'
+                api.prices =
+                    cost: data[0],
+                    oneHour: data[2],
+                    transfer: data[3]
+            else
+                api.prices =
+                    fridayToMonday: data[0],
+                    thursdayToMonday: data[1],
+                    fridayToTuesday: data[2]
+                    additionalServices: {
+                        gps: data[3].gps,
+                        childSeat: data[3].child_seat,
+                        additionalDriver: data[3].additional_driver
+                    }
 
             $('input#rent_request_has_gps').change ->
                 api.additionalServices.gps.text( api.gpsCost() + '$' ).parents('div#gps-cost').slideToggle()
@@ -123,7 +186,7 @@ jQuery ->
                 api.additionalServices.additionalDriver.text( api.additionalDriverCost() + '$' ).parents('div#additional-driver-cost').slideToggle()
                 api.displayTotal()
 
-            $('input#rent_request_drop_off_at, input#rent_request_receipt_at').change ->
+            $('input#rent_request_drop_off_at, input#rent_request_receipt_at, input#rent_request_special_time_period_0, input#rent_request_special_time_period_1, input#rent_request_special_time_period_2').change ->
                 api.recalculate()
 
             if ! $('form#new-rent-request').data('populated')
@@ -175,7 +238,9 @@ jQuery ->
 
         $.datepicker.setDefaults( $.datepicker.regional[ $.api.locale ] )
         $.timepicker.setDefaults( $.datepicker.regional[ $.api.locale ] )
-        $('input#rent_request_drop_off_at, input#rent_request_receipt_at').datetimepicker(stepMinute: 10, minDate: new Date)
+
+        if api.type == 'driving_service' or api.type == 'rent'
+            $('input#rent_request_drop_off_at, input#rent_request_receipt_at').datetimepicker(showButtonPanel: false, stepMinute: 10, minDate: new Date)
 
         $('input#rent_request_receipt_location, input#rent_request_drop_off_location').autocomplete(
             source: $.api.locations[ $.api.locale ]
@@ -231,7 +296,6 @@ jQuery ->
 
                 if $(this).find('div.alert-error').length == 0
                     $(this).append("<div class='alert alert-error margin-top'>" + errorsMessage + "</div>")
-
 
                 false
 

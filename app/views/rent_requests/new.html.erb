@@ -1,3 +1,5 @@
+<div id='new-rent-request-container' data-request-type='<%= @request_type %>'>
+
 <div class='row'>
   <%= render 'form' %>
 
@@ -33,23 +35,49 @@
     </div>
 
     <div id='car-prices'>
-      <div class='car-specs-row'>
-        <strong> <%= t('activerecord.attributes.rent.one_to_two') %>: </strong> <span class='badge badge-info'><%= @rent.one_to_two %>$</span>
-      </div>
-      <div class='car-specs-row'>
-        <strong> <%= t('activerecord.attributes.rent.three_to_five') %>: </strong> <span class='badge badge-info'> <%= @rent.three_to_five %>$</span>
-      </div>
-      <div class='car-specs-row'>
-        <strong> <%= t('activerecord.attributes.rent.six_to_twelve') %>: </strong> <span class='badge badge-info'> <%= @rent.six_to_twelve %>$</span>
-      </div>
-      <div class='car-specs-row'>
-        <strong> <%= t('activerecord.attributes.rent.thirteen_to_twenty_four') %>: </strong> <span class='badge badge-info'><%= @rent.thirteen_to_twenty_four %>$</span>
-      </div>
-      <div class='car-specs-row'>
-        <strong> <%= t('activerecord.attributes.rent.month') %>: </strong> <span class='badge badge-info'><%= @rent.month %>$</span>
-      </div>
-      <div class='car-specs-row'>
-        <strong> <%= t('activerecord.attributes.rent.bail') %>: </strong> <span class='badge badge-important'><%= @rent.bail %>$</span>
+      <%- if @request_type == 'rent' %>
+        <div class='car-specs-row'>
+          <strong> <%= t('activerecord.attributes.rent.one_to_two') %>: </strong> <span class='badge badge-info'><%= @rent.one_to_two %>$</span>
+        </div>
+        <div class='car-specs-row'>
+          <strong> <%= t('activerecord.attributes.rent.three_to_five') %>: </strong> <span class='badge badge-info'> <%= @rent.three_to_five %>$</span>
+        </div>
+        <div class='car-specs-row'>
+          <strong> <%= t('activerecord.attributes.rent.six_to_twelve') %>: </strong> <span class='badge badge-info'> <%= @rent.six_to_twelve %>$</span>
+        </div>
+        <div class='car-specs-row'>
+          <strong> <%= t('activerecord.attributes.rent.thirteen_to_twenty_four') %>: </strong> <span class='badge badge-info'><%= @rent.thirteen_to_twenty_four %>$</span>
+        </div>
+        <div class='car-specs-row'>
+          <strong> <%= t('activerecord.attributes.rent.month') %>: </strong> <span class='badge badge-info'><%= @rent.month %>$</span>
+        </div>
+      <%- elsif @request_type == 'special_rent' %>
+        <div class='car-specs-row'>
+          <strong> <%= t('activerecord.attributes.special_rent.friday_to_monday') %>: </strong> <span class='badge badge-info'><%= @car.special_rent.friday_to_monday %>$</span>
+        </div>
+        <div class='car-specs-row'>
+          <strong> <%= t('activerecord.attributes.special_rent.thursday_to_monday') %>: </strong> <span class='badge badge-info'> <%= @car.special_rent.thursday_to_monday %>$</span>
+        </div>
+        <div class='car-specs-row'>
+          <strong> <%= t('activerecord.attributes.special_rent.friday_to_tuesday') %>: </strong> <span class='badge badge-info'> <%= @car.special_rent.friday_to_tuesday %>$</span>
+        </div>
+      <% else %>
+        <div class='car-prices-row'>
+          <strong> <%= t('activerecord.attributes.driving_service.cost') %>: </strong> <span class='badge badge-info'><%= @car.driving_service.cost %>$</span>
+        </div>
+        <div class='car-prices-row'>
+          <strong> <%= t('activerecord.attributes.driving_service.one_hour') %>: </strong> <span class='badge badge-info'> <%= @car.driving_service.one_hour %>$</span>
+        </div>
+        <div class='car-prices-row'>
+          <strong> <%= t('activerecord.attributes.driving_service.transfer') %>: </strong> <span class='badge badge-info'> <%= @car.driving_service.transfer %>$</span>
+        </div>
+        <div class='car-prices-row'>
+          <strong> <%= t('activerecord.attributes.driving_service.mileage') %>: </strong> <span class='badge badge-info'> <%= @car.driving_service.mileage %>$</span>
+        </div>
+      <% end %>
+
+      <div class='car-prices-row'>
+        <strong> <%= t('activerecord.attributes.rent.bail') %>: </strong> <span class='badge badge-important'><%= @car.rent.bail %>$</span>
       </div>
     </div>
 
@@ -68,7 +96,7 @@
       </div>
       <hr />
 
-      <%- if @request_type == 'rent' %>
+      <%- if @request_type.rent? or @request_type.special_rent? %>
         <h4> <%= t('.additional_services') %> </h4>
         <hr />
         <div id='gps-cost' class='hidden'>
@@ -97,5 +125,13 @@
 </div>
 
 <div id='rent-json-attributes' class='hidden'>
-  <%= [ @rent.one_to_two, @rent.three_to_five, @rent.six_to_twelve, @rent.thirteen_to_twenty_four, @rent.month, RentRequest::PRICES ].to_json.html_safe %>
+  <%- if @request_type.rent? %>
+    <%= [ @rent.one_to_two, @rent.three_to_five, @rent.six_to_twelve, @rent.thirteen_to_twenty_four, @rent.month, RentRequest::PRICES ].to_json.html_safe %>
+  <%- elsif @request_type.driving_service? %>
+    <%= [ @driving_service.cost, @driving_service.one_hour, @driving_service.transfer ].to_json.html_safe %>
+  <%- else %>
+    <%= [ @special_rent.friday_to_monday, @special_rent.thursday_to_monday, @special_rent.friday_to_tuesday, RentRequest::PRICES ].to_json.html_safe %>
+  <% end %>
+</div>
+
 </div>

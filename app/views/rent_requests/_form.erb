@@ -10,10 +10,20 @@
   <% end %>
   <%= form.input :drop_off_at_receipt, label: false, inline_label: true %>
   <%= form.input :confirm_drop_off_location, label: false, inline_label: true %>
-  <%= form.input :receipt_at, :as => :date_picker %>
-  <%= form.input :drop_off_at, :as => :date_picker %>
 
-  <%- if @request_type == 'rent' %>
+  <%- if @request_type.rent? or @request_type.driving_service? %>
+    <%= form.input :receipt_at, :as => :date_picker %>
+    <%= form.input :drop_off_at, :as => :date_picker %>
+  <%- else %>
+    <%= form.input :special_time_period, :as => :radio_buttons, :collection => @rent_request.special_rents_selection_options %>
+
+    <div class="hidden">
+      <%= form.input :receipt_at, :as => :date_picker, :value => nil %>
+      <%= form.input :drop_off_at, :as => :date_picker, :value => nil %>
+    </div>
+  <% end %>
+
+  <%- if @request_type.rent? or @request_type.special_rent? %>
     <div class='alert alert-info' id='additional-services'>
       <div class='page-header'> <h4> <%= t('.additional_services') %> </h4> <strong> <%= t('.additional_services_remark') %> </strong> </div>
       <%= form.input :has_gps, label: false, inline_label: true %>
@@ -33,4 +43,3 @@
 
   <%= form.submit t('common.confirm'), class: 'btn btn-success' %>
 <% end %>
-

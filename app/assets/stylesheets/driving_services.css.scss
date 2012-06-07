@@ -36,6 +36,7 @@ body#driving-services {
 
         div.car-name {
             text-align: center;
+            font-size: 14px;
 
             span.car-toggle-info {
                 font-size:11px;
@@ -47,22 +48,36 @@ body#driving-services {
 
         }
 
-        div.driving-services-row {
+        div.driving-service-row {
             margin-top: 5px;
+
+            strong {
+                display: inline-block;
+                float: left;
+                width: 150px;
+                margin-right: 45px;
+                clear: both;
+                text-align: right;
+            }
+        }
+
+        div.car-prices-row {
+            margin-top: 5px;
+
+            strong {
+                display: inline-block;
+                font-size: 12px;
+                float: left;
+                width: 225px;
+                margin-right: 45px;
+                clear: both;
+                text-align: right;
+            }
         }
 
 
         hr {
             margin: 0;
-        }
-
-        strong {
-            display: inline-block;
-            float: left;
-            width: 150px;
-            margin-right: 45px;
-            clear: both;
-            text-align: right;
         }
 
         span.badge {

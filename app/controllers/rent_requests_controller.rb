@@ -1,5 +1,5 @@
 class RentRequestsController < ApplicationController
-  http_basic_authenticate_with :name => ENV['DEN_LOGIN'], :password => ENV['DEN_PASSWORD'], :only => [ :destroy, :index ]
+  http_basic_authenticate_with name: ENV['DEN_LOGIN'], password: ENV['DEN_PASSWORD'], only: [ :destroy, :index ]
 
   before_filter :find_car!, except: [ :show, :update, :create, :new ]
   before_filter :find_rent_request!, only: [ :destroy, :update ]
@@ -11,7 +11,7 @@ class RentRequestsController < ApplicationController
     session[:request_type] = 'rent' if params[:rent_request]
 
     if params[:type] and session[:request_type] != params[:type]
-      session[:request_type] = ['driving_service', 'rent'].include?(params[:type]) ? params[:type] : 'rent'
+      session[:request_type] = %(rent special_rent driving_service).include?(params[:type]) ? params[:type] : 'rent'
     end
 
     if session[:rent_request_params] or params[:rent_request]
@@ -30,9 +30,12 @@ class RentRequestsController < ApplicationController
 
     redirect_to root_path if @car.nil? or @rent_request.nil?
 
-    @request_type = session[:request_type]
+    @request_type = session[:request_type].inquiry
     @cars = Car.joins(:rent).includes(:rent)
-    @rent = @car.rent
+
+    @rent = @car.rent if @request_type.rent?
+    @driving_service = @car.driving_service if @request_type.driving_service?
+    @special_rent = @car.special_rent if @request_type.special_rent?
   end
 
   def create
@@ -83,5 +86,4 @@ class RentRequestsController < ApplicationController
     @rent_request = RentRequest.where(id: params[:id]).first
     redirect_to root_path if @rent_request.nil?
   end
-
 end

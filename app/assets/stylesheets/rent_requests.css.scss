@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body#rent-requests {
+
     div#shout-out {
         margin: 15px 0;
         font-size: 18px;
@@ -61,14 +62,27 @@ body#rent-requests {
         strong {
             display: inline-block;
             float: left;
-            width: 150px;
-            margin-right: 45px;
+            width: 215px;
+            margin-right: 15px;
             clear: both;
+            font-size: 12px;
             text-align: right;
         }
 
         span.badge {
             padding: 1px 8px;
+        }
+    }
+
+    div#car-prices {
+        strong {
+            display: inline-block;
+            float: left;
+            width: 225px;
+            margin-right: 5px;
+            clear: both;
+            font-size: 11px;
+            text-align: right;
         }
     }
 

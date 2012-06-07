@@ -28,6 +28,7 @@
 //= require driving_services
 //= require rent_requests
 //= require rents
+//= require special_rents
 //
 
 function validEmail(email) {

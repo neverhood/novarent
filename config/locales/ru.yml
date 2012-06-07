@@ -37,6 +37,7 @@ ru:
     english: English
   welcome:
     partners: Партнеры
+    special_rents: Специальные предложения
     contacts: Контакты
     index: Главная
     about_us: О Компании
@@ -59,6 +60,17 @@ ru:
       header: 'Добавить условия аренды для %{car}'
     edit:
       header: 'Редактировать условия аренды для %{car}'
+
+  special_rents:
+    new_request: Заказать
+    edit_rent: Редактировать условия специального предложения
+    create_rent: Добивить специальное предложение
+    index:
+      header: 'Специальные предложения'
+    new:
+      header: 'Добавить условия специального предложения для %{car}'
+    edit:
+      header: 'Редактировать условия специального предложения для %{car}'
 
   driving_services:
     edit_service: Редактировать условия услуг водителя
@@ -99,6 +111,10 @@ ru:
     show:
       header: 'Детали Вашей заявки'
       shout_out: 'Наш менеджер свяжется с Вами в ближайшее время, спасибо за Ваше обращение!'
+    special_time_periods:
+      friday_to_monday: "Пятница 12:00 - Понедельник 10:00"
+      thursday_to_monday: "Четверг 12:00 - Понедельник 10:00"
+      friday_to_tuesday: "Пятница 12:00 - Вторник 10:00"
 
   activerecord:
     models:
@@ -126,6 +142,10 @@ ru:
         bail: залог
         day: день
         cost: Стоимость *
+      special_rent:
+        friday_to_monday: "Пятница 12:00 - Понедельник 10:00"
+        thursday_to_monday: "Четверг 12:00 - Понедельник 10:00"
+        friday_to_tuesday: "Пятница 12:00 - Вторник 10:00"
       ad:
         photo: Фото
         body: Текст
@@ -133,7 +153,7 @@ ru:
         cost: Стоимость подачи
         one_hour: Стоимость часа работы в городе
         transfer: Трансфер
-        mileage: Стоимость пробега по Украине за 1 км.
+        mileage: Пробег по Украине за 1 км.
       rent_request:
         receipt_location: Место выдачи
         drop_off_location: Место возврата
@@ -150,3 +170,4 @@ ru:
         has_gps: 'GPS навигатор - <span class="badge badge-important">5$/сутки</span>'
         has_child_seat: 'Детское сидение - <span class="badge badge-important">5$/сутки</span>'
         has_additional_driver: 'Дополнительный водитель - <span class="badge badge-important">5$/сутки</span>'
+        special_time_period: Специальное предложение
