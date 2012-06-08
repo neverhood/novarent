@@ -1,6 +1,7 @@
 class RentRequest < ActiveRecord::Base
   attr_accessible :car_id, :confirm_drop_off_location, :drop_off_at, :drop_off_at_receipt, :drop_off_location,
-    :email, :message, :name, :phone, :receipt_at, :receipt_location, :confirmed, :has_gps, :has_child_seat, :has_additional_driver
+    :email, :message, :name, :phone, :receipt_at, :receipt_location, :confirmed, :has_gps, :has_child_seat, :has_additional_driver,
+    :driving_service
 
   attr_accessor :skip_confirmation
 
@@ -79,8 +80,19 @@ class RentRequest < ActiveRecord::Base
     end
   end
 
+  def driving_service(given_value = nil)
+    case given_value || read_attribute(:driving_service)
+    when 0 then 'hourly'
+    when 1 then 'transfer'
+    end
+  end
+
   def special_rents_selection_options
     [0, 1, 2].map { |value| [ I18n.t('rent_requests.special_time_periods.' + special_time_period(value)), value ] }
+  end
+
+  def driving_services_selection_options
+    [0, 1].map { |value| [ I18n.t('rent_requests.driving_services.' + driving_service(value)), value ] }
   end
 
   private

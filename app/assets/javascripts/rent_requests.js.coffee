@@ -187,7 +187,16 @@ jQuery ->
                 api.displayTotal()
 
             $('input#rent_request_drop_off_at, input#rent_request_receipt_at, input#rent_request_special_time_period_0, input#rent_request_special_time_period_1, input#rent_request_special_time_period_2').change ->
-                api.recalculate()
+                api.recalculate() unless api.type == 'driving_service'
+
+            if api.type == 'driving_service'
+                $('select#rent_request_driving_service').change ->
+                    if this.value == '0'
+                        $('input#rent_request_receipt_at, input#rent_request_drop_off_at').slideDown('fast').prop('disabled', false)
+                    if this.value == '1'
+                        $('input#rent_request_drop_off_at').slideUp('fast')
+                    if this.value == ''
+                        $('input#rent_request_receipt_at, input#rent_request_drop_off_at').slideDown('fast').prop('disabled', true)
 
             if ! $('form#new-rent-request').data('populated')
                 if $.cookie('params')
@@ -197,8 +206,8 @@ jQuery ->
                     api.dropOffLocation.val params[1]
                     api.dropOffAtReceipt.prop('checked', params[2] == 'true')
                     api.confirmDropOffLocation.prop('checked', params[3] == 'true')
-                    api.receiptAt.val params[4] unless api.type == 'special_rent'
-                    api.dropOffAt.val params[5] unless api.type == 'special_rent'
+                    api.receiptAt.val params[4] if api.type == 'rent'
+                    api.dropOffAt.val params[5] if api.type == 'rent'
                     api.car.val params[6] if api.car
                     api.name.val params[7]
                     api.email.val params[8]

@@ -101,6 +101,7 @@ ru:
       additional_services_remark: не более 50 $ за весь период аренды
       header: 'Пожалуйста, подтвердите введенные данные'
     new:
+      driving_service_explanation: "<h2> Внимание! </h2>  Стоимость услуги уточняется с менеджером!"
       additional_services: "Дополнительные услуги:"
       total: Итого
       gps_cost: GPS
@@ -115,6 +116,9 @@ ru:
       friday_to_monday: "Пятница 12:00 - Понедельник 10:00"
       thursday_to_monday: "Четверг 12:00 - Понедельник 10:00"
       friday_to_tuesday: "Пятница 12:00 - Вторник 10:00"
+    driving_services:
+      hourly: "Почасовая оплата"
+      transfer: "Трансфер"
 
   activerecord:
     models:
@@ -171,3 +175,4 @@ ru:
         has_child_seat: 'Детское сидение - <span class="badge badge-important">5$/сутки</span>'
         has_additional_driver: 'Дополнительный водитель - <span class="badge badge-important">5$/сутки</span>'
         special_time_period: Специальное предложение
+        driving_service: Услуга

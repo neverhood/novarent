@@ -11,9 +11,18 @@
   <%= form.input :drop_off_at_receipt, label: false, inline_label: true %>
   <%= form.input :confirm_drop_off_location, label: false, inline_label: true %>
 
-  <%- if @request_type.rent? or @request_type.driving_service? %>
+  <%- if @request_type.rent? %>
     <%= form.input :receipt_at, :as => :date_picker %>
     <%= form.input :drop_off_at, :as => :date_picker %>
+  <%- elsif @request_type.driving_service? %>
+    <div id='driving-service-types-section'>
+      <%= form.input :driving_service, :as => :select, :collection => @rent_request.driving_services_selection_options, :prompt => t('common.please_select') %>
+
+      <div>
+        <%= form.input :receipt_at, :as => :date_picker, :value => nil, disabled: true %>
+        <%= form.input :drop_off_at, :as => :date_picker, :value => nil, disabled: true %>
+      </div>
+    </div>
   <%- else %>
     <div id='special-rent-period-section'>
       <%= form.input :special_time_period, :as => :radio_buttons, :collection => @rent_request.special_rents_selection_options %>

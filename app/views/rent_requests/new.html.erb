@@ -84,41 +84,49 @@
   </div>
 
   <div class='span6 alert alert-info' id='rent-specification'>
-    <div id='cost-specs'>
-      <div id='rent-cost'>
-        <strong id='rent-cost-description'> <%= t('.rent_cost') %>: </strong>
-        <span id='rent-cost-value'> <%= @rent_request.total_cost %>$  </span>
-        <%- if session[:rent_request_params] %>
-          (<span id='rent-cost-time-period'> <%= t('activerecord.attributes.rent.' + @rent_request.stringified_period) %> </span>)
-        <%- else %>
-          (<span id='rent-cost-time-period'> <%= t('common.unknown') %> </span>)
+    <%- if @request_type.rent? or @request_type.special_rent? %>
+
+      <div id='cost-specs'>
+        <div id='rent-cost'>
+          <strong id='rent-cost-description'> <%= t('.rent_cost') %>: </strong>
+          <span id='rent-cost-value'> <%= @rent_request.total_cost %>$  </span>
+          <%- if session[:rent_request_params] %>
+            (<span id='rent-cost-time-period'> <%= t('activerecord.attributes.rent.' + @rent_request.stringified_period) %> </span>)
+          <%- else %>
+            (<span id='rent-cost-time-period'> <%= t('common.unknown') %> </span>)
+          <%- end %>
+        </div>
+        <hr />
+
+        <%- if @request_type.rent? or @request_type.special_rent? %>
+          <h4> <%= t('.additional_services') %> </h4>
+          <div id='gps-cost' class='hidden'>
+            <strong id='gps-cost-description'> <%= t('.gps_cost') %>: </strong>
+            <span id='gps-cost-value'> </span>
+          </div>
+
+          <div id='child-seat-cost' class='hidden'>
+            <strong id='child-seat-cost-description'> <%= t('.child_seat_cost') %>: </strong>
+            <span id='child-seat-cost-value'> </span>
+          </div>
+
+          <div id='additional-driver-cost' class='hidden'>
+            <strong id='additional-driver-cost-description'> <%= t('.additional_driver_cost') %>: </strong>
+            <span id='additional-driver-cost-value'> </span>
+          </div>
         <%- end %>
+
+      <% else %>
+        <div id='driving-service-price-explanation'> <%= t('.driving_service_explanation').html_safe %> </div>
+      <% end %>
+    </div>
+
+    <%- if @request_type.rent? or @request_type.special_rent? %>
+      <div class='page-header'>
+        <h3> <%= t('.total') %> </h3>
+        <span id='rent-request-cost-total' class='badge badge-success'> <%= @rent_request.total_cost %> $  </span>
       </div>
-      <hr />
-
-      <%- if @request_type.rent? or @request_type.special_rent? %>
-        <h4> <%= t('.additional_services') %> </h4>
-        <div id='gps-cost' class='hidden'>
-          <strong id='gps-cost-description'> <%= t('.gps_cost') %>: </strong>
-          <span id='gps-cost-value'> </span>
-        </div>
-
-        <div id='child-seat-cost' class='hidden'>
-          <strong id='child-seat-cost-description'> <%= t('.child_seat_cost') %>: </strong>
-          <span id='child-seat-cost-value'> </span>
-        </div>
-
-        <div id='additional-driver-cost' class='hidden'>
-          <strong id='additional-driver-cost-description'> <%= t('.additional_driver_cost') %>: </strong>
-          <span id='additional-driver-cost-value'> </span>
-        </div>
-      <%- end %>
-    </div>
-
-    <div class='page-header'>
-      <h3> <%= t('.total') %> </h3>
-      <span id='rent-request-cost-total' class='badge badge-success'> <%= @rent_request.total_cost %> $  </span>
-    </div>
+    <% end %>
   </div>
 
 </div>
