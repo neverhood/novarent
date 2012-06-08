@@ -15,11 +15,13 @@
     <%= form.input :receipt_at, :as => :date_picker %>
     <%= form.input :drop_off_at, :as => :date_picker %>
   <%- else %>
-    <%= form.input :special_time_period, :as => :radio_buttons, :collection => @rent_request.special_rents_selection_options %>
+    <div id='special-rent-period-section'>
+      <%= form.input :special_time_period, :as => :radio_buttons, :collection => @rent_request.special_rents_selection_options %>
 
-    <div class="hidden">
-      <%= form.input :receipt_at, :as => :date_picker, :value => nil %>
-      <%= form.input :drop_off_at, :as => :date_picker, :value => nil %>
+      <div>
+        <%= form.input :receipt_at, :as => :date_picker, :value => nil, disabled: true %>
+        <%= form.input :drop_off_at, :as => :date_picker, :value => nil, disabled: true %>
+      </div>
     </div>
   <% end %>
 

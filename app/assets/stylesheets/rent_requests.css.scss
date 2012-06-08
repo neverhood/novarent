@@ -24,6 +24,14 @@ body#rent-requests {
                 text-align: right;
             }
         }
+
+    }
+
+    div#special-rent-period-section {
+        border: 1px solid #ccc;
+        padding: 5px 0;
+        margin: 10px 0;
+        @include border-radius(5px);
     }
 
     span#receipt-suggestion, span#drop-off-suggestion {

@@ -197,8 +197,8 @@ jQuery ->
                     api.dropOffLocation.val params[1]
                     api.dropOffAtReceipt.prop('checked', params[2] == 'true')
                     api.confirmDropOffLocation.prop('checked', params[3] == 'true')
-                    api.receiptAt.val params[4]
-                    api.dropOffAt.val params[5]
+                    api.receiptAt.val params[4] unless api.type == 'special_rent'
+                    api.dropOffAt.val params[5] unless api.type == 'special_rent'
                     api.car.val params[6] if api.car
                     api.name.val params[7]
                     api.email.val params[8]
@@ -241,6 +241,49 @@ jQuery ->
 
         if api.type == 'driving_service' or api.type == 'rent'
             $('input#rent_request_drop_off_at, input#rent_request_receipt_at').datetimepicker(showButtonPanel: false, stepMinute: 10, minDate: new Date)
+        if api.type == 'special_rent'
+            $('input#rent_request_special_time_period_0').click ->
+                input = $('input#rent_request_receipt_at')
+                $('input#rent_request_receipt_at').datepicker('destroy').datepicker(
+                    beforeShowDay: (date) -> [( date.getDay() == 5 ), '']
+                    onSelect: (dateText, inst) ->
+                        rawDate = dateText.split('.')
+                        date = new Date( rawDate[2], rawDate[1], rawDate[0] )
+                        date.setDate( date.getDate() + 2 )
+                        date.setMonth( date.getMonth() - 1 )
+                        $('input#rent_request_drop_off_at').val( $.datepicker.formatDate('dd.mm.yy', date) + ' 10:00' )
+                        this.value = dateText + ' 12:00'
+                    numberOfMonths: 3
+                    minDate: new Date
+                ).datepicker('show')
+
+            $('input#rent_request_special_time_period_1').click ->
+                $('input#rent_request_receipt_at').datepicker('destroy').datepicker(
+                    beforeShowDay: (date) -> [( date.getDay() == 4), '']
+                    onSelect: (dateText, inst) ->
+                        rawDate = dateText.split('.')
+                        date = new Date( rawDate[2], rawDate[1], rawDate[0] )
+                        date.setDate( date.getDate() + 4)
+                        date.setMonth( date.getMonth() - 1)
+                        $('input#rent_request_drop_off_at').val( $.datepicker.formatDate('dd.mm.yy', date) + ' 10:00' )
+                        this.value = dateText + ' 12:00'
+                    numberOfMonths: 3
+                    minDate: new Date
+                ).datepicker('show')
+
+            $('input#rent_request_special_time_period_2').click ->
+                $('input#rent_request_receipt_at').datepicker('destroy').datepicker(
+                    beforeShowDay: (date) -> [( date.getDay() == 5), '']
+                    onSelect: (dateText, inst) ->
+                        rawDate = dateText.split('.')
+                        date = new Date( rawDate[2], rawDate[1], rawDate[0] )
+                        date.setDate( date.getDate() + 4)
+                        date.setMonth( date.getMonth() - 1)
+                        $('input#rent_request_drop_off_at').val( $.datepicker.formatDate('dd.mm.yy', date) + ' 10:00' )
+                        this.value = dateText + ' 12:00'
+                    numberOfMonths: 3
+                    minDate: new Date
+                ).datepicker('show')
 
         $('input#rent_request_receipt_location, input#rent_request_drop_off_location').autocomplete(
             source: $.api.locations[ $.api.locale ]
