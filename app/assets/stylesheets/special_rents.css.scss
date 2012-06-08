@@ -14,16 +14,22 @@ body#special-rents {
         margin: 5px 0;
     }
 
-    div.car-short-specs {
-        text-align: center;
-        position: absolute;
-        background: white;
-        font-size: 12px;
-        padding-top: 5px;
-        @include opacity(0.75);
-        width: 330px;
-        height: 175px;
+    div.photo-and-specs {
+        position: relative;
+
+        div.car-short-specs {
+            text-align: center;
+            position: absolute;
+            background: white;
+            font-size: 12px;
+            padding-top: 5px;
+            @include opacity(0.75);
+            width: 330px;
+            height: 175px;
+        }
+
     }
+
 
     div.car-specs {
         font-size: 12px;
@@ -53,7 +59,7 @@ body#special-rents {
         strong {
             display: inline-block;
             float: left;
-            width: 225px;
+            width: 150px;
             margin-right: 45px;
             clear: both;
             text-align: right;

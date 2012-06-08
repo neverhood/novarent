@@ -1,4 +1,4 @@
-<div class='car-specs pull-left'>
+<div class='car-specs pull-left special-rent'>
   <div class='car-name alert alert-info'> <%= car.full_name %> <span class='car-toggle-info'> <%= t('common.info') %>* </span> </div>
   <%- if car.photo? %>
     <div class='photo-and-specs'>
@@ -21,9 +21,6 @@
         <hr />
         <div class='car-specs-row'>
           <strong> <%= t('activerecord.attributes.car.transmission') %>: </strong> <span class='badge badge-info'><%= t 'cars.transmissions.' + car.transmission %></span>
-        </div>
-        <div class='car-specs-row'>
-          <strong> <%= t('activerecord.attributes.rent.cost') %>: </strong> <span class='badge badge-important'><%= car.rent.day %>$</span>
         </div>
         <div class='car-specs-row'>
           <strong> <%= t('activerecord.attributes.car.engine') %>: </strong> <span class='badge badge-info'><%= car.engine %></span>

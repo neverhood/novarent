@@ -41,11 +41,11 @@ class RentRequestsController < ApplicationController
   def create
     @car = Car.where(id: session[:car_id]).first
 
-    if @car.nil?
+    if @car.nil? or not ['rent', 'driving_service', 'special_rent'].include?(session[:request_type])
       redirect_to root_path and return
     end
 
-    @request_type = session[:request_type] == 'driving_service' ? 0 : 1
+    @request_type = session[:request_type].inquiry
     @rent_request = @car.rent_requests.build(params[:rent_request])
 
     if @rent_request.valid?
@@ -59,6 +59,10 @@ class RentRequestsController < ApplicationController
 
       render 'show'
     else
+      @rent = @car.rent if @request_type.rent?
+      @driving_service = @car.driving_service if @request_type.driving_service?
+      @special_rent = @car.special_rent if @request_type.special_rent?
+
       render 'new'
     end
   end

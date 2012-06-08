@@ -29,7 +29,7 @@ body#rent-requests {
 
     div#special-rent-period-section, div#driving-service-types-section {
         border: 1px solid #ccc;
-        padding: 5px 0;
+        padding: 10px;
         margin: 10px 0;
         @include border-radius(5px);
     }
