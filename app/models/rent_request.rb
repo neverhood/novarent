@@ -1,11 +1,12 @@
 class RentRequest < ActiveRecord::Base
   attr_accessible :car_id, :confirm_drop_off_location, :drop_off_at, :drop_off_at_receipt, :drop_off_location,
     :email, :message, :name, :phone, :receipt_at, :receipt_location, :confirmed, :has_gps, :has_child_seat, :has_additional_driver,
-    :driving_service
+    :driving_service, :number_of_babe_seats, :number_of_child_seats
 
   attr_accessor :skip_confirmation
 
   PRICES = { gps: 5, child_seat: 5, additional_driver: 5 }
+  REQUEST_TYPES = { rent: 0, driving_service: 1, special_rent: 2 }
 
   belongs_to :car
   has_one :rent, :through => :car
@@ -14,7 +15,7 @@ class RentRequest < ActiveRecord::Base
     self.drop_off_location = nil if self.confirm_drop_off_location? or self.drop_off_at_receipt?
   end
 
-  validates :drop_off_at, presence: true
+  validates :drop_off_at, presence: true, unless: lambda { request_type.driving_service? and driving_service.transfer? }
   validates :drop_off_location, presence: true, unless: lambda { self.confirm_drop_off_location? or self.drop_off_at_receipt? }
   validates :name, presence: true
   validates :receipt_at, presence: true
@@ -22,7 +23,7 @@ class RentRequest < ActiveRecord::Base
   validates :email, presence: true
   validate :dates_range
 
-  def total_cost
+  def total
     return 0 if drop_off_at.nil? or receipt_at.nil?
 
     rent_cost + cost_of(:gps) + cost_of(:child_seat) + cost_of(:additional_driver)
@@ -34,7 +35,12 @@ class RentRequest < ActiveRecord::Base
 
   def cost_of item
     if self.send(:"has_#{item}?")
-      total_days > 10 ? PRICES[item] * 10 : PRICES[item] * total_days
+      if item == :child_seat
+        price = ( self.number_of_babe_seats + self.number_of_child_seats ) * total_days * PRICES[item]
+        price > 50 ? 50 : price
+      else
+        total_days > 10 ? PRICES[item] * 10 : PRICES[item] * total_days
+      end
     else
       0
     end
@@ -82,8 +88,16 @@ class RentRequest < ActiveRecord::Base
 
   def driving_service(given_value = nil)
     case given_value || read_attribute(:driving_service)
-    when 0 then 'hourly'
-    when 1 then 'transfer'
+    when 0 then 'hourly'.inquiry
+    when 1 then 'transfer'.inquiry
+    end
+  end
+
+  def request_type(given_value = nil)
+    case given_value || read_attribute(:request_type)
+    when 0 then 'rent'.inquiry
+    when 1 then 'driving_service'.inquiry
+    when 2 then 'special_rent'.inquiry
     end
   end
 
@@ -95,9 +109,15 @@ class RentRequest < ActiveRecord::Base
     [0, 1].map { |value| [ I18n.t('rent_requests.driving_services.' + driving_service(value)), value ] }
   end
 
+  def child_seats_count
+    ( self.number_of_babe_seats || 0 ) + ( self.number_of_child_seats || 0 )
+  end
+
   private
 
   def dates_range
-    self.errors[:drop_off_at] = "invalid" if drop_off_at.nil? or receipt_at.nil? or drop_off_at <= receipt_at
+    unless request_type.driving_service? and driving_service.transfer?
+      self.errors[:drop_off_at] = "invalid" if drop_off_at.nil? or receipt_at.nil? or drop_off_at <= receipt_at
+    end
   end
 end

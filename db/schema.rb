@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(:version => 20120606120957) do
     t.string   "receipt_location",          :default => "",    :null => false
     t.string   "drop_off_location"
     t.datetime "receipt_at"
-    t.datetime "drop_off_at",                                  :null => false
+    t.datetime "drop_off_at"
     t.string   "name",                      :default => "",    :null => false
     t.string   "email",                     :default => "",    :null => false
     t.string   "phone"
@@ -54,11 +54,12 @@ ActiveRecord::Schema.define(:version => 20120606120957) do
     t.boolean  "has_additional_driver"
     t.integer  "car_id"
     t.text     "message"
-    t.integer  "total"
     t.boolean  "confirmed",                 :default => false
     t.integer  "request_type",                                 :null => false
     t.integer  "special_time_period"
     t.integer  "driving_service"
+    t.integer  "number_of_babe_seats",      :default => 0
+    t.integer  "number_of_child_seats",     :default => 0
   end
 
   create_table "rents", :force => true do |t|

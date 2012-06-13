@@ -130,8 +130,10 @@ jQuery ->
                     0
             childSeatCost: ->
                 if $('input#rent_request_has_child_seat').is ':checked'
-                    cost = if api.rentDays() > 10 then api.prices.additionalServices.childSeat * 10 else api.prices.additionalServices.childSeat * api.rentDays()
+                    numberOfSeats = parseInt( $('select#rent_request_number_of_babe_seats').val() ) + parseInt( $('select#rent_request_number_of_child_seats').val() )
+                    cost = numberOfSeats * api.prices.additionalServices.childSeat * api.rentDays()
                     cost = 0 unless cost
+                    cost = 50 if cost > 50
                     cost
                 else
                     0
@@ -176,10 +178,15 @@ jQuery ->
                         additionalDriver: data[3].additional_driver
                     }
 
+            $('select#rent_request_number_of_babe_seats, select#rent_request_number_of_child_seats').change ->
+                api.additionalServices.childSeat.text( api.childSeatCost() + '$' )
+                api.displayTotal()
+
             $('input#rent_request_has_gps').change ->
                 api.additionalServices.gps.text( api.gpsCost() + '$' ).parents('div#gps-cost').slideToggle()
                 api.displayTotal()
             $('input#rent_request_has_child_seat').change ->
+                $('div#child-seat-options').slideToggle()
                 api.additionalServices.childSeat.text( api.childSeatCost() + '$' ).parents('div#child-seat-cost').slideToggle()
                 api.displayTotal()
             $('input#rent_request_has_additional_driver').change ->
@@ -195,6 +202,7 @@ jQuery ->
                         $('input#rent_request_receipt_at, input#rent_request_drop_off_at').slideDown('fast').prop('disabled', false)
                     if this.value == '1'
                         $('input#rent_request_drop_off_at').slideUp('fast')
+                        $('input#rent_request_receipt_at').prop('disabled', false)
                     if this.value == ''
                         $('input#rent_request_receipt_at, input#rent_request_drop_off_at').slideDown('fast').prop('disabled', true)
 
@@ -330,7 +338,8 @@ jQuery ->
                 fieldsWithErrors.push $.api.rentRequests.receiptAt.parents('div.control-group')
 
             if $.api.rentRequests.dropOffAt.val().length == 0
-                fieldsWithErrors.push $.api.rentRequests.dropOffAt.parents('div.control-group')
+                unless api.type == 'driving_service' and $('select#rent_request_driving_service').val() == "1"
+                    fieldsWithErrors.push $.api.rentRequests.dropOffAt.parents('div.control-group')
 
             if $.api.rentRequests.name.val().length == 0
                 fieldsWithErrors.push $.api.rentRequests.name.parents('div.control-group')
@@ -339,8 +348,9 @@ jQuery ->
                 fieldsWithErrors.push $.api.rentRequests.email.parents('div.control-group')
 
             if api.dropOffAt.datepicker('getDate') <= api.receiptAt.datepicker('getDate')
-                fieldsWithErrors.push api.dropOffAt.parents('div.control-group')
-                fieldsWithErrors.push api.receiptAt.parents('div.control-group')
+                unless api.type == 'driving_service' and $('select#rent_request_driving_service').val() == "1"
+                    fieldsWithErrors.push api.dropOffAt.parents('div.control-group')
+                    fieldsWithErrors.push api.receiptAt.parents('div.control-group')
 
             if fieldsWithErrors.length > 0
                 $.each fieldsWithErrors, ->

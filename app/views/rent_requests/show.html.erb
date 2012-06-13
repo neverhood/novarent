@@ -7,7 +7,11 @@
 
 <div class='well' id='rent-request'>
   <div class='rent-request-row'>
-    <strong> <%= t('activerecord.attributes.rent_request.total') %>: </strong> <%= @rent_request.total %> $
+    <%- if @rent_request.request_type.driving_service? %>
+       <h2><%= t('rent_requests.new.driving_service_explanation').html_safe %></h2>
+    <% else %>
+      <strong> <%= t('activerecord.attributes.rent_request.total') %>: </strong> <%= @rent_request.total %> $
+    <% end %>
   </div>
   <div class='rent-request-row'>
     <strong> <%= t('activerecord.attributes.rent_request.receipt_location') %>: </strong> <%= @rent_request.receipt_location %>
@@ -18,20 +22,30 @@
   <div class='rent-request-row'>
     <strong> <%= t('activerecord.attributes.rent_request.receipt_at') %>: </strong> <%= l @rent_request.receipt_at, format: :short_number %>
   </div>
-  <div class='rent-request-row'>
-    <strong> <%= t('activerecord.attributes.rent_request.drop_off_at') %>: </strong> <%= l @rent_request.drop_off_at, format: :short_number %>
-  </div>
+
+  <%- if @rent_request.drop_off_at %>
+    <div class='rent-request-row'>
+      <strong> <%= t('activerecord.attributes.rent_request.drop_off_at') %>: </strong> <%= l @rent_request.drop_off_at, format: :short_number %>
+    </div>
+  <% end %>
+
   <div class='rent-request-row'>
     <strong> <%= t('activerecord.attributes.rent_request.name') %>: </strong> <%= @rent_request.name %>
   </div>
   <div class='rent-request-row'>
     <strong> <%= t('activerecord.attributes.rent_request.email') %>: </strong> <%= @rent_request.email %>
   </div>
-  <div class='rent-request-row'>
-    <strong> <%= t('activerecord.attributes.rent_request.phone') %>: </strong> <%= @rent_request.phone %>
-  </div>
-  <div class='rent-request-row'>
-    <strong> <%= t('activerecord.attributes.rent_request.message') %>: </strong> <%= @rent_request.message %>
-  </div>
+
+  <%- if @rent_request.phone and not @rent_request.phone.blank? %>
+    <div class='rent-request-row'>
+      <strong> <%= t('activerecord.attributes.rent_request.phone') %>: </strong> <%= @rent_request.phone %>
+    </div>
+  <% end %>
+
+  <%- if @rent_request.message and not @rent_request.message.blank? %>
+    <div class='rent-request-row'>
+      <strong> <%= t('activerecord.attributes.rent_request.message') %>: </strong> <%= @rent_request.message %>
+    </div>
+  <% end %>
 </div>
 

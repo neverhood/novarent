@@ -47,10 +47,9 @@ class RentRequestsController < ApplicationController
 
     @request_type = session[:request_type].inquiry
     @rent_request = @car.rent_requests.build(params[:rent_request])
+    @rent_request.request_type = RentRequest::REQUEST_TYPES[@request_type.to_sym]
 
     if @rent_request.valid?
-      @rent_request.total = @rent_request.total_cost
-      @rent_request.request_type = @request_type
       @rent_request.save
 
       session.delete(:rent_request_params)

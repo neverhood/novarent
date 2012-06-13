@@ -90,7 +90,7 @@ body#rent-requests {
         strong {
             display: inline-block;
             float: left;
-            width: 225px;
+            width: 210px;
             margin-right: 5px;
             clear: both;
             font-size: 11px;
@@ -100,6 +100,10 @@ body#rent-requests {
 
     div#car-specs {
         margin-top: 0;
+
+        strong {
+            width: 160px;
+        }
     }
 
     div#additional-services {
@@ -139,5 +143,33 @@ body#rent-requests {
             padding: 5px;
         }
     }
+
+    div#child-seat-options {
+        display: none;
+        border: 1px solid #ccc;
+        width: 300px;
+        padding: 5px;
+        @include border-radius(5px);
+
+        label {
+            width: 170px;
+            margin-right: 25px;
+        }
+
+        label[for="rent_request_number_of_child_seats"] {
+            margin-left: 6px;
+        }
+
+        select#rent_request_number_of_babe_seats, select#rent_request_number_of_child_seats {
+            width: 50px;
+            margin-left: 25px;
+        }
+
+        select#rent_request_number_of_child_seats {
+            margin-left: 19px;
+        }
+    }
+
+
 
 }

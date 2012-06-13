@@ -1,4 +1,5 @@
 class DrivingService < ActiveRecord::Base
+  SERVICES = { hourly: 0, transfer: 1 }
   attr_accessible :car_id, :cost, :mileage, :one_hour, :transfer
 
   belongs_to :car

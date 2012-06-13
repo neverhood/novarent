@@ -39,6 +39,10 @@
       <div class='page-header'> <h4> <%= t('.additional_services') %> </h4> <strong> <%= t('.additional_services_remark') %> </strong> </div>
       <%= form.input :has_gps, label: false, inline_label: true %>
       <%= form.input :has_child_seat, label: false, inline_label: true %>
+      <div id='child-seat-options'>
+        <%= form.input :number_of_babe_seats, :as => :select, :collection => (0..4), :selected => 0 %>
+        <%= form.input :number_of_child_seats, :as => :select, :collection => (0..4), :selected => 0 %>
+      </div>
       <%= form.input :has_additional_driver, label: false, inline_label: true %>
     </div>
   <%- end %>
