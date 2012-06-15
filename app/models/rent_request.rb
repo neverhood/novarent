@@ -1,11 +1,12 @@
 class RentRequest < ActiveRecord::Base
   attr_accessible :car_id, :confirm_drop_off_location, :drop_off_at, :drop_off_at_receipt, :drop_off_location,
     :email, :message, :name, :phone, :receipt_at, :receipt_location, :confirmed, :has_gps, :has_child_seat, :has_additional_driver,
-    :driving_service, :number_of_babe_seats, :number_of_child_seats
+    :driving_service, :number_of_babe_seats, :number_of_child_seats, :special_time_period
 
   attr_accessor :skip_confirmation
 
   PRICES = { gps: 5, child_seat: 5, additional_driver: 5 }
+  CITY_DELIVERY_PRICE = 25
   REQUEST_TYPES = { rent: 0, driving_service: 1, special_rent: 2 }
 
   belongs_to :car
@@ -26,7 +27,25 @@ class RentRequest < ActiveRecord::Base
   def total
     return 0 if drop_off_at.nil? or receipt_at.nil?
 
-    rent_cost + cost_of(:gps) + cost_of(:child_seat) + cost_of(:additional_driver)
+    if request_type.nil? or request_type.rent?
+      rent_cost + cost_of(:gps) + cost_of(:child_seat) + cost_of(:additional_driver) + delivery_cost + return_cost
+    elsif request_type.special_rent?
+      car.special_rent.send( special_time_period.to_sym ) + delivery_cost + return_cost
+    end
+  end
+
+  def delivery_cost
+    I18n.t('rent_requests.locations').include?(receipt_location) ? 0 : CITY_DELIVERY_PRICE
+  end
+
+  def return_cost
+    if drop_off_at_receipt?
+      delivery_cost
+    elsif confirm_drop_off_location?
+      CITY_DELIVERY_PRICE
+    else
+      I18n.t('rent_requests.locations').include?(drop_off_location) ? 0 : CITY_DELIVERY_PRICE
+    end
   end
 
   def rent_cost
@@ -65,6 +84,8 @@ class RentRequest < ActiveRecord::Base
   end
 
   def total_days
+    return 0 if drop_off_at.nil? or receipt_at.nil?
+
     ( ( drop_off_at - receipt_at ) / (60*60*24) ).ceil
   end
 

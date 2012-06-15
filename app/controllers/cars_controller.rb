@@ -1,9 +1,13 @@
 class CarsController < ApplicationController
-  http_basic_authenticate_with :name => ENV['DEN_LOGIN'], :password => ENV['DEN_PASSWORD'], :except => :index
+  http_basic_authenticate_with :name => ENV['DEN_LOGIN'], :password => ENV['DEN_PASSWORD']
 
   before_filter :find_car!, only: [ :show, :edit, :update ]
 
   respond_to :html
+
+  def index
+    @cars = Car.all
+  end
 
   def new
     @car = Car.new

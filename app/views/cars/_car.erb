@@ -1,12 +1,45 @@
-<h4> <%= car.full_name %> </h4>
-<div> <%= t('activerecord.attributes.car.engine') %> : <%= car.engine %> </div>
-<div> <%= t('activerecord.attributes.car.conditioner') %> : <%= car.conditioner?? '+' : '-' %> </div>
-<div> <%= t('activerecord.attributes.car.leather') %> : <%= car.leather?? '+' : '-' %> </div>
-<div> <%= t('activerecord.attributes.car.number_of_passengers') %> : <%= car.number_of_passengers %> </div>
-<div> <%= t('activerecord.attributes.car.number_of_doors') %> : <%= car.number_of_doors %> </div>
-<div> <%= t('activerecord.attributes.car.transmission') %> : <%= t('cars.transmissions.' + car.transmission) %> </div>
-<div> <%= t('activerecord.attributes.car.minimum_reserve') %> : <%= car.minimum_reserve %> </div>
+<div class='row car-row'>
 
-<%- if car.photo? %>
-  <div><%= image_tag car.photo.url(:medium) %></div>
-<%- end %>
+<div class="pull-left car-column">
+  <%- if car.photo? %>
+    <div><%= image_tag car.photo.url(:medium) %></div>
+  <%- end %>
+</div>
+
+<div class="pull-left car-column">
+  <h4> <%= car.full_name %> </h4>
+  <div> <%= t('activerecord.attributes.car.engine') %> : <%= car.engine %> </div>
+  <div> <%= t('activerecord.attributes.car.conditioner') %> : <%= car.conditioner?? '+' : '-' %> </div>
+  <div> <%= t('activerecord.attributes.car.leather') %> : <%= car.leather?? '+' : '-' %> </div>
+  <div> <%= t('activerecord.attributes.car.number_of_passengers') %> : <%= car.number_of_passengers %> </div>
+  <div> <%= t('activerecord.attributes.car.number_of_doors') %> : <%= car.number_of_doors %> </div>
+  <div> <%= t('activerecord.attributes.car.transmission') %> : <%= t('cars.transmissions.' + car.transmission) %> </div>
+  <div> <%= t('activerecord.attributes.car.minimum_reserve') %> : <%= car.minimum_reserve %> </div>
+</div>
+
+<div class="pull-left car-column">
+
+    <div><%= link_to t('cars.edit_car'), edit_car_path(car) %></div>
+
+    <%- if car.rent %>
+      <div><%= link_to t('rents.edit_rent'), edit_car_rent_path(car) %></div>
+    <%- else %>
+      <div><%= link_to t('rents.create_rent'), new_car_rent_path(car) %></div>
+    <%- end %>
+
+    <%- if car.special_rent %>
+      <div><%= link_to t('special_rents.edit_rent'), edit_car_special_rent_path(car) %></div>
+    <%- else %>
+      <div><%= link_to t('special_rents.create_rent'), new_car_special_rent_path(car) %></div>
+    <%- end %>
+    <%- if car.driving_service %>
+      <div><%= link_to t('driving_services.edit_service'), edit_car_driving_service_path(car) %></div>
+    <%- else %>
+      <div><%= link_to t('driving_services.create_service'), new_car_driving_service_path(car) %></div>
+    <%- end %>
+
+</div>
+
+</div>
+
+<hr />

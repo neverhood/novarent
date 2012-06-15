@@ -19,8 +19,8 @@
       <%= form.input :driving_service, :as => :select, :collection => @rent_request.driving_services_selection_options, :prompt => t('common.please_select') %>
 
       <div>
-        <%= form.input :receipt_at, :as => :date_picker, :value => nil, disabled: true %>
-        <%= form.input :drop_off_at, :as => :date_picker, :value => nil, disabled: true %>
+        <%= form.input :receipt_at, :as => :date_picker, :value => nil, readonly: true %>
+        <%= form.input :drop_off_at, :as => :date_picker, :value => nil, readonly: true %>
       </div>
     </div>
   <%- else %>
@@ -28,8 +28,8 @@
       <%= form.input :special_time_period, :as => :radio_buttons, :collection => @rent_request.special_rents_selection_options %>
 
       <div>
-        <%= form.input :receipt_at, :as => :date_picker, :value => nil, disabled: true %>
-        <%= form.input :drop_off_at, :as => :date_picker, :value => nil, disabled: true %>
+        <%= form.input :receipt_at, :as => :date_picker, :value => nil, readonly: true %>
+        <%= form.input :drop_off_at, :as => :date_picker, :value => nil, readonly: true %>
       </div>
     </div>
   <% end %>
@@ -53,7 +53,6 @@
 
   <%= form.input :message, :as => :text, input_html: { class: 'span4', rows: 6 } %>
 
-  <%= form.hidden_field :confirmed, value: true %>
   <%= form.hidden_field :car_id %>
 
   <%= form.submit t('common.confirm'), class: 'btn btn-success' %>

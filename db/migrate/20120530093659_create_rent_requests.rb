@@ -15,7 +15,6 @@ class CreateRentRequests < ActiveRecord::Migration
       t.boolean :has_additional_driver
       t.integer :car_id
       t.text :message
-      t.boolean :confirmed, default: false
       t.integer :request_type, null: false
       t.integer :special_time_period
       t.integer :driving_service

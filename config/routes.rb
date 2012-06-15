@@ -2,6 +2,8 @@ Cars::Application.routes.draw do
 
   root to: 'welcome#index'
 
+  get 'admin' => 'cars#index', as: 'admin'
+
   get 'about_us' => 'welcome#about_us', as: 'about_us'
   get 'contacts' => 'welcome#contacts', as: 'contacts'
 
