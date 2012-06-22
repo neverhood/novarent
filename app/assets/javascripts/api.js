@@ -1,7 +1,7 @@
 $.api = {
     locations: {
         ru: [ 'Аэропорт Борисполь', 'Аэропорт Жуляны', 'Ж/Д Вокзал' ],
-        en: [ 'Airport Borispol', 'Airport Zhulyany', 'Railstation' ]
+        en: [ 'Zhulyany Airport', 'Borispil Airport', 'Railstation' ]
     }
 }
 

@@ -20,6 +20,7 @@
 <div class="pull-left car-column">
 
     <div><%= link_to t('cars.edit_car'), edit_car_path(car) %></div>
+    <div><%= link_to t('cars.index.destroy'), car_path(car), method: 'delete', confirm: t('common.are_you_sure?') %></div>
 
     <%- if car.rent %>
       <div><%= link_to t('rents.edit_rent'), edit_car_rent_path(car) %></div>

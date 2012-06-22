@@ -97,6 +97,10 @@ div.subnav {
         /*background-color: white;*/
         @include border-radius(5px 5px 0 0);
     }
+
+    ul.en-pills {
+        width: 540px;
+    }
 }
 
 div#header ul.main-nav {
@@ -121,6 +125,11 @@ div#footer {
     }
 
     @include gradient-vertical($navbarBackground, $navbarBackgroundHighlight);
+
+    ul.en-pills {
+        width: 600px;
+        margin: 0 auto;
+    }
 }
 
 div#ui-datepicker-div {

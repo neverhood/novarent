@@ -2,6 +2,191 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  time:
+    formats:
+      short_number: "%d.%m.%Y %H:%M"
+
+  simple_form:
+    labels:
+      car:
+        minimum_reserve: Minimum reserve (days)
+      rent:
+        one_to_two: 1-2 days
+        three_to_five: 3-5 days
+        six_to_twelve: 6-12 days
+        thirteen_to_twenty_four: 13-24 days
+        month: month
+        bail: bail
+        day: day
+      rent_request:
+        car_id: Car
+
+  common:
+    back_to_booking: Back to booking
+    are_you_sure?: Are you sure?
+    info: Info
+    unknown: Unknown
+    submit: Submit
+    confirm: Confirm
+    brand: Nova Rent
+    phone: Phone
+    email: E-mail
+    per_day: per day
+    please_wait: Please wait ...
+    please_select: -- Not chosen --
   locales:
     russian: Русский
     english: English
+  welcome:
+    partners: Partners
+    special_rents: Special Offer
+    contacts: Contacts
+    index: Main
+    about_us: About us
+    catalog: Cars catalog
+
+  cars:
+    edit_car: Редактировать спецификацию машины
+    book: Booking
+    transmissions:
+      manual: Manual
+      auto: Auto
+      short:
+        manual: М/Т
+        auto: А/Т
+    index:
+      new: Новая машина
+      destroy: Удалить машину
+  rents:
+    new_request: Book
+    edit_rent: Редактировать условия аренды
+    create_rent: Добивить условия аренды
+    new:
+      header: 'Добавить условия аренды для %{car}'
+    edit:
+      header: 'Редактировать условия аренды для %{car}'
+
+  special_rents:
+    new_request: Book
+    edit_rent: Редактировать условия специального предложения
+    create_rent: Добивить специальное предложение
+    index:
+      header: 'Special Offers'
+    new:
+      header: 'Добавить условия специального предложения для %{car}'
+    edit:
+      header: 'Редактировать условия специального предложения для %{car}'
+
+  driving_services:
+    edit_service: Редактировать условия услуг водителя
+    create_service: Добивить условия услуг водителя
+    index:
+      header: 'Driving Services'
+    new:
+      header: 'Добавить условия услуг водителя'
+    edit:
+      header: 'Редактировать условия услуг водителя'
+
+  ads:
+    new:
+      header: 'Новая акция'
+    show:
+      edit: 'Редактировать'
+      destroy: 'Удалить'
+    edit:
+      header: 'Редактировать акцию'
+    index:
+      header: 'Акции'
+
+  rent_requests:
+    receipt_location_placeholder: Receipt location
+    drop_off_location_placeholder: Drop off location
+    form:
+      additional_services: Additional services
+      additional_services_remark: maximum 50$ per rental
+    new:
+      driving_service_explanation: "<h2> Heads up! </h2> Service cost will be calculated by manager!"
+      additional_services: "Additional Services:"
+      total: Total
+      gps_cost: GPS
+      child_seat_cost: Child Seat
+      additional_driver_cost: Additional Driver
+      header: 'Please confirm the details you`ve populated'
+      rent_cost: Rental cost
+      delivery: Delivery and return
+      delivery_cost: Delivery cost
+      return_cost: Return cost
+    show:
+      header: 'Application details'
+      shout_out: 'We`ll contact you shortly, thanks!'
+    special_time_periods:
+      friday_to_monday: "Friday 12:00 - Monday 10:00"
+      thursday_to_monday: "Thursday 12:00 - Monday 10:00"
+      friday_to_tuesday: "Friday 12:00 - Tuesday 10:00"
+    driving_services:
+      hourly: "Per hour payment"
+      transfer: "Transfer"
+    locations:
+      - Zhulyany Airport
+      - Borispil Airport
+      - Railstation
+
+  activerecord:
+    models:
+      car: Car
+      rent: Price
+      ad: Ad
+    attributes:
+      car:
+        name: Model
+        manufacturer: Manufacturer
+        engine: Engine
+        number_of_doors: Doors
+        number_of_passengers: Passengers
+        conditioner: Conditioner
+        leather: Leather salon
+        transmission: Transmission
+        minimum_reserve: Minimum Reserve
+        photo: Photo
+      rent:
+        one_to_two: 1-2 days
+        three_to_five: 3-5 days
+        six_to_twelve: 6-12 days
+        thirteen_to_twenty_four: 13-24 days
+        month: Month
+        bail: bail
+        day: per day
+        cost: Cost *
+      special_rent:
+        friday_to_monday: "Friday 12:00 - Monday 10:00"
+        thursday_to_monday: "Thursday 12:00 - Monday 10:00"
+        friday_to_tuesday: "Friday 12:00 - Tuesday 10:00"
+      ad:
+        photo: Photo
+        body: Text
+      driving_service:
+        cost: Delivery cost
+        one_hour: Per hour in city
+        transfer: Transfer
+        mileage: Per 1 km in Ukraine
+      rent_request:
+        receipt_location: Delivery location
+        drop_off_location: Return location
+        drop_off_at_receipt: Same as delivery location
+        confirm_drop_off_location: Agree on the place of receipt to the manager
+        receipt_at: Receipt date and time
+        drop_off_at: Return date and time
+        car_id: -- Car --
+        name: Name
+        email: E-mail
+        phone: Phone
+        message: Comment
+        total: Total
+        has_gps: 'GPS Navigator - <span class="badge badge-important">5$/day</span>'
+        has_child_seat: 'Child seat - <span class="badge badge-important">5$/day</span>'
+        has_additional_driver: 'Additional driver - <span class="badge badge-important">5$/day</span>'
+        special_time_period: Special offer
+        driving_service: Service
+        number_of_babe_seats: Child seat(1-4 years)
+        number_of_child_seats: Child seat(4-12 years)
+

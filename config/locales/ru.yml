@@ -22,6 +22,8 @@ ru:
         car_id: Машина
 
   common:
+    back_to_booking: Вернуться к бронированию
+    are_you_sure?: Точно?
     info: Информация
     unknown: Неизвестно
     submit: Сохранить
@@ -52,6 +54,9 @@ ru:
       short:
         manual: М/Т
         auto: А/Т
+    index:
+      new: Новая машина
+      destroy: Удалить машину
   rents:
     new_request: Заказать
     edit_rent: Редактировать условия аренды

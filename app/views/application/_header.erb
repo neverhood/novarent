@@ -16,15 +16,15 @@
         <div class="nav-collapse">
           <ul class="nav main-nav">
             <%- if session[:rent_request_params] or session[:car_id] %>
-              <li> <%= link_to new_rent_request_path, class: 'btn btn-warning', id: 'back-to-main' do %> <h2> Вернуться к бронированию </h2> <% end %> </li>
+              <li> <%= link_to new_rent_request_path, class: 'btn btn-warning', id: 'back-to-main' do %> <h2> <%= t 'common.back_to_booking' %> </h2> <% end %> </li>
             <%- else %>
-              <li> <%= link_to root_path, class: 'btn btn-warning', id: 'back-to-main' do %> <h2> Вернуться к бронированию </h2> <% end %> </li>
+              <li> <%= link_to root_path, class: 'btn btn-warning', id: 'back-to-main' do %> <h2> <%= t 'common.back_to_booking' %> </h2> <% end %> </li>
             <% end %>
           </ul>
 
           <ul class='pull-right nav'>
-            <li> <%= link_to t('locales.russian') %> </li>
-            <li> <%= link_to t('locales.english') %> </li>
+            <li> <%= link_to t('locales.russian'), to_russian_path %> </li>
+            <li> <%= link_to t('locales.english'), to_english_path %> </li>
           </ul>
 
           <ul class="nav contacts-nav well pull-right">
@@ -42,7 +42,7 @@
 </div>
 
 <div class='subnav'>
-  <ul class='nav nav-pills'>
+  <ul class='nav nav-pills <%= I18n.locale %>-pills'>
     <li class='<%= action_name == "index" and controller_name == "welcome" ? "active" : "" %>'> <%= link_to t('welcome.index'), root_path %> </li>
     <li class='<%= action_name == "about_us" ? "active" : "" %>'> <%= link_to t('welcome.about_us'), about_us_path %> </li>
     <li class='<%= action_name == "index" and controller_name == "rents" ? "active" : "" %>'> <%= link_to t('welcome.catalog'), rents_path %> </li>

@@ -1,7 +1,7 @@
 class CarsController < ApplicationController
   http_basic_authenticate_with :name => ENV['DEN_LOGIN'], :password => ENV['DEN_PASSWORD']
 
-  before_filter :find_car!, only: [ :show, :edit, :update ]
+  before_filter :find_car!, only: [ :show, :edit, :update, :destroy ]
 
   respond_to :html
 
@@ -27,6 +27,12 @@ class CarsController < ApplicationController
 
   def create
     @car = Car.create( params[:car] )
+
+    respond_with @car
+  end
+
+  def destroy
+    @car.destroy
 
     respond_with @car
   end

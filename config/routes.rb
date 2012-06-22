@@ -7,6 +7,9 @@ Cars::Application.routes.draw do
   get 'about_us' => 'welcome#about_us', as: 'about_us'
   get 'contacts' => 'welcome#contacts', as: 'contacts'
 
+  get 'to_russian' => 'application#to_russian', as: 'to_russian'
+  get 'to_english' => 'application#to_english', as: 'to_english'
+
   resources :cars, :except => [ :index ] do
     resource :rent, except: [ :show, :index ]
     resource :special_rent, except: [ :show, :index ]
