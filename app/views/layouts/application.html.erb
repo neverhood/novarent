@@ -13,7 +13,12 @@
 
   <div class='container'>
     <%= yield %>
+
+    <% if session[:admin] %>
+      <%= link_to 'Admin', admin_path %>
+    <% end %>
   </div>
+
 
   <div id='footer'>
     <div class='subnav-footer'>

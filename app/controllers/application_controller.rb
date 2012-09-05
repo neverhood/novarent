@@ -20,4 +20,10 @@ class ApplicationController < ActionController::Base
     I18n.locale = cookies[:locale].to_sym if cookies[:locale] and %w( ru en ).include?(cookies[:locale])
   end
 
+  def authenticate!
+    authenticate_or_request_with_http_basic do |user_name, password|
+      session[:admin] = ( user_name == ENV['DEN_LOGIN'] and password == ENV['DEN_PASSWORD'] )
+    end
+  end
+
 end

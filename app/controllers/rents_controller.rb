@@ -1,6 +1,6 @@
 class RentsController < ApplicationController
-  http_basic_authenticate_with :name => ENV['DEN_LOGIN'], :password => ENV['DEN_PASSWORD'], :except => :index
 
+  before_filter :authenticate!, except: :index
   before_filter :find_car!, except: :index
 
   respond_to :html
@@ -27,6 +27,13 @@ class RentsController < ApplicationController
     @rent = @car.create_rent(params[:rent])
 
     respond_with @car
+  end
+
+  def destroy
+    @rent = @car.rent
+    @rent.destroy
+
+    redirect_to car_path(@car)
   end
 
   private

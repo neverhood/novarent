@@ -1,6 +1,6 @@
 class RentRequestsController < ApplicationController
-  http_basic_authenticate_with name: ENV['DEN_LOGIN'], password: ENV['DEN_PASSWORD'], only: [ :destroy, :index ]
 
+  before_filter :authenticate!, except: [ :destroy, :index ]
   before_filter :find_car!, except: [ :show, :update, :create, :new ]
   before_filter :find_rent_request!, only: [ :destroy, :update ]
 

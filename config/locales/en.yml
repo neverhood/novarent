@@ -24,6 +24,7 @@ en:
   common:
     back_to_booking: Back to booking
     are_you_sure?: Are you sure?
+    destroy: Destroy
     info: Info
     unknown: Unknown
     submit: Submit

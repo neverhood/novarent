@@ -188,7 +188,7 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   pry-rails
-  rails (= 3.2.3)
+  rails
   rmagick
   rspec-rails
   russian

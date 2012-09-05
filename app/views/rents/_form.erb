@@ -8,4 +8,8 @@
   <%= form.input :bail %>
 
   <%= form.submit t('common.submit'), disable_with: t('common.please_wait') %>
+
+  <%- if @rent.persisted? %>
+    <div><%= link_to t('common.destroy'), car_rent_path(car_id: @car.id), method: 'delete', confirm: t('common.are_you_sure?') %></div>
+  <% end %>
 <% end %>

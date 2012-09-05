@@ -1,8 +1,8 @@
 class AdsController < ApplicationController
-  http_basic_authenticate_with :name => ENV['DEN_LOGIN'], :password => ENV['DEN_PASSWORD']
 
   respond_to :html
 
+  before_filter :authenticate!
   before_filter :find_ad!, only: [ :show, :edit, :update, :destroy ]
 
   def index

@@ -1,6 +1,6 @@
 class CarsController < ApplicationController
-  http_basic_authenticate_with :name => ENV['DEN_LOGIN'], :password => ENV['DEN_PASSWORD']
 
+  before_filter :authenticate!
   before_filter :find_car!, only: [ :show, :edit, :update, :destroy ]
 
   respond_to :html
@@ -43,4 +43,5 @@ class CarsController < ApplicationController
     @car = Car.where(id: params[:id]).first
     redirect_to root_path, notice: "not found" if @car.nil?
   end
+
 end

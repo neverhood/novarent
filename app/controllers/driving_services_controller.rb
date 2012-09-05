@@ -1,6 +1,6 @@
 class DrivingServicesController < ApplicationController
-  http_basic_authenticate_with :name => ENV['DEN_LOGIN'], :password => ENV['DEN_PASSWORD'], :except => :index
 
+  before_filter :authenticate!, except: [ :index ]
   before_filter :find_car!, except: [ :index ]
 
   respond_to :html
@@ -27,6 +27,13 @@ class DrivingServicesController < ApplicationController
     @driving_service = @car.create_driving_service(params[:driving_service])
 
     respond_with @car
+  end
+
+  def destroy
+    @driving_service = @car.driving_service
+    @driving_service.destroy
+
+    redirect_to car_path(@car)
   end
 
   private
