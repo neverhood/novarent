@@ -1,6 +1,6 @@
 class RentRequestsController < ApplicationController
 
-  before_filter :authenticate!, except: [ :destroy, :index ]
+  before_filter :authenticate!, only: [ :destroy, :index ]
   before_filter :find_car!, except: [ :show, :update, :create, :new ]
   before_filter :find_rent_request!, only: [ :destroy, :update ]
 

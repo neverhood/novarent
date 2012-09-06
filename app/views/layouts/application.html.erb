@@ -13,13 +13,6 @@
 
   <div class='container'>
     <%= yield %>
-
-    <% if session[:admin] %>
-      <div>
-        <%= link_to 'Тачки', admin_path %>
-        <%= link_to 'Акции', ads_path %>
-      </div>
-    <% end %>
   </div>
 
 
