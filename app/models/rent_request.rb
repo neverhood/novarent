@@ -35,17 +35,19 @@ class RentRequest < ActiveRecord::Base
   end
 
   def delivery_cost
-    I18n.t('rent_requests.locations').include?(receipt_location) ? 0 : CITY_DELIVERY_PRICE
+    #I18n.t('rent_requests.locations').include?(receipt_location) ? 0 : CITY_DELIVERY_PRICE
+    CITY_DELIVERY_PRICE
   end
 
   def return_cost
-    if drop_off_at_receipt?
-      delivery_cost
-    elsif confirm_drop_off_location?
-      CITY_DELIVERY_PRICE
-    else
-      I18n.t('rent_requests.locations').include?(drop_off_location) ? 0 : CITY_DELIVERY_PRICE
-    end
+    CITY_DELIVERY_PRICE
+    #if drop_off_at_receipt?
+      #delivery_cost
+    #elsif confirm_drop_off_location?
+      #CITY_DELIVERY_PRICE
+    #else
+      #I18n.t('rent_requests.locations').include?(drop_off_location) ? 0 : CITY_DELIVERY_PRICE
+    #end
   end
 
   def rent_cost

@@ -97,6 +97,7 @@ ru:
     edit:
       header: 'Редактировать акцию'
     index:
+      new_ad: 'Новая акция'
       header: 'Акции'
 
   rent_requests:
@@ -112,7 +113,7 @@ ru:
       total: Итого
       gps_cost: GPS
       child_seat_cost: Детское сидение
-      additional_driver_cost: Дополнительный водитель
+      additional_driver_cost: Второй дополнительный водитель
       header: 'Пожалуйста, подтвердите введенные данные'
       rent_cost: Стоимость аренды автомобиля
       delivery: Доставка и возврат
@@ -186,7 +187,7 @@ ru:
         total: Сумма
         has_gps: 'GPS навигатор - <span class="badge badge-important">5$/сутки</span>'
         has_child_seat: 'Детское сидение - <span class="badge badge-important">5$/сутки</span>'
-        has_additional_driver: 'Дополнительный водитель - <span class="badge badge-important">5$/сутки</span>'
+        has_additional_driver: 'Второй дополнительный водитель - <span class="badge badge-important">5$/сутки</span>'
         special_time_period: Специальное предложение
         driving_service: Услуга
         number_of_babe_seats: Детское сидение(1-4 года)

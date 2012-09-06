@@ -54,19 +54,21 @@ jQuery ->
                         'fridayToTuesday': 'Friday - Tuesday'
 
             deliveryCost: ->
-                cost = 0
-                cost = api.cityDeliveryCost if $.inArray( api.receiptLocation.val(), api.deliveryLocations ) == -1
+                api.cityDeliveryCost
+                #cost = 0
+                #cost = api.cityDeliveryCost if $.inArray( api.receiptLocation.val(), api.deliveryLocations ) == -1
 
-                cost
+                #cost
             returnCost: ->
-                cost = 0
+                api.cityDeliveryCost
+                #cost = 0
 
-                if api.dropOffAtReceipt.is(':checked')
-                    cost = api.deliveryCost()
-                else if $.inArray(  api.dropOffLocation.val(), api.deliveryLocations ) == -1 or api.confirmDropOffLocation.is(':checked')
-                    cost = api.cityDeliveryCost
+                #if api.dropOffAtReceipt.is(':checked')
+                    #cost = api.deliveryCost()
+                #else if $.inArray(  api.dropOffLocation.val(), api.deliveryLocations ) == -1 or api.confirmDropOffLocation.is(':checked')
+                    #cost = api.cityDeliveryCost
 
-                cost
+                #cost
             rentDays: ->
                 if api.type == 'rent' or api.type == 'driving_service'
                     endRaw = $('#rent_request_drop_off_at').val().split(/\.| |:/)
@@ -253,11 +255,11 @@ jQuery ->
 
                     api.recalculate()
 
-                    if api.deliveryLocations[ api.receiptLocation.val() ]
-                        console.log 'delivery: ' + api.deliveryPrices[ api.deliveryLocations[ api.receiptLocation.val() ] ]
+                    #if api.deliveryLocations[ api.receiptLocation.val() ]
+                        #console.log 'delivery: ' + api.deliveryPrices[ api.deliveryLocations[ api.receiptLocation.val() ] ]
 
-                    if api.deliveryLocations[ api.dropOffLocation.val() ] or ( api.deliveryLocations[ api.receiptLocation.val() ] and api.dropOffAtReceipt.is(':checked') )
-                        console.log 'drop off: ' + api.deliveryPrices[ api.deliveryLocations[ api.receiptLocation.val() ] ]
+                    #if api.deliveryLocations[ api.dropOffLocation.val() ] or ( api.deliveryLocations[ api.receiptLocation.val() ] and api.dropOffAtReceipt.is(':checked') )
+                        #console.log 'drop off: ' + api.deliveryPrices[ api.deliveryLocations[ api.receiptLocation.val() ] ]
 
                 $(window).unload ->
                     values = [ api.receiptLocation.val(), api.dropOffLocation.val(), api.dropOffAtReceipt.is(':checked'), api.confirmDropOffLocation.is(':checked'),
@@ -350,8 +352,9 @@ jQuery ->
             change: (event, ui) ->
                 console.log( this.value )
                 api.recalculate()
-        ).keyup ->
-            api.recalculate()
+        )
+            #.keyup ->
+            #api.recalculate()
 
         $('span#receipt-suggestion').click ->
             input = $('input#rent_request_receipt_location')

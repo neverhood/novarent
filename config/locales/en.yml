@@ -97,6 +97,7 @@ en:
     edit:
       header: 'Редактировать акцию'
     index:
+      new_ad: 'Новая акция'
       header: 'Акции'
 
   rent_requests:

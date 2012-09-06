@@ -107,6 +107,7 @@ body#rent-requests {
     }
 
     div#additional-services {
+        min-height: 233px;
         div.control-group {
             margin-bottom: 0;
         }
@@ -125,14 +126,21 @@ body#rent-requests {
 
 
     div#rent-specification {
-        margin-top: 35px;
+        margin-top: 23px;
+        min-height: 315px;
 
         div#cost-specs {
             strong {
                 display: inline-block;
-                width: 179px;
+                width: 280px;
+                border-bottom: 1px dashed steelBlue;
                 text-align: right;
                 margin-right: 40px;
+            }
+
+            h4 {
+                color: steelBlue;
+                margin: 5px 0;
             }
         }
 

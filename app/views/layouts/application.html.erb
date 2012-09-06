@@ -15,7 +15,10 @@
     <%= yield %>
 
     <% if session[:admin] %>
-      <%= link_to 'Admin', admin_path %>
+      <div>
+        <%= link_to 'Тачки', admin_path %>
+        <%= link_to 'Акции', ads_path %>
+      </div>
     <% end %>
   </div>
 
