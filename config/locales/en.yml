@@ -112,7 +112,7 @@ en:
       total: Total
       gps_cost: GPS
       child_seat_cost: Child Seat
-      additional_driver_cost: Additional Driver
+      additional_driver_cost: Second additional driver
       header: 'Please confirm the details you`ve populated'
       rent_cost: Rental cost
       delivery: Delivery and return
@@ -121,6 +121,18 @@ en:
     show:
       header: 'Application details'
       shout_out: 'We`ll contact you shortly, thanks!'
+
+      total: Total
+      details: Specification
+      cost: Rent cost
+      drop_off_and_delivery: Delivery and return
+      client_info: Client information
+      other: Other information
+      information: Application details
+      babe_seat: 'Child seat(1-4 years)'
+      child_seat: 'Child seat(4-12 years)'
+      babe_seats: 'Child seats(1-4 years)'
+      child_seats: 'Child seats(4-12 years)'
     special_time_periods:
       friday_to_monday: "Friday 12:00 - Monday 10:00"
       thursday_to_monday: "Thursday 12:00 - Monday 10:00"
@@ -186,7 +198,7 @@ en:
         total: Total
         has_gps: 'GPS Navigator - <span class="badge badge-important">5$/day</span>'
         has_child_seat: 'Child seat - <span class="badge badge-important">5$/day</span>'
-        has_additional_driver: 'Additional driver - <span class="badge badge-important">5$/day</span>'
+        has_additional_driver: 'Second additional driver - <span class="badge badge-important">5$/day</span>'
         special_time_period: Special offer
         driving_service: Service
         number_of_babe_seats: Child seat(1-4 years)
