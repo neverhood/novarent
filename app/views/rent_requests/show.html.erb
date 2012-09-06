@@ -6,13 +6,18 @@
 </div>
 
 <div class='well' id='rent-request-details'>
-  <h1> <%= t '.total' %>:
+  <h3> <strong> <%= t '.total' %>: </strong>
     <%- if @rent_request.request_type.driving_service? %>
       <span> <%= t('rent_requests.new.driving_service_explanation').html_safe %> </span>
     <% else %>
       <span class='alert alert-success'> <%= @rent_request.total %>$ </span>
     <% end %>
-  </h1>
+  </h3>
+
+  <%- if not @rent_request.request_type.driving_service? %>
+    <h3> <strong><%= t('common.bail') %>:</strong> <span class='alert alert-success'><%= @rent_request.rent.bail %>$</span> </h3>
+  <% end %>
+
   <hr />
 
   <%- unless @rent_request.request_type.driving_service? %>

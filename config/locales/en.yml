@@ -26,6 +26,7 @@ en:
     are_you_sure?: Are you sure?
     destroy: Destroy
     info: Info
+    bail: Bail
     unknown: Unknown
     submit: Submit
     confirm: Confirm

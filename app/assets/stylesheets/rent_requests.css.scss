@@ -36,6 +36,20 @@ body#rent-requests {
             margin: 10px 0;
             color: steelBlue;
         }
+        h3 {
+
+            strong {
+                display: inline-block;
+                width: 140px;
+                text-align: right;
+                margin-right: 25px;
+            }
+            span {
+                display: inline-block;
+                width: 50px;
+                padding: 10px 20px;
+            }
+        }
 
         div#payment-specification {
             margin-left: 25px;
