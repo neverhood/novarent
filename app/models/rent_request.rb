@@ -34,6 +34,10 @@ class RentRequest < ActiveRecord::Base
     end
   end
 
+  def has_additional_services?
+    has_gps? or has_additional_driver? or has_child_seat?
+  end
+
   def delivery_cost
     #I18n.t('rent_requests.locations').include?(receipt_location) ? 0 : CITY_DELIVERY_PRICE
     CITY_DELIVERY_PRICE
@@ -65,6 +69,16 @@ class RentRequest < ActiveRecord::Base
     else
       0
     end
+  end
+
+  def cost_of_babe_seats
+    price = number_of_babe_seats * total_days * PRICES[:child_seat]
+    price > 50 ? 50 : price
+  end
+
+  def cost_of_child_seats
+    price = number_of_child_seats * total_days * PRICES[:child_seat]
+    price > 50 ? 50 : price
   end
 
   def stringified_period

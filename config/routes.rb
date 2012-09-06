@@ -17,6 +17,7 @@ Cars::Application.routes.draw do
     resource :driving_service, except: [ :show, :index ]
   end
   get 'rent_requests/new' => 'rent_requests#new', as: 'new_rent_request'
+  get 'rent_requests/:id' => 'rent_requests#show', as: 'rent_request'
 
   resources :ads
 
