@@ -1,15 +1,15 @@
 <%= page_header t('.header') + ' - ' + @rent_request.car.full_name %>
 
-
 <div id='shout-out' class='alert alert-info'>
   <%= t('.shout_out') %>
 </div>
 
 <div class='well' id='rent-request-details'>
-  <h3> <strong> <%= t '.total' %>: </strong>
+  <h3>
     <%- if @rent_request.request_type.driving_service? %>
-      <span> <%= t('rent_requests.new.driving_service_explanation').html_safe %> </span>
+      <b> <%= t('rent_requests.new.driving_service_explanation').html_safe %> </b>
     <% else %>
+      <strong> <%= t '.total' %>: </strong>
       <span class='alert alert-success'> <%= @rent_request.total %>$ </span>
     <% end %>
   </h3>

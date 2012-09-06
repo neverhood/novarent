@@ -385,7 +385,7 @@ jQuery ->
                 fieldsWithErrors.push $.api.rentRequests.receiptAt.parents('div.control-group')
 
             if $.api.rentRequests.dropOffAt.val().length == 0
-                unless api.type == 'driving_service' and $('select#rent_request_driving_service').val() == 1
+                unless api.type == 'driving_service' and $('select#rent_request_driving_service').val() == "1"
                     fieldsWithErrors.push $.api.rentRequests.dropOffAt.parents('div.control-group')
 
             if $.api.rentRequests.name.val().length == 0

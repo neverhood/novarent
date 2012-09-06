@@ -56,8 +56,8 @@ class RentRequestsController < ApplicationController
       session.delete(:request_type)
       session.delete(:car_id)
 
-      #render 'show'
-      redirect_to rent_request_path(@rent_request)
+      render 'show'
+      #redirect_to rent_request_path(@rent_request)
     else
       @rent = @car.rent if @request_type.rent?
       @driving_service = @car.driving_service if @request_type.driving_service?
@@ -68,7 +68,7 @@ class RentRequestsController < ApplicationController
   end
 
   def show
-    @rent_request = RentRequest.where(id: params[:id]).first
+    @rent_request = RentRequest.where(id: session[:request_id]).first
 
     redirect_to root_path if @rent_request.nil?
   end
