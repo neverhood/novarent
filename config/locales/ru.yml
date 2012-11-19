@@ -22,7 +22,7 @@ ru:
         car_id: Машина
 
   common:
-    back_to_booking: Вернуться к бронированию
+    back_to_booking: К бронированию
     are_you_sure?: Точно?
     destroy: Удалить
     info: Информация

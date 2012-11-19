@@ -40,7 +40,7 @@ div.container {
 }
 
 div#header {
-    height: 70px;
+    height: 100px;
 
     h1, h2, h3, h4 {
         line-height: 15px;
@@ -62,7 +62,7 @@ div#header {
             @include gradient-vertical(#FBB450, #F89406);
         }
 
-        width: 340px;
+        width: 205px;
         display: inline-block;
         text-align: center;
     }
@@ -77,7 +77,7 @@ div#header {
     }
 
     div.navbar-inner {
-        height: 70px;
+        height: 100px;
         @include border-radius(0);
     }
 
@@ -91,7 +91,6 @@ div.subnav {
 
     ul.nav {
         padding: 2px 5px;
-        margin: 0 150px;
     }
 
     ul.nav-pills {
@@ -99,7 +98,7 @@ div.subnav {
         border-bottom: 1px solid #ccc;
         @include gradient-vertical(white, #ccc);
         /*background-color: white;*/
-        @include border-radius(5px 5px 0 0);
+        @include border-radius(0 5px 0 0);
     }
 
     ul.en-pills li:first-child {
