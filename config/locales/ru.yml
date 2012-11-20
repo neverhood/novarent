@@ -37,8 +37,8 @@ ru:
     please_wait: Пожалуйста, подождите...
     please_select: -- Не выбрано --
   locales:
-    russian: Русский
-    english: English
+    russian: ru
+    english: en
   welcome:
     partners: Партнеры
     special_rents: Специальные предложения
@@ -46,6 +46,20 @@ ru:
     index: Главная
     about_us: О Компании
     catalog: Каталог машин
+    partners:
+      header: 'Партнеры'
+    to_partners:
+      header: 'Партнерам'
+
+  layouts:
+    application:
+      partners: 'Партнеры'
+      to_partners: 'Партнерам'
+
+  application:
+    header:
+      partners: 'Партнеры'
+      to_partners: 'Партнерам'
 
   cars:
     edit_car: Редактировать спецификацию машины

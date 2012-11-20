@@ -50,23 +50,15 @@ body#welcome {
     }
 
     div#contacts {
-        width: 700px;
-        margin: 0 auto;
+        margin: -90px 30px 0 0;
+        color: white;
 
-        div.contacts-entry {
-            width: 350px;
-            text-align: center;
+        div.phone {
+            font-size: 20px;
+        }
 
-            div.image {
-                margin: 0 0 10px 130px;
-                width: 100px;
-                height: 100px;
-            }
-
-            div.value {
-                font-weight: bold;
-                font-size: 16px;
-            }
+        div.email {
+            font-size: 18px;
         }
     }
 

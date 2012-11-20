@@ -7,6 +7,8 @@ Cars::Application.routes.draw do
 
   get 'about_us' => 'welcome#about_us', as: 'about_us'
   get 'contacts' => 'welcome#contacts', as: 'contacts'
+  get 'partners' => 'welcome#partners', as: 'partners'
+  get 'to_partners' => 'welcome#to_partners', as: 'to_partners'
 
   get 'to_russian' => 'application#to_russian', as: 'to_russian'
   get 'to_english' => 'application#to_english', as: 'to_english'

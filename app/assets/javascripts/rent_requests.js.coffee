@@ -290,9 +290,10 @@ jQuery ->
 
         $.datepicker.setDefaults( $.datepicker.regional[ $.api.locale ] )
         $.timepicker.setDefaults( $.datepicker.regional[ $.api.locale ] )
+        $.timepicker.setDefaults( closeText: 'Ок')
 
         if api.type == 'driving_service' or api.type == 'rent'
-            $('input#rent_request_drop_off_at, input#rent_request_receipt_at').datetimepicker(showButtonPanel: false, stepMinute: 10, minDate: new Date)
+            $('input#rent_request_drop_off_at, input#rent_request_receipt_at').datetimepicker(stepMinute: 10, minDate: new Date)
         if api.type == 'special_rent'
 
             $('input#rent_request_special_time_period_0').click ->

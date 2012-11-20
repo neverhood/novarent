@@ -53,6 +53,8 @@ jQuery ->
 
         $.datepicker.setDefaults( $.datepicker.regional[ $.api.locale ] )
         $.timepicker.setDefaults( $.datepicker.regional[ $.api.locale ] )
+        $.timepicker.setDefaults( closeText: 'Ок')
+
         $('input#rent_request_drop_off_at, input#rent_request_receipt_at').datetimepicker(stepMinute: 10, minDate: new Date)
 
         $('input#rent_request_receipt_location, input#rent_request_drop_off_location').autocomplete(

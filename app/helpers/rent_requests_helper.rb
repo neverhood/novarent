@@ -13,7 +13,7 @@ module RentRequestsHelper
   end
 
   def payment_entry translation, value
-    "<div> <strong> #{ translation }: </strong> <span class='money'> #{ value }$ </span> #{ plus_sign } </div>".html_safe
+    "<div> <strong> #{ translation }: </strong> <span class='money'> #{ value }$ </span> </div>".html_safe
   end
 
   def info_row translation, value

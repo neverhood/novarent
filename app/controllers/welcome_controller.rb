@@ -9,4 +9,10 @@ class WelcomeController < ApplicationController
   def about_us
   end
 
+  def partners
+  end
+
+  def to_partners
+  end
+
 end

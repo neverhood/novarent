@@ -81,11 +81,14 @@ div#header {
         @include border-radius(0);
     }
 
+    ul#app-locales {
+        font-size: 18px;
+    }
+
 }
 
 div.subnav {
     /*@include gradient-vertical($navbarBackgroundHighlight, $navbarBackground);*/
-    @include border-radius(0 0 5px 5px);
     background-color: $navbarBackground;
     margin: -19px 0 10px 0;
 
@@ -94,7 +97,7 @@ div.subnav {
     }
 
     ul.nav-pills {
-        width: 710px;
+        width: 880px;
         border-bottom: 1px solid #ccc;
         @include gradient-vertical(white, #ccc);
         /*background-color: white;*/
@@ -124,14 +127,14 @@ div#footer {
     }
 
     div.subnav-footer {
-        width: 750px;
+        width: 880px;
         margin: 0 auto;
     }
 
     @include gradient-vertical($navbarBackground, $navbarBackgroundHighlight);
 
     ul.en-pills {
-        width: 600px;
+        width: 700px;
         margin: 0 auto;
     }
 }
@@ -156,4 +159,26 @@ ul.ui-autocomplete {
 
 div.margin-top {
     margin-top: 10px;
+}
+
+div#contacts-page {
+    width: 700px;
+    margin: 0px auto;
+
+    div.contacts-entry {
+        width: 350px;
+        text-align: center;
+
+        div.image {
+            margin: 0 0 10px 130px;
+            width: 100px;
+            height: 100px;
+        }
+
+        div.value {
+            font-weight: bold;
+            font-size: 16px;
+        }
+    }
+
 }

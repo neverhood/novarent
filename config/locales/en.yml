@@ -29,23 +29,37 @@ en:
     bail: Bail
     unknown: Unknown
     submit: Submit
-    confirm: Confirm
-    brand: Nova Rent
-    phone: Phone
-    email: E-mail
-    per_day: per day
-    please_wait: Please wait ...
-    please_select: -- Not chosen --
+    confirm: 'Confirm'
+    brand: 'Nova Rent'
+    phone: 'Phone'
+    email: 'E-mail'
+    per_day: 'per day'
+    please_wait: 'Please wait ...'
+    please_select: '-- Not chosen --'
   locales:
-    russian: Русский
-    english: English
+    russian: 'ru'
+    english: 'en'
   welcome:
-    partners: Partners
-    special_rents: Special Offer
-    contacts: Contacts
-    index: Main
-    about_us: About us
-    catalog: Cars catalog
+    partners: 'Partners'
+    special_rents: 'Special Offer'
+    contacts: 'Contacts'
+    index: 'Main'
+    about_us: 'About us'
+    catalog: 'Cars catalog'
+    partners:
+      header: 'Partners'
+    to_partners:
+      header: 'To partners'
+
+  layouts:
+    application:
+      partners: 'Partners'
+      to_partners: 'To partners'
+
+  application:
+    header:
+      partners: 'Partners'
+      to_partners: 'To partners'
 
   cars:
     edit_car: Редактировать спецификацию машины
