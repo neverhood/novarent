@@ -17,6 +17,7 @@ jQuery ->
             email: $('input#rent_request_email').keyup -> $(this).parents('div.control-group').removeClass('error') if this.value.length
             phone: $('input#rent_request_phone')
             type: $('div#new-rent-request-container').data('request-type')
+            hoursOffset: 3
             additionalServices:
                 gps: $('#gps-cost-value')
                 childSeat: $('#child-seat-cost-value')
@@ -76,7 +77,9 @@ jQuery ->
                     start = new Date(startRaw[2], startRaw[1], startRaw[0], startRaw[3], startRaw[4])
                     end = new Date(endRaw[2], endRaw[1], endRaw[0], endRaw[3], endRaw[4])
 
-                    Math.ceil( ( end - start ) / ( 1000*60*60*24 ) )
+                    hoursOffsetInMs = 1000*60*60*api.hoursOffset
+
+                    Math.ceil( ( (end - start) - hoursOffsetInMs ) / ( 1000*60*60*24 ) )
                 else
                     if $('input#rent_request_special_time_period_0').is(':checked')
                         3

@@ -36,6 +36,9 @@ ru:
     per_day: в сутки
     please_wait: Пожалуйста, подождите...
     please_select: -- Не выбрано --
+    "true": Да
+    "false": Нет
+
   locales:
     russian: ru
     english: en
@@ -46,20 +49,23 @@ ru:
     index: Главная
     about_us: О Компании
     catalog: Каталог машин
+    rent_conds: Условия проката
     partners:
       header: 'Партнеры'
     to_partners:
       header: 'Партнерам'
+    rental_conditions:
+      header: 'Условия проката'
 
   layouts:
     application:
       partners: 'Партнеры'
-      to_partners: 'Партнерам'
+      to_partners: 'Сдай авто в аренду'
 
   application:
     header:
       partners: 'Партнеры'
-      to_partners: 'Партнерам'
+      to_partners: 'Сдай авто в аренду'
 
   cars:
     edit_car: Редактировать спецификацию машины
@@ -115,12 +121,22 @@ ru:
       new_ad: 'Новая акция'
       header: 'Акции'
 
+  global_notifications:
+    new:
+      header: 'Новая нотификация'
+    index:
+      new: 'Добавить новость'
+      active?: 'Активна?'
+      delete: 'Удалить'
+      text: 'Содержание'
+      header: 'Нотификации'
+
   rent_requests:
     receipt_location_placeholder: Введите место выдачи
     drop_off_location_placeholder: Введите место возврата
     form:
       additional_services: Дополнительные услуги
-      additional_services_remark: не более 50 $ за весь период аренды
+      additional_services_remark: '* не более 50 $ за весь период аренды'
       header: 'Пожалуйста, подтвердите введенные данные'
     new:
       driving_service_explanation: "<h2> Внимание! </h2>  Стоимость услуги уточняется с менеджером!"
@@ -211,9 +227,9 @@ ru:
         phone: Телефон
         message: Комментарий
         total: Сумма
-        has_gps: 'GPS навигатор - <span class="badge badge-important">5$/сутки</span>'
-        has_child_seat: 'Детское сидение - <span class="badge badge-important">5$/сутки</span>'
-        has_additional_driver: 'Второй дополнительный водитель - <span class="badge badge-important">5$/сутки</span>'
+        has_gps: 'GPS навигатор - <span class="badge badge-important">5$/сутки *</span>'
+        has_child_seat: 'Детское сидение - <span class="badge badge-important">5$/сутки *</span>'
+        has_additional_driver: 'Второй дополнительный водитель - <span class="badge badge-important">5$/сутки *</span>'
         special_time_period: Специальное предложение
         driving_service: Услуга
         number_of_babe_seats: Детское сидение(1-4 года)

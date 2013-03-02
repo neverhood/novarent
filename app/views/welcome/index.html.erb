@@ -1,8 +1,21 @@
 <div class='well'>
   <div class='row'>
+
+
     <div class='alert alert-info span4'>
       <%= render 'rent_request_form' %>
     </div>
+
+    <%- if @global_notifications.any? %>
+      <div id='news-block'>
+        <ul id='news-scroller'>
+          <% @global_notifications.each do |global_notification| %>
+            <li> <strong> <%= l global_notification.created_at, format: :short %> </strong>: 
+              <%= I18n.locale == :ru ? global_notification.text : global_notification.english_text %> </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
     <div id='ads'>
       <div id='special-offers' class='carousel slide'>

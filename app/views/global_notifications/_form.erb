@@ -1,0 +1,6 @@
+<%= simple_form_for @global_notification do |form| %>
+  <%= form.input :text %>
+  <%= form.input :english_text %>
+
+  <%= form.submit t('common.submit'), class: 'btn btn-success', data: { disable_with: t('common.please_wait') } %>
+<% end %>

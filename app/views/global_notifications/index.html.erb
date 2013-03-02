@@ -1,0 +1,21 @@
+<%= page_header %>
+
+<%= link_to t('.new'), new_global_notification_path %>
+
+<table class='table'>
+  <thead>
+    <tr>
+      <th> <%= t '.text' %> </th>
+      <th> <%= t '.english_text' %> </th>
+      <th> <%= t '.active?' %> </th>
+      <th> <%= t '.delete' %> </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @global_notifications %>
+  </tbody>
+</table>
+
+<%= paginate @global_notifications %>
+

@@ -84,6 +84,9 @@ GEM
       jquery-rails
       railties (>= 3.1.0)
     json (1.7.5)
+    kaminari (0.14.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     libwebsocket (0.1.5)
       addressable
     listen (0.5.0)
@@ -191,6 +194,7 @@ DEPENDENCIES
   guard-spork
   jquery-rails
   jquery-ui-rails
+  kaminari
   pry-rails
   rails
   rmagick

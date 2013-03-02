@@ -18,6 +18,8 @@ jQuery ->
             phone: $('input#rent_request_phone')
 
         if $.api.action == 'index'
+            $('ul#news-scroller').liScroll()
+
             if $.cookie('params')
                 params = $.cookie('params').split(',')
                 api = $.api.welcome

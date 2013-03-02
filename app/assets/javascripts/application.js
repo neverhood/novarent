@@ -21,6 +21,7 @@
 //= require cookie
 //= require jquery.ui.datepicker-ru
 //= require jquery.ui.timepicker-ru
+//= require li-scroller
 //= require api
 //= require ads
 //= require welcome

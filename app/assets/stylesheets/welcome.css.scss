@@ -5,6 +5,12 @@
 
 body#welcome {
 
+    div#news-block {
+        float: left;
+        margin-left: 50px;
+        margin-bottom: 20px;
+    }
+
     div#ads { width: 650px;
         height: 320px;
         float: left;

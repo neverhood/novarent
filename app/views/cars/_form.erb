@@ -9,7 +9,6 @@
   <%= form.input :number_of_doors %>
   <%= form.input :transmission, :as => :select, :collection => @car.transmission_selection_options, :selected => @car.read_attribute(:transmission),
     :prompt => t('common.please_select') %>
-  <%= form.input :minimum_reserve %>
 
   <%- if @car.photo? %>
     <%= image_tag @car.photo.url(:medium) %>

@@ -28,4 +28,8 @@ class Car < ActiveRecord::Base
     [ 0, 1 ].map  { |type| [ I18n.t('cars.transmissions.' + transmission(type)), type ] }
   end
 
+  def minimum_reserve
+    1
+  end
+
 end

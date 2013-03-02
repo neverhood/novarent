@@ -5,6 +5,7 @@ gem 'russian'
 gem 'rmagick'
 gem 'carrierwave'
 gem 'pry-rails'
+gem 'kaminari'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

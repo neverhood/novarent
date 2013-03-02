@@ -36,6 +36,8 @@ en:
     per_day: 'per day'
     please_wait: 'Please wait ...'
     please_select: '-- Not chosen --'
+    "true": 'Yes'
+    "false": 'No'
   locales:
     russian: 'ru'
     english: 'en'
@@ -46,10 +48,13 @@ en:
     index: 'Main'
     about_us: 'About us'
     catalog: 'Cars catalog'
+    rent_conds: 'Rental conditions'
     partners:
       header: 'Partners'
     to_partners:
       header: 'To partners'
+    rental_conditions:
+      header: 'Rental conditions'
 
   layouts:
     application:
@@ -120,7 +125,7 @@ en:
     drop_off_location_placeholder: Drop off location
     form:
       additional_services: Additional services
-      additional_services_remark: maximum 50$ per rental
+      additional_services_remark: '* maximum 50$ per rental'
     new:
       driving_service_explanation: "<h2> Heads up! </h2> Service cost will be calculated by manager!"
       additional_services: "Additional Services:"
@@ -211,9 +216,9 @@ en:
         phone: Phone
         message: Comment
         total: Total
-        has_gps: 'GPS Navigator - <span class="badge badge-important">5$/day</span>'
-        has_child_seat: 'Child seat - <span class="badge badge-important">5$/day</span>'
-        has_additional_driver: 'Second additional driver - <span class="badge badge-important">5$/day</span>'
+        has_gps: 'GPS Navigator - <span class="badge badge-important">5$/day *</span>'
+        has_child_seat: 'Child seat - <span class="badge badge-important">5$/day *</span>'
+        has_additional_driver: 'Second additional driver - <span class="badge badge-important">5$/day *</span>'
         special_time_period: Special offer
         driving_service: Service
         number_of_babe_seats: Child seat(1-4 years)

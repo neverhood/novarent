@@ -6,12 +6,11 @@
     <div class="container">
 
       <div id='header-links'>
-        <%= link_to root_path, class: 'brand' do %>
-          <div>
-            <h1 class='brand-part'> Nova </h1>
-            <h2 class='brand-part'> Rent </h2>
-          </div>
-        <% end %>
+        <div id='site-logo'>
+          <%= link_to root_path, class: 'brand' do %>
+            <%= image_tag 'logo.jpg' %>
+          <% end %>
+        </div>
 
         <div class="nav-collapse">
           <ul class="nav main-nav">
@@ -22,10 +21,27 @@
             <% end %>
           </ul>
 
+
           <ul class='pull-right nav' id='app-locales'>
-            <li> <%= link_to t('locales.russian'), to_russian_path %> </li>
-            <li> <%= link_to t('locales.english'), to_english_path %> </li>
+            <li>
+              <%= link_to to_russian_path, id: 'switch-to-russian' do %>
+                <span class='label label-info'> <%= t 'locales.russian' %> </span>
+              <% end %>
+            </li>
+
+            <li>
+              <%= link_to to_english_path, id: 'switch-to-english' do %>
+                <span class='label label-info'> <%= t 'locales.english' %> </span>
+              <% end %>
+            </li>
           </ul>
+
+          <ul class='pull-right nav' id='social-block'>
+            <li> <%= image_tag 'vk.png' %> </li>
+            <li> <%= image_tag 'facebook.png' %> </li>
+            <li> <%= image_tag 'twitter.png' %> </li>
+          </ul>
+
 
 
         </div>
@@ -45,11 +61,12 @@
     <li class='<%= action_name == "about_us" ? "active" : "" %>'> <%= link_to t('welcome.about_us'), about_us_path %> </li>
     <li class='<%= action_name == "index" and controller_name == "welcome" ? "active" : "" %>'> <%= link_to t('welcome.index'), root_path %> </li>
     <li class='<%= action_name == "index" and controller_name == "rents" ? "active" : "" %>'> <%= link_to t('welcome.catalog'), rents_path %> </li>
-    <li class='<%= action_name == "index" and controller_name == "driving_services" ? "active" : "" %>'> <%= link_to t('driving_services.index.header'), driving_services_path %> </li>
     <li class='<%= action_name == "index" and controller_name == "special_rents" ? "active" : "" %>'> <%= link_to t('welcome.special_rents'), special_rents_path %> </li>
+    <li class='<%= action_name == "rent_conds" and controller_name == "welcome" ? "active" : "" %>'> <%= link_to t('welcome.rent_conds'), rental_conditions_path %> </li>
+    <li class='<%= action_name == "index" and controller_name == "driving_services" ? "active" : "" %>'> <%= link_to t('driving_services.index.header'), driving_services_path %> </li>
+    <li class='<%= action_name == 'to_partners' ? 'active' : '' %>'> <%= link_to t('.to_partners'), to_partners_path %> </li>
     <li class='<%= action_name == 'contacts' ? 'active' : '' %>'> <%= link_to t('welcome.contacts'), contacts_path %> </li>
     <li class='<%= action_name == 'partners' ? 'active' : '' %>'> <%= link_to t('.partners'), partners_path %> </li>
-    <li class='<%= action_name == 'to_partners' ? 'active' : '' %>'> <%= link_to t('.to_partners'), to_partners_path %> </li>
   </ul>
 
   <div id='contacts' class='pull-right'>

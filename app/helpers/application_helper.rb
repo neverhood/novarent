@@ -1,6 +1,6 @@
 module ApplicationHelper
 
-  def page_header(text)
+  def page_header(text = t('.header'))
     "<div class='page-header'> <h2>#{ text }</h2> </div>".html_safe
   end
 

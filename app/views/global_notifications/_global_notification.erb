@@ -1,0 +1,7 @@
+<tr>
+  <td> <%= link_to truncate(global_notification.text, length: 100), edit_global_notification_path(global_notification) %> </td>
+  <td> <%= link_to truncate(global_notification.english_text, length: 100), edit_global_notification_path(global_notification) %> </td>
+
+  <td> <%= link_to t("common.#{global_notification.active}"), activate_global_notification_path(global_notification), method: 'put' %> </td>
+  <td> <%= link_to t("common.destroy"), global_notification_path(global_notification), method: 'delete' %> </td>
+</tr>
