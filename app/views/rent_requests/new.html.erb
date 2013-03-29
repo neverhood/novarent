@@ -53,13 +53,13 @@
         </div>
       <%- elsif @request_type == 'special_rent' %>
         <div class='car-specs-row'>
-          <strong> <%= t('activerecord.attributes.special_rent.friday_to_monday') %>: </strong> <span class='badge badge-info'><%= @car.special_rent.friday_to_monday %>$</span>
+          <strong> <%= t('activerecord.attributes.special_rent.thursday_to_monday') %>: </strong> <span class='badge badge-info'><%= @car.special_rent.thursday_to_monday %>$</span>
         </div>
         <div class='car-specs-row'>
-          <strong> <%= t('activerecord.attributes.special_rent.thursday_to_monday') %>: </strong> <span class='badge badge-info'> <%= @car.special_rent.thursday_to_monday %>$</span>
+          <strong> <%= t('activerecord.attributes.special_rent.friday_to_monday') %>: </strong> <span class='badge badge-info'> <%= @car.special_rent.friday_to_monday %>$</span>
         </div>
         <div class='car-specs-row'>
-          <strong> <%= t('activerecord.attributes.special_rent.friday_to_tuesday') %>: </strong> <span class='badge badge-info'> <%= @car.special_rent.friday_to_tuesday %>$</span>
+          <strong> <%= t('activerecord.attributes.special_rent.thursday_to_tuesday') %>: </strong> <span class='badge badge-info'> <%= @car.special_rent.thursday_to_tuesday %>$</span>
         </div>
       <% else %>
         <div class='car-prices-row'>
@@ -144,7 +144,7 @@
   <%- elsif @request_type.driving_service? %>
     <%= [ @driving_service.cost, @driving_service.one_hour, @driving_service.transfer ].to_json.html_safe %>
   <%- else %>
-    <%= [ @special_rent.friday_to_monday, @special_rent.thursday_to_monday, @special_rent.friday_to_tuesday, RentRequest::PRICES ].to_json.html_safe %>
+    <%= [ @special_rent.thursday_to_monday, @special_rent.friday_to_monday, @special_rent.thursday_to_tuesday, RentRequest::PRICES ].to_json.html_safe %>
   <% end %>
 </div>
 

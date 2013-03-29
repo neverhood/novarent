@@ -29,7 +29,7 @@ class Car < ActiveRecord::Base
   end
 
   def minimum_reserve
-    1
+    2
   end
 
 end

@@ -1,5 +1,7 @@
 <%= page_header t('welcome.catalog') %>
 
+<%= render 'admin_navigation' %>
+
 <div> <%= link_to t('.new'), new_car_path %> </div>
 
-<%= render partial: 'car', collection: @cars %>
+<%= render @cars %>
