@@ -117,9 +117,9 @@ class RentRequest < ActiveRecord::Base
 
   def special_time_period(given_value = nil)
     case given_value || read_attribute(:special_time_period)
-    when 0 then 'friday_to_monday'
-    when 1 then 'thursday_to_monday'
-    when 2 then 'friday_to_tuesday'
+    when 0 then 'thursday_to_monday'
+    when 1 then 'friday_to_monday'
+    when 2 then 'thursday_to_tuesday'
     end
   end
 

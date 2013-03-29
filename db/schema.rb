@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130302122105) do
+ActiveRecord::Schema.define(:version => 20130329203538) do
 
   create_table "ads", :force => true do |t|
     t.string "photo"
@@ -84,9 +84,9 @@ ActiveRecord::Schema.define(:version => 20130302122105) do
     t.integer  "car_id"
     t.integer  "friday_to_monday"
     t.integer  "thursday_to_monday"
-    t.integer  "friday_to_tuesday"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.integer  "thursday_to_tuesday"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
 end

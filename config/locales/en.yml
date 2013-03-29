@@ -154,9 +154,9 @@ en:
       babe_seats: 'Child seats(1-4 years)'
       child_seats: 'Child seats(4-12 years)'
     special_time_periods:
-      friday_to_monday: "Friday 12:00 - Monday 10:00"
       thursday_to_monday: "Thursday 12:00 - Monday 10:00"
-      friday_to_tuesday: "Friday 12:00 - Tuesday 10:00"
+      friday_to_monday: "Friday 12:00 - Monday 10:00"
+      thursday_to_tuesday: "Thursday 12:00 - Tuesday 10:00"
     driving_services:
       hourly: "Per hour payment"
       transfer: "Transfer"
@@ -192,9 +192,9 @@ en:
         day: per day
         cost: Cost *
       special_rent:
-        friday_to_monday: "Friday 12:00 - Monday 10:00"
         thursday_to_monday: "Thursday 12:00 - Monday 10:00"
-        friday_to_tuesday: "Friday 12:00 - Tuesday 10:00"
+        friday_to_monday: "Friday 12:00 - Monday 10:00"
+        thursday_to_tuesday: "Thursday 12:00 - Tuesday 10:00"
       ad:
         photo: Photo
         body: Text

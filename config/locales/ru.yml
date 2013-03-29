@@ -66,6 +66,10 @@ ru:
     header:
       partners: 'Партнеры'
       to_partners: 'Сдай авто в аренду'
+    admin_navigation:
+      cars: 'Каталог машин'
+      ads: 'Рекламные предложения'
+      global_notifications: 'Новости'
 
   cars:
     edit_car: Редактировать спецификацию машины
@@ -165,9 +169,9 @@ ru:
       babe_seats: 'Детские сидения(1-4 года)'
       child_seats: 'Детские сидения(4-12 года)'
     special_time_periods:
-      friday_to_monday: "Пятница 12:00 - Понедельник 10:00"
       thursday_to_monday: "Четверг 12:00 - Понедельник 10:00"
-      friday_to_tuesday: "Пятница 12:00 - Вторник 10:00"
+      friday_to_monday: "Пятница 12:00 - Понедельник 10:00"
+      thursday_to_tuesday: "Четверг 12:00 - Вторник 10:00"
     driving_services:
       hourly: "Почасовая оплата"
       transfer: "Трансфер"
@@ -203,9 +207,9 @@ ru:
         day: день
         cost: Стоимость *
       special_rent:
-        friday_to_monday: "Пятница 12:00 - Понедельник 10:00"
         thursday_to_monday: "Четверг 12:00 - Понедельник 10:00"
-        friday_to_tuesday: "Пятница 12:00 - Вторник 10:00"
+        friday_to_monday: "Пятница 12:00 - Понедельник 10:00"
+        thursday_to_tuesday: "Четверг 12:00 - Вторник 10:00"
       ad:
         photo: Фото
         body: Текст
