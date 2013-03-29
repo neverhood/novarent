@@ -17,7 +17,7 @@
             <%- if session[:rent_request_params] or session[:car_id] %>
               <li> <%= link_to new_rent_request_path, class: 'btn btn-info', id: 'back-to-main' do %> <h3> <%= t 'common.back_to_booking' %> </h3> <% end %> </li>
             <%- else %>
-              <li> <%= link_to root_path, class: 'btn btn-warning', id: 'back-to-main' do %> <h3> <%= t 'common.back_to_booking' %> </h3> <% end %> </li>
+              <li> <%= link_to root_path, class: 'btn btn-info', id: 'back-to-main' do %> <h3> <%= t 'common.back_to_booking' %> </h3> <% end %> </li>
             <% end %>
           </ul>
 
