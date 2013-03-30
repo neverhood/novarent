@@ -14,6 +14,8 @@
     <h3> <strong><%= t('common.bail') %>:</strong> <span class='alert alert-success'><%= @rent_request.rent.bail %>$</span> </h3>
   <% end %>
 
+  <strong> <%= t 'common.days' %>: </strong> <span> <strong><%= @rent_request.total_days %></strong> (<%= l(@rent_request.receipt_at, format: :long) %> - <%= l(@rent_request.drop_off_at, format: :long) %>)</span>
+
   <hr />
 
   <%- unless @rent_request.request_type.driving_service? %>

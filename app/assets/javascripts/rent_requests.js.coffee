@@ -128,7 +128,7 @@ jQuery ->
                 $('span#delivery-cost-value').text( api.deliveryCost() + '$' )
                 $('span#return-cost-value').text( api.returnCost() + '$' )
                 $('#rent-cost-value').text( api.rentTotal() + '$' )
-                $('#rent-cost-time-period').text( api.rentPeriods[ api.type ][ $.api.locale ][ api.rentPeriod() ] )
+                $('#rent-cost-time-period').text( api.rentDays() )
 
             total: ->
                 if ( api.rentTotal() + api.gpsCost() + api.childSeatCost() + api.additionalDriverCost() )

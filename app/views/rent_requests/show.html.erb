@@ -18,6 +18,10 @@
     <h3> <strong><%= t('common.bail') %>:</strong> <span class='alert alert-success'><%= @rent_request.rent.bail %>$</span> </h3>
   <% end %>
 
+  <h3>
+    <strong> <%= t '.days' %>: </strong> <span style='width:600px; padding:0'> <strong class='label label-info' style='width:auto; padding: 10px; font-size: 20px;'><%= @rent_request.total_days %></strong> (<%= l(@rent_request.receipt_at, format: :long) %> - <%= l(@rent_request.drop_off_at, format: :long) %>)</span>
+  </h3>
+
   <hr />
 
   <%- unless @rent_request.request_type.driving_service? %>
