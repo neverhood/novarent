@@ -1,10 +1,18 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
   time:
     formats:
       short_number: "%d.%m.%Y %H:%M"
+
+  mailers:
+    rent_requests:
+      owner:
+        subject: 'Новый заказ'
+      client:
+        subject: 'Your order specifications'
+
+  rent_requests_mailer:
+    owner:
+      order_url: 'Ссылка на бланк заказа'
 
   simple_form:
     labels:
@@ -15,7 +23,7 @@ en:
         three_to_five: 3-5 days
         six_to_twelve: 6-12 days
         thirteen_to_twenty_four: 13-24 days
-        month: month
+        month: '> 24 days'
         bail: bail
         day: day
       rent_request:
@@ -34,6 +42,7 @@ en:
     phone: 'Phone'
     email: 'E-mail'
     per_day: 'per day'
+    per_month: 'per month'
     please_wait: 'Please wait ...'
     please_select: '-- Not chosen --'
     "true": 'Yes'
@@ -126,6 +135,7 @@ en:
     form:
       additional_services: Additional services
       additional_services_remark: '* maximum 50$ per rental'
+      header: 'Please confirm specifications and select any additional services if needed'
     new:
       driving_service_explanation: "<h2> Heads up! </h2> Service cost will be calculated by manager!"
       additional_services: "Additional Services:"
@@ -187,7 +197,7 @@ en:
         three_to_five: 3-5 days
         six_to_twelve: 6-12 days
         thirteen_to_twenty_four: 13-24 days
-        month: Month
+        month: '> 24 days'
         bail: bail
         day: per day
         cost: Cost *

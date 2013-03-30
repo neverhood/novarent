@@ -32,6 +32,7 @@ gem 'simple_form'
 gem 'jquery-rails'
 
 group :development, :test do
+  gem 'letter_opener'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'spork'

@@ -5,12 +5,12 @@
       <div class='<%= index == 0 ? "active item" : "item" %>'>
 
         <% group.each do |car| %>
-          <div class='pull-left rental-preview'>
+          <div class='pull-left rental-preview' id='car-preview-<%= car.id %>'>
             <%= image_tag car.photo.url(:thumb) %>
 
             <div class='rental-preview-details'>
               <div class='car-name'><strong> <%= car.full_name %> </strong></div>
-              <span class='badge badge-info'> <%= car.rent.day %> $ <%= t('common.per_day') %> </span>
+              <span class='badge badge-info'> <%= car.rent.month_calculation %> $ <%= t('common.per_month') %> </span>
             </div>
           </div>
         <% end %>

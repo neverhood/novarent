@@ -20,6 +20,14 @@ jQuery ->
         if $.api.action == 'index'
             $('ul#news-scroller').liScroll()
 
+            $('div#rental-previews div.rental-preview').bind 'click', (event) ->
+                event.stopPropagation()
+                event.preventDefault()
+
+                carId = this.id.replace('car-preview-', '')
+                $('select#rent_request_car_id').val carId
+
+
             if $.cookie('params')
                 params = $.cookie('params').split(',')
                 api = $.api.welcome

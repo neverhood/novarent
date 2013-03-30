@@ -1,10 +1,14 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 ru:
   time:
     formats:
       short_number: "%d.%m.%Y %H:%M"
+
+  mailers:
+    rent_requests:
+      owner:
+        subject: 'Новый заказ'
+      client:
+        subject: 'Детализация Вашего заказа'
 
   simple_form:
     labels:
@@ -15,7 +19,7 @@ ru:
         three_to_five: 3-5 дней
         six_to_twelve: 6-12 дней
         thirteen_to_twenty_four: 13-24 дня
-        month: месяц
+        month: '> 24 дней'
         bail: залог
         day: день
       rent_request:
@@ -34,6 +38,7 @@ ru:
     phone: Телефон
     email: E-mail
     per_day: в сутки
+    per_month: 'за месяц'
     please_wait: Пожалуйста, подождите...
     please_select: -- Не выбрано --
     "true": Да
@@ -56,6 +61,10 @@ ru:
       header: 'Партнерам'
     rental_conditions:
       header: 'Условия проката'
+
+  rent_requests_mailer:
+    owner:
+      order_url: 'Ссылка на бланк заказа'
 
   layouts:
     application:
@@ -202,7 +211,7 @@ ru:
         three_to_five: 3-5 дней
         six_to_twelve: 6-12 дней
         thirteen_to_twenty_four: 13-24 дня
-        month: месяц
+        month: '> 24 дней'
         bail: залог
         day: день
         cost: Стоимость *

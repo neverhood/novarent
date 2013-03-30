@@ -19,15 +19,15 @@ Cars::Application.routes.draw do
     resource :special_rent, except: [ :show, :index ]
     resource :driving_service, except: [ :show, :index ]
   end
-  get 'rent_requests/new' => 'rent_requests#new', as: 'new_rent_request'
-  get 'rent_requests/:id' => 'rent_requests#show', as: 'rent_request'
+  #get 'rent_requests/new' => 'rent_requests#new', as: 'new_rent_request'
+  #get 'rent_requests/:id' => 'rent_requests#show', as: 'rent_request'
 
   resources :ads
   resources :global_notifications do
     put :activate, on: :member
   end
 
-  resources :rent_requests, except: [ :edit, :new ] do
+  resources :rent_requests, except: [ :edit ] do
     get 'confirm', on: :member
   end
 

@@ -1,10 +1,14 @@
 class RentRequestsController < ApplicationController
 
-  before_filter :authenticate!, only: [ :destroy, :index ]
+  before_filter :authenticate!, only: [ :destroy, :index, :show ]
   before_filter :find_car!, except: [ :show, :update, :create, :new ]
-  before_filter :find_rent_request!, only: [ :destroy, :update ]
+  before_filter :find_rent_request!, only: [ :destroy, :update, :show ]
 
   respond_to :html
+
+  def index
+    @rent_requests = RentRequest.all
+  end
 
   def new
     session.delete(:rent_request_params) if params[:car_id]
@@ -56,6 +60,9 @@ class RentRequestsController < ApplicationController
       session.delete(:request_type)
       session.delete(:car_id)
 
+      RentRequestsMailer.owner(@rent_request).deliver
+      RentRequestsMailer.client(@rent_request).deliver
+
       render 'show'
       #redirect_to rent_request_path(@rent_request)
     else
@@ -68,9 +75,6 @@ class RentRequestsController < ApplicationController
   end
 
   def show
-    @rent_request = RentRequest.where(id: session[:request_id]).first
-
-    redirect_to root_path if @rent_request.nil?
   end
 
   def destroy

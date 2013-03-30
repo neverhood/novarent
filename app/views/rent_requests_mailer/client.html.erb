@@ -1,0 +1,71 @@
+<h2> <%= t('rent_requests.show.shout_out') %> </h2>
+
+<div class='well' id='rent-request-details'>
+  <h3>
+    <%- if @rent_request.request_type.driving_service? %>
+      <b> <%= t('rent_requests.new.driving_service_explanation').html_safe %> </b>
+    <% else %>
+      <strong> <%= t 'rent_requests.show.total' %>: </strong>
+      <span class='alert alert-success'> <%= @rent_request.total %>$ </span>
+    <% end %>
+  </h3>
+
+  <%- if not @rent_request.request_type.driving_service? %>
+    <h3> <strong><%= t('common.bail') %>:</strong> <span class='alert alert-success'><%= @rent_request.rent.bail %>$</span> </h3>
+  <% end %>
+
+  <hr />
+
+  <%- unless @rent_request.request_type.driving_service? %>
+    <h2> <%= t 'rent_requests.show.details' %>: </h2>
+
+    <div id='payment-specification'>
+      <strong> <%= t 'rent_requests.show.cost' %> </strong> <span> <%= @rent_request.rent_cost %>$ </span>
+      <h4> <%= t('rent_requests.new.delivery') %>: </h4>
+
+      <div><strong> <%= t 'rent_requests.new.delivery_cost' %> </strong> <span> <%= @rent_request.delivery_cost %>$ </span></div>
+      <div><strong> <%= t 'rent_requests.new.return_cost' %> </strong> <span> <%= @rent_request.return_cost %>$ </span></div>
+
+      <%- if @rent_request.has_additional_services? %>
+        <h4> <%= t('rent_requests.new.additional_services') %> </h4>
+        <%- if @rent_request.has_gps? %>
+          <div><strong> <%= t 'rent_requests.new.gps_cost' %> </strong> <span> <%= @rent_request.cost_of(:gps) %>$ </span></div>
+        <% end %>
+
+        <%- if @rent_request.has_additional_driver? %>
+          <div><strong> <%= t 'rent_requests.new.additional_driver_cost' %> </strong> <span> <%= @rent_request.cost_of(:additional_driver) %>$ </span></div>
+        <% end %>
+
+        <%- if @rent_request.has_child_seat? %>
+          <%- if @rent_request.number_of_babe_seats and @rent_request.number_of_babe_seats > 0 %>
+            <%= babe_seats @rent_request.number_of_babe_seats %>
+          <% end %>
+          <%- if @rent_request.number_of_child_seats and @rent_request.number_of_child_seats > 0 %>
+            <%= child_seats @rent_request.number_of_child_seats %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <hr />
+  <h2> <%= t 'rent_requests.show.information' %>: </h2>
+  <div id='rent-request-information'>
+    <h4> <%= t 'rent_requests.show.drop_off_and_delivery' %>: </h4>
+    <%= info_row t('activerecord.attributes.rent_request.receipt_location'), @rent_request.receipt_location %>
+    <%= info_row t('activerecord.attributes.rent_request.drop_off_location'), @rent_request.stringified_drop_off_location %>
+    <%= info_row t('activerecord.attributes.rent_request.receipt_at'), l(@rent_request.receipt_at, format: :short_number) %>
+    <%- if @rent_request.drop_off_at %>
+      <%= info_row t('activerecord.attributes.rent_request.drop_off_at'), l(@rent_request.drop_off_at, format: :short_number) %>
+    <% end %>
+
+    <h4> <%= t 'rent_requests.show.client_info' %>: </h4>
+    <%= info_row t('activerecord.attributes.rent_request.name'), @rent_request.name %>
+    <%= info_row t('activerecord.attributes.rent_request.phone'), @rent_request.phone %>
+    <%= info_row t('activerecord.attributes.rent_request.email'), @rent_request.email %>
+
+    <h4> <%= t 'rent_requests.show.other' %>: </h4>
+    <%= info_row t('activerecord.attributes.rent_request.message'), @rent_request.message %>
+  </div>
+</div>
+
