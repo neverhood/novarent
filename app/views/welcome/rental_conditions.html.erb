@@ -1,5 +1,230 @@
 <%= page_header %>
 
-<div class'well'>
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-</div>
+<%- if I18n.locale == :ru %>
+  <pre style='background: none; border: none; font: inherit;'>
+  В данный момент на рынке автопроката существует большой выбор автомобилей, тарифов
+  и специальных предложений. Мы предлагаем самые выгодные условия, с которыми можно
+  ознакомиться ниже.
+
+  Процедура оформления такой услуги как аренда автомобиля очень проста. Вы можете
+  выбрать интересующий Вас срок аренды и автомобиль на сайте и забронировать его
+  используя онлайн форму, или связаться с менеджером компании по тел. +3097-540-33-69,
+  +38093-270-44-33
+
+  <strong>Требования к арендатору</strong>:
+
+  •  минимальный возраст 21 год
+  •  водительский стаж от 2 лет
+
+  Необходимые документы:
+
+  • паспорт
+  • водительское удостоверение действительное на территории Украины
+
+  <strong>Способы оплаты</strong>:
+
+  • наличный/безналичный расчет
+  • кредитные карты (Visa, MasterCard, Maestro)
+
+  Выдача/прием автомобиля
+  Выдача/прием автомобиля возле любой станции метро в рабочее время
+  предоставляется бесплатно.
+  Автомобиль передается/принимается только в чистом виде.
+
+  Арендатор может использовать автомобиль за чертой г.Киева для поездок по Украине без
+  внесения дополнительного залога. Выезд за пределы территории Украины запрещен.
+
+  <strong>Дополнительные услуги</strong>                                                                       Стоимость ($)
+
+  GPS навигатор, детское кресло, (за сутки аренды)                                           5*
+
+  Доставка/возврат автомобиля в пределах города Киева в нерабочее время     15
+  Доставка/возврат в международном аэропорту "Борисполь" в рабочее время  25
+  Доставка/возврат в международном аэропорту "Борисполь" в нерабочее         35
+  время
+  Доставка/возврат в международном аэропорту "Киев" (Жуляны) в рабочее      10
+  время
+  Доставка/возврат в международном аэропорту "Киев" (Жуляны) нерабочее     15
+  время
+
+  <i>Стоимость доставки/возврата автомобиля в других городах Украины рассчитывается дополнительно.</i>
+
+  * не более 50 USD за весь период аренды.
+
+  <strong>Дополнительный водитель</strong>:
+  В случае необходимости оформления дополнительного водителя необходимо предоставить
+  паспорт и водительское удостоверение. Оформление 1 дополнительного водителя
+  бесплатно, оформление 2-го дополнительного водителя тариф 5 USD в сутки, но не
+  более 50 USD за весь период аренды.
+
+  <strong>Страхование</strong>
+  <strong>Все автомобили застрахованы на условиях обязательного страхования гражданской
+  ответственности «ОСАГО» автовладельца, а также «АвтоКАСКО».</strong>
+
+  Действия в случае дорожно-транспортного происшествия:
+  По факту наступления дорожно-транспортного происшествия (аварии, повреждения
+  автомобиля независимо от причины, нанесения физического или материального урона
+  каким-либо лицам при использовании автомобиля, угона, кражи автомобиля или его
+  частей, захвата автомобиля или других действий, совершенных против автомобиля
+  Novarent). Клиент обязан незамедлительно вызвать милицию и сообщить о случившемся
+  представителю Novarent. Клиент обязан в течение 24 часов предоставить в офис Novarent
+  справку установленного образца о дорожно-транспортном происшествии (ДТП) из милиции.
+  Внимание!!! В случае отсутствия справки установленного образца о дорожно-транспортном
+  происшествии (ДТП) из милиции, Клиент несёт полную материальную ответственность за
+  нанесённый автомобилю ущерб.
+
+  <strong>Замена арендованного автомобиля в случае технической неисправности, аварии.</strong>
+  Компания Novarent предлагает своим клиентам новые автомобили, находящиеся в отличном
+  техническом состоянии, обслуживание и уход за которыми, проводится на фирменных
+  техстанциях и гарантийных СТО. В случае технической неисправности, поломки, аварии
+  арендуемого автомобиля возможна его замена на автомобиль такой же ценовой категории
+  при его наличии. Небольшие неисправности/повреждения арендованного автомобиля
+  могут быть устранены клиентом самостоятельно на рекомендованных пунктах технического
+  обслуживания только после консультации с менеджером компании Novarent.
+
+  <strong>Ответственность Клиента:</strong>
+  Клиент несет материальную ответственность в случае повреждения, кражи автомобиля
+  взятого на прокат или его частей, даже при отсутствии своей вины. Клиент несет полную
+  материальную ответственность за повреждения шин, дисков, днища автомобиля, а также
+  за все нарушения правил дорожного движения, совершенные во время использования
+  автомобиля, взятого на прокат.
+
+  <strong>Страховой депозит</strong>
+  Сумма страхового депозита на момент проката зависит от модели арендуемого
+  автомобиля. Страховой депозит вносится в момент подписания договора и возвращается
+  Арендатору, при выполнении условий договора, в момент передачи автомобиля
+  Арендодателю.
+
+  <strong>Тарифы</strong>
+  Тарифы включают полное техническое обслуживание транспортного средства, и
+  неограниченный суточный пробег*. Начало аренды исчисляется с момента подписания акта
+  приема-передачи автомобиля. Задержка автомобиля на 2 часа и более оплачивается как
+  следующие сутки аренды.
+
+  Минимальный период аренды 2 суток.
+
+  <strong>Долгосрочная аренда:</strong>
+  Novarent предоставляет услуги по долгосрочной аренде автомобилей (один месяц
+  и более) по специальным тарифам. Для получения более подробной информации,
+  пожалуйста, звоните в Novarent офис +38097 540 33 69 или пишите на электронную
+  почту info@novarent.com.ua
+
+  *Прокат автомобилей без ограничения пробега действителен при заказе автомобиля на 4
+  дня и более.
+
+  <strong>Для получения более детальной информации, пожалуйста, звоните в офис NOVARENT:</strong>
+  +38 093 270 44 33, +38 097 540 33 69
+  </pre>
+<% end %>
+
+<%- if I18n.locale == :en %>
+  <pre style='background: none; border: none; font: inherit;'>
+  Currently on the market there are many different car rental cars, rates and special offers. We offer the
+  most favorable terms, which can be found below.
+
+  The procedure for registration of such services as car rental is easy. You can select the desired term of the
+  lease and the car on the website and book it using the online form or contact the manager of the company
+  by phone. +3097-540-33-69, +38093-270-44-33
+
+  <strong>The requirements of the lease</strong>:
+
+  • Minimum age 21
+  • the driver's experience of 2 years
+
+  <strong>Required documents</strong>:
+
+  • passport
+  • a valid driver's license in Ukraine
+
+  <strong>Methods of payment</strong>
+
+  • cash / non-cash
+  • credit card (Visa, MasterCard, Maestro)
+
+  Issuing / receiving car
+
+  Issuing / receiving car near any metro station during business hours free of charge.
+
+  Car transmitted / received only in clean form.
+
+  Customer may use the car below Kiev to travel to Ukraine without any additional paymant. Travel outside
+  the territory of Ukraine is prohibited.
+
+  Additional Services Cost (in USD)
+
+  GPS navigator, baby- seat, (daily rental) 5 *
+
+  Delivery / return the car in the city of Kiev in the off-time - 15
+
+  Delivery / collection at the international airport "Borispol" in working time - 25
+
+  Delivery / collection at the international airport "Borispol" not working time - 35
+
+  Delivery / collection at the international airport "Kiev" (Juliani) in working time - 10
+
+  Delivery / collection at the international airport "Kiev" (Juliani) not working time - 15
+
+  The cost of delivery / return the car in different cities of Ukraine is calculated separately.
+
+  * Not more than 50 USD per rental.
+
+  <strong>Additional driver:</strong>
+
+  If necessary clearance additional driver must present a passport and driving license. Making one additional
+  driver free of charge, registration of the 2nd additional driver Rate 5 USD per day, but not more than 50
+  USD per rental.
+
+  <strong>Insurance</strong>
+
+  All vehicles are insured “Full insurance”.
+
+  <strong>Actions in case of an accident:</strong>
+
+  Upon occurrence of an accident (accident, damage to your car regardless of cause, any physical or material
+  damage to any person using the vehicle theft, theft of the car or parts of the vehicle seizure or other acts
+  committed against car). Customer must immediately call the police and inform the representative manager
+  Novarent. The client is obliged within 24 hours to give the office a certificate Novarent standard pattern
+  of road traffic accident (RTA) from the police. Attention! If there is no reference standard pattern of road
+  traffic accident (RTA) from the police, the client is fully liable for the damage caused to the car.
+
+  <strong>Replacement rental car in the event of a technical failure, crash.</strong>
+
+  Novarent company offers its customers new cars that are in excellent condition, operation and
+  maintenance of which is carried out on the company tehstantsiyah and warranty service station. In the
+  event of technical failure, breakdown, accident rental car can be a replacement for a car of the same price
+  range. Small faults / damages to the rented vehicle may be removed by the Customer at the recommended
+  maintenance items only after consultation with the manager of the company Novarent.
+
+  <strong>Liability of the Customer.</strong>
+
+  The client is financially responsible for any damage, theft of the car rented or parts of it, even in the
+  absence of guilt. Customer shall be fully liable for damage to tires, wheels, underbody, and for all traffic
+  violations committed during the use of a car, rent.
+
+  <strong>Security deposit</strong>
+
+  The amount of the security deposit at the time of hire is dependent on the model of the rented car.
+  Security deposit paid at the time of signing the contract and returned to the Lessee, under the conditions of
+  the contract, at the time of transfer of the vehicle to the Lessor.
+
+  <strong>Tariffs.</strong>
+
+  Rates include full maintenance of the vehicle, and unlimited mileage daily*. Pick-up begins from the
+  moment of signing of transfer vehicle. Delay car for 2 hours or more is paid as the next day of the lease.
+
+  Minimum rental period 2 days.
+
+  <strong>Long term rentals.</strong>
+
+  Novarent provides services for the long-term car rental (one month or more) at special rates. For more
+  information, please call the office Novarent +38097 540 33 69 or e-mail info@novarent.com.ua
+
+  * Car rental with unlimited mileage valid when ordering a car for 4 days or more.
+
+  For more information, please call the office NOVARENT or e-mail us:
+
+  +38 093 270 44 33, +38 097 540 33 69
+
+  info@novarent.com.ua
+  </pre>
+<% end %>

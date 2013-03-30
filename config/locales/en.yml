@@ -66,6 +66,41 @@ en:
       header: 'To partners'
     rental_conditions:
       header: 'Rental conditions'
+    about_us_content: '<p>The company "Novarent" presented at the rental market since 2008. We offer car rental services for
+traveling in Kiev and Ukraine.</p>
+
+<p>Our task - high quality service, providing vehicles in excellent condition for all customers from all over</p>
+
+<p>
+the world. Today in our fleet of over 40 vehicles Economy, Compact, Middel, Business, Premium and VIP car
+classes.
+</p>
+
+<p>
+For you the best deals on car hire with the most attractive rates. We value all of our customers their time
+and money, so rent a car rental company "Novarent" is quickly and easily accessible.
+</p>
+
+<p>
+To make a reservation for the rental car without a driver or a rental car with a driver, you can fill out the
+online reservation form, send a request by e-mail or call our
+</p>
+
+<p>info@novarent.com.ua</p>
+<p>+38093-270-44-33 or +38097- 540-33-69</p>'
+    to_partners_content: '
+<p>The company`s policy "Novarent" allows everybody to improve their well-being and confidence in the future!</p>
+
+<p>
+The company "Novarent" willingly collaborates with vehicle owners who for various reasons are not used.
+In this case, thanks to us, you can take your car out, and get a good steady income.
+</p>
+
+<p>
+Cooperation conditions and details you can check by contacting us via e-mail info@novarent.com.ua, or by
+phone +38093-270-44-33
+</p>
+'
 
   layouts:
     application:
@@ -237,3 +272,40 @@ en:
         number_of_babe_seats: Child seat(1-4 years)
         number_of_child_seats: Child seat(4-12 years)
 
+  driving_services_content: '
+<h3>Car Rental with Driver</h3>
+
+<p>
+NOVARENT Company offers car rental with driver. Car with driver – it is a prestigious and economical
+service in the automotive market. We offer you a comfortable and high-quality service in your travels
+around Kiev and all Ukraine.
+</p>
+
+<p>
+Meet and transfer to the airport, railway station, transport service organizations, businesses, offices
+and delegations. The company also offers NOVARENT executive class cars with a driver for service
+celebrations, celebrations and weddings. Sightseeing tours in the city of Kiev, sightseeing trip to Ukraine.
+</p>
+
+<p>Fleet of NOVARENT Company has more than 40 cars of various types, as well as vans and buses of various capacities.</p>
+
+<p>
+Drivers of NOVARENT speak English and are experienced professionals with excellent knowledge of
+roads in Kiev and Ukraine. Impeccable appearance of our drivers, kindness and good manners will amaze
+you. Ordering service of rent a car with a driver, you can be sure that all appointments and visits will be
+completed on time.
+</p>
+
+<p>
+To order a car with driver, simply contact us via e-mail or call one of the phone numbers below. We are
+pleased to offer you an excellent and reliable service at reasonable means.
+</p>
+
+<p>info@novarent.com.ua</p>
+
+<p>
++38097-540-33-69
+<br />
++38093-270-44-33
+</p>
+'
