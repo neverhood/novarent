@@ -38,7 +38,9 @@ en:
     unknown: Unknown
     submit: Submit
     confirm: 'Confirm'
+    complete_order: 'Complete Order'
     brand: 'Nova Rent'
+    days: 'Days'
     phone: 'Phone'
     email: 'E-mail'
     per_day: 'per day'
@@ -151,6 +153,7 @@ en:
     show:
       header: 'Application details'
       shout_out: 'We`ll contact you shortly, thanks!'
+      days: 'Days'
 
       total: Total
       details: Specification

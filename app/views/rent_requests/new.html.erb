@@ -91,9 +91,9 @@
           <strong id='rent-cost-description'> <%= t('.rent_cost') %>: </strong>
           <span id='rent-cost-value'> <%= @rent_request.rent_cost %>$  </span>
           <%- if session[:rent_request_params] %>
-            (<span id='rent-cost-time-period'> <%= t('activerecord.attributes.rent.' + @rent_request.stringified_period) %> </span>)
+            (<%= t 'common.days' %>: <span id='rent-cost-time-period'> <%= @rent_request.total_days %></span>)
           <%- else %>
-            (<span id='rent-cost-time-period'> <%= t('common.unknown') %> </span>)
+            (<%= t 'common.days' %>: <span id='rent-cost-time-period'> <%= t('common.unknown') %> </span>)
           <%- end %>
         </div>
         <hr />

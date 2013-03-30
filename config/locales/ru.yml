@@ -34,6 +34,8 @@ ru:
     unknown: Неизвестно
     submit: Сохранить
     confirm: Подтвердить
+    days: 'Дней'
+    complete_order: 'Оформить заявку'
     brand: Nova Rent
     phone: Телефон
     email: E-mail
@@ -175,6 +177,7 @@ ru:
       information: Информация о заказе
       babe_seat: 'Детское сидение(1-4 года)'
       child_seat: 'Детское сидение(4-12 года)'
+      days: 'Дней'
       babe_seats: 'Детские сидения(1-4 года)'
       child_seats: 'Детские сидения(4-12 года)'
     special_time_periods:
