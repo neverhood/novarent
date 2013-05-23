@@ -245,6 +245,7 @@ info@novarent.com.ua
       ad: Реклама
     attributes:
       car:
+        position: Позиция
         name: Модель
         manufacturer: Марка
         engine: Двигатель

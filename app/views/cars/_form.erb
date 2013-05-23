@@ -1,5 +1,6 @@
-
 <%= simple_form_for @car, html: { multipart: true, class: 'form form-horizontal' } do |form| %>
+  <%= form.input :position, input_html: { value: @car.position || (@cars_count + 1) } %>
+
   <%= form.input :manufacturer %>
   <%= form.input :name %>
   <%= form.input :engine %>

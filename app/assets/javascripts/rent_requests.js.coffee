@@ -110,9 +110,9 @@ jQuery ->
                         period = 'month'
                 if api.type == 'special_rent'
                     if $('input#rent_request_special_time_period_0').is(':checked')
-                        period = 'fridayToMonday'
+                        period = 'thursayToMonday'
                     else if $('input#rent_request_special_time_period_1').is(':checked')
-                        period = 'thursdayToMonday'
+                        period = 'fridayToMonday'
                     else if $('input#rent_request_special_time_period_2').is(':checked')
                         period = 'fridayToTuesday'
 
@@ -299,15 +299,16 @@ jQuery ->
             $('input#rent_request_drop_off_at, input#rent_request_receipt_at').datetimepicker(stepMinute: 10, minDate: new Date)
         if api.type == 'special_rent'
 
-            $('input#rent_request_special_time_period_0').click ->
+            $('input#rent_request_special_time_period_1').click ->
                 input = $('input#rent_request_receipt_at')
                 $('input#rent_request_receipt_at').datepicker('destroy').datepicker(
                     beforeShowDay: (date) -> [( date.getDay() == 5 ), '']
                     onSelect: (dateText, inst) ->
                         rawDate = dateText.split('.')
-                        date = new Date( rawDate[2], rawDate[1], rawDate[0] )
-                        date.setDate( date.getDate() + 2 )
-                        date.setMonth( date.getMonth() - 1 )
+                        month = parseInt(rawDate[1]) - 1
+                        if month < 10 then month = '0' + month else month = '' + month
+                        date = new Date( rawDate[2], month, rawDate[0] )
+                        date.setDate( date.getDate() + 3 )
                         $('input#rent_request_drop_off_at').val( $.datepicker.formatDate('dd.mm.yy', date) + ' 10:00' )
                         this.value = dateText + ' 12:00'
 
@@ -316,14 +317,15 @@ jQuery ->
                     minDate: new Date
                 ).datepicker('show')
 
-            $('input#rent_request_special_time_period_1').click ->
+            $('input#rent_request_special_time_period_0').click ->
                 $('input#rent_request_receipt_at').datepicker('destroy').datepicker(
                     beforeShowDay: (date) -> [( date.getDay() == 4), '']
                     onSelect: (dateText, inst) ->
                         rawDate = dateText.split('.')
-                        date = new Date( rawDate[2], rawDate[1], rawDate[0] )
+                        month = parseInt(rawDate[1]) - 1
+                        if month < 10 then month = '0' + month else month = '' + month
+                        date = new Date( rawDate[2], month, rawDate[0] )
                         date.setDate( date.getDate() + 4)
-                        date.setMonth( date.getMonth() - 1)
                         $('input#rent_request_drop_off_at').val( $.datepicker.formatDate('dd.mm.yy', date) + ' 10:00' )
                         this.value = dateText + ' 12:00'
 
