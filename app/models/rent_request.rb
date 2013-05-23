@@ -139,7 +139,7 @@ class RentRequest < ActiveRecord::Base
   end
 
   def special_rents_selection_options
-    [0, 1, 2].map { |value| [ I18n.t('rent_requests.special_time_periods.' + special_time_period(value)), value ] }
+    [0, 1].map { |value| [ I18n.t('rent_requests.special_time_periods.' + special_time_period(value)), value ] }
   end
 
   def driving_services_selection_options

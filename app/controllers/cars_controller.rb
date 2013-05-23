@@ -10,6 +10,7 @@ class CarsController < ApplicationController
   end
 
   def new
+    @cars_count = Car.count
     @car = Car.new
   end
 

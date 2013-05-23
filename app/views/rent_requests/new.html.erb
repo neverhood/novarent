@@ -58,9 +58,6 @@
         <div class='car-specs-row'>
           <strong> <%= t('activerecord.attributes.special_rent.thursday_to_monday') %>: </strong> <span class='badge badge-info'><%= @car.special_rent.thursday_to_monday %>$</span>
         </div>
-        <div class='car-specs-row'>
-          <strong> <%= t('activerecord.attributes.special_rent.thursday_to_tuesday') %>: </strong> <span class='badge badge-info'> <%= @car.special_rent.thursday_to_tuesday %>$</span>
-        </div>
       <% else %>
         <div class='car-prices-row'>
           <strong> <%= t('activerecord.attributes.driving_service.cost') %>: </strong> <span class='badge badge-info'><%= @car.driving_service.cost %>$</span>

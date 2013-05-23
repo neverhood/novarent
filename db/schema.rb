@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130329203538) do
+ActiveRecord::Schema.define(:version => 20130523135517) do
 
   create_table "ads", :force => true do |t|
     t.string "photo"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20130329203538) do
     t.boolean "leather",              :default => false
     t.integer "minimum_reserve",      :default => 1
     t.string  "photo"
+    t.integer "position"
   end
 
   create_table "driving_services", :force => true do |t|

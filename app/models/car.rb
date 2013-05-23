@@ -1,5 +1,5 @@
 class Car < ActiveRecord::Base
-  attr_accessible :conditioner, :engine, :minimum_reserve, :number_of_doors, :number_of_passengers, :transmission, :name, :manufacturer, :photo, :leather
+  attr_accessible :conditioner, :engine, :minimum_reserve, :number_of_doors, :number_of_passengers, :transmission, :name, :manufacturer, :photo, :leather, :position
 
   mount_uploader :photo, PhotoUploader
 
@@ -12,6 +12,7 @@ class Car < ActiveRecord::Base
   has_one :special_rent
   has_many :rent_requests
 
+  scope :ordered_by_position, order('cars.position DESC')
 
   def full_name
     [ manufacturer, name, I18n.t('cars.transmissions.short.' + transmission) ].join(' ')
