@@ -6,7 +6,7 @@ class DrivingServicesController < ApplicationController
   respond_to :html
 
   def index
-    @cars = Car.joins(:driving_service).includes(:driving_service)
+    @cars = Car.joins(:driving_service).includes(:driving_service).ordered_by_position
   end
 
   def new

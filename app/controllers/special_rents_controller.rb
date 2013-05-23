@@ -6,7 +6,7 @@ class SpecialRentsController < ApplicationController
   respond_to :html
 
   def index
-    @cars = Car.joins(:special_rent).includes(:special_rent)
+    @cars = Car.joins(:special_rent).includes(:special_rent).ordered_by_position
   end
 
   def new
