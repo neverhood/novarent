@@ -12,7 +12,7 @@ class Car < ActiveRecord::Base
   has_one :special_rent
   has_many :rent_requests
 
-  scope :ordered_by_position, order('cars.position DESC')
+  scope :ordered_by_position, order('cars.position ASC')
 
   def full_name
     [ manufacturer, name, I18n.t('cars.transmissions.short.' + transmission) ].join(' ')
