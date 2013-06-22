@@ -44,10 +44,11 @@ div#header {
     height: 100px;
 
     div#site-logo {
+        position: absolute;
         img {
             width: 200px;
 
-            box-shadow: 0px 0px 100px 90px white;
+            box-shadow: 0px 0px 20px 55px white;
         }
     }
 
@@ -127,6 +128,8 @@ div.subnav {
     background-color: #d9edf7;
     margin: 10px 0 10px 0;
 
+    position: relative;
+
     ul.nav {
         padding: 2px 5px;
     }
@@ -146,7 +149,7 @@ div.subnav {
 }
 
 div#header ul.main-nav {
-    margin: 30px 0 0 110px;
+    margin: 30px 0 0 350px;
 }
 
 div#push {
@@ -245,4 +248,12 @@ li.special a {
 
 div#admin-navigation a {
     margin-right: 15px;
+}
+
+hr.clear {
+    clear: both;
+}
+
+hr.small {
+    width: 5px;
 }

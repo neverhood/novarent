@@ -47,6 +47,7 @@ en:
     per_month: 'per month'
     please_wait: 'Please wait ...'
     please_select: '-- Not chosen --'
+    car: 'Car'
     "true": 'Yes'
     "false": 'No'
   locales:

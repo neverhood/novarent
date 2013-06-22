@@ -1,7 +1,7 @@
 class RentsController < ApplicationController
 
   before_filter :authenticate!, except: :index
-  before_filter :find_car!, except: :index
+  before_filter :find_car!, except: [ :index, :show ]
 
   respond_to :html
 
@@ -11,6 +11,11 @@ class RentsController < ApplicationController
 
   def new
     @rent = @car.build_rent
+  end
+
+  def show
+    @rent = Rent.find(params[:id])
+    @car  = @rent.car
   end
 
   def edit

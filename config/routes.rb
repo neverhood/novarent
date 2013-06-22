@@ -32,6 +32,7 @@ Cars::Application.routes.draw do
   end
 
   get 'rents' => 'rents#index', as: 'rents'
+  get 'rent/:id'  => 'rents#show', as: 'rent'
   get 'special_rents' => 'special_rents#index', as: 'special_rents'
   get 'driving_services' => 'driving_services#index', as: 'driving_services'
 
