@@ -1,7 +1,16 @@
 Cars::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
-  config.action_mailer.default_url_options = { host: "kuponavt.com" }
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+   :address               => "localhost",
+   :port 		  => 25,
+   :domain                => "novarent.com.ua",
+   :enable_starttls_auto  => true,
+   :openssl_verify_mode  => 'none'
+  }
+  
+  config.action_mailer.default_url_options = { host: "novarent.com.ua" }
 
   # Code is not reloaded between requests
   config.cache_classes = true
