@@ -1,6 +1,6 @@
 class RentsController < ApplicationController
 
-  before_filter :authenticate!, except: :index
+  before_filter :authenticate!, except: [ :index, :show ]
   before_filter :find_car!, except: [ :index, :show ]
 
   respond_to :html
