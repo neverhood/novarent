@@ -6,7 +6,7 @@ class RentRequest < ActiveRecord::Base
   attr_accessor :skip_confirmation
 
   PRICES = { gps: 5, child_seat: 5, additional_driver: 5 }
-  CITY_DELIVERY_PRICE = 25
+  CITY_DELIVERY_PRICE = 10
   REQUEST_TYPES = { rent: 0, driving_service: 1, special_rent: 2 }
 
   belongs_to :car

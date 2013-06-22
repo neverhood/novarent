@@ -44,6 +44,7 @@ div#header {
     height: 100px;
 
     div#site-logo {
+        position: absolute;
         img {
             width: 200px;
 
@@ -67,6 +68,7 @@ div#header {
 
     a#back-to-main {
         color: white;
+        margin-left: 250px;
         &:hover {
             /*@include gradient-vertical(#FBB450, #F89406);*/
             background: #2f96b4;
@@ -126,6 +128,8 @@ div.subnav {
     /*@include gradient-vertical($navbarBackgroundHighlight, $navbarBackground);*/
     background-color: #d9edf7;
     margin: 10px 0 10px 0;
+
+    position: relative;
 
     ul.nav {
         padding: 2px 5px;
