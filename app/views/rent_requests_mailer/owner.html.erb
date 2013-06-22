@@ -20,6 +20,8 @@
   <%- unless @rent_request.request_type.driving_service? %>
     <h2> <%= t 'rent_requests.show.details' %>: </h2>
 
+    <h3> <%= t 'common.car' %>: <%= @rent_request.car.full_name %> </h3>
+
     <div id='payment-specification'>
       <strong> <%= t 'rent_requests.show.cost' %> </strong> <span> <%= @rent_request.rent_cost %>$ </span>
       <h4> <%= t('rent_requests.new.delivery') %>: </h4>
